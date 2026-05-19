@@ -10128,14 +10128,14 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     var midX  = (L.x + R.x) / 2;
     var midY  = (L.y + R.y) / 2;
 
-    var drawW   = eyeDist * 2.6;
+    var drawW   = eyeDist * 3.1;
     var drawH   = drawW * (vtoGlassesImg.naturalHeight / vtoGlassesImg.naturalWidth);
 
     /* anchorY: how far down from the image top the lens centres sit.
-       The Prada Symbole PNG has its lens centres at ~64 % from the top.
-       Pushing anchorY slightly lower (0.68) shifts the whole frame down
-       so the top of the frame clears the forehead more naturally.        */
-    var anchorY = drawH * 0.68;
+       The Prada Symbole PNG has its lens centres at ~58% from the top.
+       At 0.62 the lens openings sit right over the irises while the
+       angular frame corners and temples clear the eye area upward.    */
+    var anchorY = drawH * 0.62;
 
     ctx.save();
     ctx.translate(midX, midY);
