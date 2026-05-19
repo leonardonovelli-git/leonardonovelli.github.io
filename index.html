@@ -7,6 +7,12 @@
   gtag('js', new Date());
   gtag('config', 'G-13SE4Q57E1');
 </script>
+<script>
+/* ── Analytics helper — single entry point for all events ── */
+function track(event, params) {
+  if (typeof gtag === 'function') { gtag('event', event, params || {}); }
+}
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leonardo Novelli, Portfolio</title>
@@ -14,16 +20,17 @@
 <meta name="author" content="Leonardo Novelli">
 <meta property="og:title" content="Leonardo Novelli, Portfolio">
 <meta property="og:description" content="Catalog Product Owner at Prada Group. E-commerce operations, product data and PIM across Prada, Miu Miu, Church's, Car Shoe and Rick Owens.">
-<meta property="og:url" content="https://leonardonovelli.com/">
-<link rel="canonical" href="https://leonardonovelli.com/">
+<!-- UPDATE these 4 URLs when custom domain is live -->
+<meta property="og:url" content="https://leonardonovelli-git.github.io/leonardonovelli.github.io/">
+<link rel="canonical" href="https://leonardonovelli-git.github.io/leonardonovelli.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://leonardonovelli.com/Images/og-cover.jpg">
+<meta property="og:image" content="https://leonardonovelli-git.github.io/leonardonovelli.github.io/Images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Leonardo Novelli, Portfolio">
 <meta name="twitter:description" content="Catalog Product Owner at Prada Group. E-commerce operations, product data and PIM across Prada, Miu Miu, Church's, Car Shoe and Rick Owens.">
-<meta name="twitter:image" content="https://leonardonovelli.com/Images/og-cover.jpg">
+<meta name="twitter:image" content="https://leonardonovelli-git.github.io/leonardonovelli.github.io/Images/og-cover.jpg">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -5414,6 +5421,18 @@
 .nm-notify-btn:hover { background:#2e2c2a; }
 .nm-submit-btn { flex-shrink:0; padding:8px 16px; background:#1a1816; color:#fff; border:none; font-family:var(--sans); font-size:12px; letter-spacing:0.04em; cursor:pointer; transition:background 0.15s; }
 .nm-submit-btn:hover { background:#2e2c2a; }
+.nm-stock-wrap{position:relative;height:14px;margin-bottom:10px;}
+#nm-status-out,#nm-status-in{position:absolute;top:0;left:0;font-family:var(--mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;transition:opacity 0.35s ease,transform 0.35s ease;}
+#nm-status-out{color:#8b3a2a;}
+#nm-status-in{color:#2d6a4f;}
+.nm-s-hidden{opacity:0;transform:translateY(5px);pointer-events:none;}
+.nm-s-visible{opacity:1;transform:translateY(0);}
+.nm-hint{font-family:var(--mono);font-size:8.5px;color:#c8c0b8;letter-spacing:0.06em;margin-bottom:14px;}
+.nm-notify-btn{transition:background 0.2s ease,transform 0.12s ease;}
+.nm-notify-btn:active{transform:scale(0.985);}
+.nm-notify-btn.nm-added{background:#2a5a3a!important;}
+.nm-cta-wrap{position:relative;height:44px;margin-bottom:0;}
+#nm-atc-default,#nm-cta-default{position:absolute;top:0;left:0;width:100%;transition:opacity 0.3s ease;}
 /* Size cards — image-based */
 .pdp-d-sz-cards { display: flex; gap: 8px; }
 .pdp-d-sz-card { cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; }
@@ -5681,17 +5700,18 @@
 .vto-camera-frame svg { width: 100%; height: 100%; display: block; }
 /* Controls */
 .vto-modal-controls { display: flex; align-items: center; padding: 10px 12px; gap: 9px; background: #fff; }
-.vto-fit-btn { flex: 1; padding: 11px; background: #1a1816; color: #fff; border: none; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer; transition: background 0.2s; }
+.vto-fit-btn { flex: 1; min-height: 40px; padding: 10px 8px; background: #1a1816; color: #fff; border: none; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer; transition: background 0.2s; white-space: nowrap; line-height: 1; display: flex; align-items: center; justify-content: center; }
 .vto-fit-btn:hover { background: #2a2826; }
 .vto-fit-btn.vto-adjusted { background: var(--teal) !important; }
 .vto-capture-btn { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid #1a1816; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.12s; }
 .vto-capture-btn:hover { background: #f7f5f3; }
 /* photo-mode controls bar */
-.vto-photo-controls { display: none; align-items: center; padding: 10px 12px; gap: 9px; background: #fff; }
+.vto-photo-controls { display: none; align-items: stretch; padding: 10px 12px; gap: 9px; background: #fff; flex-wrap: nowrap; }
 .vto-photo-controls.active { display: flex; }
-.vto-retake-btn { flex: 1; padding: 11px; background: #fff; color: #1a1816; border: 1.5px solid #1a1816; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer; transition: background 0.15s; }
+.vto-retake-btn, .vto-save-btn { flex: 1; min-height: 40px; padding: 10px 8px; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer; white-space: nowrap; line-height: 1; display: flex; align-items: center; justify-content: center; }
+.vto-retake-btn { background: #fff; color: #1a1816; border: 1.5px solid #1a1816; transition: background 0.15s; }
 .vto-retake-btn:hover { background: #f7f5f3; }
-.vto-save-btn { flex: 1; padding: 11px; background: #1a1816; color: #fff; border: none; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer; transition: background 0.2s; }
+.vto-save-btn { background: #1a1816; color: #fff; border: none; transition: background 0.2s; }
 .vto-save-btn:hover { background: #2a2826; }
 .vto-capture-flash { animation: vto-flash-anim 0.18s ease; }
 @keyframes vto-flash-anim { 0%{filter:brightness(1)} 40%{filter:brightness(2.8)} 100%{filter:brightness(1)} }
@@ -5923,6 +5943,133 @@
     transform: translateX(6px);
     transition: transform 0.18s ease;
   }
+
+/* ═══════════════════════════════════════════════
+   MOBILE PATCH — make mobile match desktop
+   ═══════════════════════════════════════════════ */
+
+/* 1. Gallery nav: always visible on touch devices */
+@media (hover: none) {
+  .ln-gnav-btn:not(:disabled) { opacity: 1 !important; background: rgba(255,255,255,0.92) !important; }
+  .ln-gnav-btn:disabled { opacity: 0.3 !important; }
+}
+
+/* 2. Demo frames: correct height between 481px and 768px */
+@media (max-width: 768px) and (min-width: 481px) {
+  .pdp-d-frame { height: 320px !important; }
+  .pdp-d-img-col { min-width: 140px !important; max-width: 140px !important; }
+  .pdp-d-info-col { max-height: 320px !important; overflow-y: auto !important; }
+  .pdp-d-title { font-size: 11px !important; }
+  .pdp-d-price-line { font-size: 11px !important; }
+}
+
+/* 3. ln-hero stacking: full column at 768px */
+@media (max-width: 768px) {
+  .ln-hero { display: flex !important; flex-direction: column !important; }
+  .ln-hero-img { width: 100% !important; min-height: 240px !important; max-height: 320px !important; position: relative !important; top: auto !important; }
+  .ln-hero-info { width: 100% !important; padding: 20px 20px 16px !important; }
+  .ln-title { font-size: 19px !important; line-height: 1.25 !important; }
+  .ln-eyebrow { font-size: 9px !important; margin-bottom: 6px !important; }
+  .ln-brand { font-size: 9px !important; margin-top: 4px !important; }
+  .ln-tags { margin-top: 8px !important; gap: 5px !important; flex-wrap: wrap !important; }
+  .ln-tag { font-size: 8px !important; padding: 3px 7px !important; }
+  .ln-live-link { font-size: 9px !important; padding: 5px 10px !important; }
+}
+
+/* 4. Case study body: better mobile spacing */
+@media (max-width: 768px) {
+  .ln-body { padding: 0 20px 40px !important; }
+  .ln-section { padding: 20px 0 !important; }
+  .ln-section-label { font-size: 9px !important; margin-bottom: 10px !important; }
+  .ln-prose { font-size: 12px !important; line-height: 1.6 !important; }
+  .ln-three-col { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .ln-col-label { font-size: 9px !important; }
+  .ln-col-text { font-size: 11px !important; line-height: 1.6 !important; }
+}
+
+/* 5. Try-it demo frame: full stack on mobile */
+@media (max-width: 480px) {
+  .pdp-d-frame { flex-direction: column !important; height: auto !important; }
+  .pdp-d-img-col { min-width: unset !important; max-width: 100% !important; width: 100% !important; height: 220px !important; }
+  .pdp-d-info-col { max-height: none !important; overflow-y: visible !important; padding: 14px 14px 16px !important; }
+  .pdp-demo-wrap { padding: 0 !important; }
+}
+
+/* 6. ln-hero-img at mid tablets */
+@media (max-width: 900px) and (min-width: 769px) {
+  .ln-hero-img { min-height: 280px !important; }
+}
+
+/* 7. VTO modal touch target improvements */
+@media (max-width: 768px) {
+  .vto-retake-btn, .vto-save-btn { min-height: 44px !important; font-size: 9px !important; }
+  .vto-fit-btn { min-height: 44px !important; font-size: 9px !important; }
+  .vto-capture-btn { width: 42px !important; height: 42px !important; }
+}
+
+/* 8. Email marketing card: readable at mobile */
+@media (max-width: 768px) {
+  .em-slot-top { font-size: 7px !important; }
+  .em-slot { height: 130px !important; max-height: 130px !important; }
+  .em-slot-title { font-size: 9px !important; }
+  .em-slot-sub { font-size: 7px !important; }
+}
+
+/* 9. Three-column sections: two columns on tablets */
+@media (max-width: 900px) and (min-width: 641px) {
+  .ln-three-col { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+}
+
+/* 10. Navigation bar improvements */
+@media (max-width: 640px) {
+  .nav-links { gap: 8px !important; }
+  .nav-links a { font-size: 9px !important; }
+}
+
+/* 11. Contact overlay padding */
+@media (max-width: 768px) {
+  .contact-overlay { padding-left: 1rem !important; padding-right: 1rem !important; }
+}
+
+/* 12. Footer mobile */
+@media (max-width: 480px) {
+  footer { padding: 1rem 1rem !important; }
+}
+
+/* 13. Career timeline mobile */
+@media (max-width: 480px) {
+  .career-timeline { padding: 24px 1rem !important; }
+}
+
+/* 14. Case study nav bar */
+@media (max-width: 768px) {
+  .ln-nav { padding: 14px 20px !important; }
+  .ln-back { font-size: 10px !important; }
+  .ln-nav-id { font-size: 9px !important; }
+}
+
+/* 15. Prada demo: pdp-d-sw size on mobile */
+@media (max-width: 480px) {
+  .pdp-d-sw { width: 20px !important; height: 20px !important; }
+  .pdp-d-attr-lbl { font-size: 10px !important; }
+  .nm-notify-btn { font-size: 10px !important; }
+  .nm-hint { font-size: 8px !important; }
+}
+
+/* 16. Custom studio wrap height on mobile */
+@media (max-width: 768px) {
+  .cstd-wrap { height: auto !important; min-height: 420px !important; }
+}
+
+/* 17. ACPD info col mobile scroll */
+@media (max-width: 768px) {
+  .acpd-info-col { max-height: 340px !important; }
+}
+
+/* 18. Gallery nav button touch sizing */
+@media (max-width: 360px) {
+  .ln-gnav-btn { width: 30px !important; height: 30px !important; }
+}
 </style>
 <!-- Google Analytics — add your GA4 Measurement ID here before going live -->
 <script type="application/ld+json">
@@ -6933,6 +7080,8 @@
         if (pv) { pv.style.display = ''; pv.style.opacity = '1'; }
         return;
       }
+      var pageTitle = (page.querySelector('.ln-title') || {}).textContent || id;
+      track('case_study_open', { case_study_id: id, case_study_title: pageTitle.trim() });
       page.style.display = 'block';
       page.scrollTop = 0;
       galleryInit(id);
@@ -6955,6 +7104,7 @@
   function showPortfolio(options) {
     options = options || {};
     var preserveScroll = !!options.preserveScroll;
+    track('portfolio_return');
     var activePage = document.querySelector('.ln-page.active');
     var root = document.getElementById('ln-pages-root');
     if (activePage) {
@@ -7034,7 +7184,7 @@
     const currentIdx = Array.from(tabs).findIndex(t => t.classList.contains('active'));
     const newIdx = id === 'pg' ? 0 : 1;
     const slideDir = newIdx > currentIdx ? 'right' : 'left';
-
+    track('employer_tab_switch', { employer: id === 'pg' ? 'Prada Group' : 'Rick Owens' });
     tabs.forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.emp-pane').forEach(p => {
       p.classList.remove('active', 'slide-in-right', 'slide-in-left');
@@ -7331,8 +7481,44 @@ function galleryInit(pageId) {
     wrap.appendChild(dotsEl);
   }
 }
+var nmCurrentColor = 'Forest Green';
+var nmCurrentStock = false;
+function nmSetVariant(el, colorName, imageSrc, inStock) {
+  track('nm_color_switch', { color: colorName, in_stock: inStock });
+  var img = document.getElementById('nm-product-img');
+  if (img) img.src = imageSrc;
+  var nameEl = document.querySelector('#nm-swatches').parentElement.querySelector('.pdp-d-color-name');
+  if (nameEl) nameEl.textContent = colorName;
+  var swatches = document.querySelectorAll('#nm-swatches .pdp-d-sw');
+  swatches.forEach(function(sw) { sw.classList.remove('active'); });
+  el.classList.add('active');
+  nmCurrentColor = colorName;
+  nmCurrentStock = inStock;
+  var emailEl = document.getElementById('nm-email-input');
+  if (emailEl) { emailEl.value = ''; emailEl.style.borderColor = ''; }
+  document.getElementById('nm-success-wrap').style.display = 'none';
+  document.getElementById('nm-form-wrap').style.display = 'none';
+  var sOut = document.getElementById('nm-status-out');
+  var sIn  = document.getElementById('nm-status-in');
+  if (inStock) {
+    sOut.className = 'nm-s-hidden'; sIn.className = 'nm-s-visible';
+  } else {
+    sIn.className  = 'nm-s-hidden'; sOut.className = 'nm-s-visible';
+  }
+  var atcEl = document.getElementById('nm-atc-default');
+  var ctaEl = document.getElementById('nm-cta-default');
+  if (inStock) {
+    atcEl.style.opacity='1'; atcEl.style.pointerEvents='auto';
+    ctaEl.style.opacity='0'; ctaEl.style.pointerEvents='none';
+  } else {
+    ctaEl.style.opacity='1'; ctaEl.style.pointerEvents='auto';
+    atcEl.style.opacity='0'; atcEl.style.pointerEvents='none';
+  }
+}
 function nmShowForm() {
-  document.getElementById('nm-cta-default').style.display = 'none';
+  track('nm_notify_click', { color: nmCurrentColor });
+  var ctaEl = document.getElementById('nm-cta-default');
+  ctaEl.style.opacity='0'; ctaEl.style.pointerEvents='none';
   document.getElementById('nm-form-wrap').style.display = 'block';
   setTimeout(function(){ var el = document.getElementById('nm-email-input'); if(el) el.focus(); }, 50);
 }
@@ -7341,27 +7527,25 @@ function nmSubmit() {
   var email = emailEl ? emailEl.value.trim() : '';
   if (!email) { if(emailEl) emailEl.style.borderColor = '#c0392b'; return; }
   if(emailEl) emailEl.style.borderColor = '';
-
   var btn = document.querySelector('.nm-submit-btn');
   if(btn) { btn.textContent = '...'; btn.disabled = true; }
-
   var ejsPublicKey  = 'axxGxuWPyhN-CrXOK';
   var ejsServiceId  = 'service_ot30t7l';
   var ejsTemplateId = 'template_svgs5bh';
-
   function nmShowSuccess(email) {
+    track('nm_form_submit', { color: nmCurrentColor });
     document.getElementById('nm-confirmed-email').textContent = email;
+    document.getElementById('nm-confirmed-color').textContent = nmCurrentColor;
     document.getElementById('nm-form-wrap').style.display = 'none';
     document.getElementById('nm-success-wrap').style.display = 'block';
     if(btn) { btn.textContent = 'Send'; btn.disabled = false; }
   }
-
   if (typeof emailjs !== 'undefined' && ejsPublicKey !== 'YOUR_EMAILJS_PUBLIC_KEY') {
     emailjs.send(ejsServiceId, ejsTemplateId, {
       to_email:      email,
       product_name:  'Prada Route large canvas and leather tote bag',
       product_price: '€ 2,400',
-      product_color: 'Forest Green'
+      product_color: nmCurrentColor
     }, ejsPublicKey)
     .then(function()  { nmShowSuccess(email); })
     .catch(function() { nmShowSuccess(email); });
@@ -7374,9 +7558,24 @@ function nmReset() {
   if (emailEl) { emailEl.value = ''; emailEl.style.borderColor = ''; }
   document.getElementById('nm-success-wrap').style.display = 'none';
   document.getElementById('nm-form-wrap').style.display = 'none';
-  document.getElementById('nm-cta-default').style.display = 'block';
+  if (!nmCurrentStock) {
+    var ctaEl = document.getElementById('nm-cta-default');
+    ctaEl.style.opacity='1'; ctaEl.style.pointerEvents='auto';
+  }
+}
+function nmAddToCart(btn) {
+  if (btn.classList.contains('nm-added')) return;
+  track('nm_add_to_cart', { color: nmCurrentColor });
+  btn.classList.add('nm-added');
+  var orig = btn.textContent;
+  btn.textContent = '✓ Added';
+  setTimeout(function() {
+    btn.textContent = orig;
+    btn.classList.remove('nm-added');
+  }, 1600);
 }
 function galleryGo(pageId, dir) {
+  window.track('gallery_navigate', { gallery: pageId, direction: dir > 0 ? 'next' : 'prev' });
   var track = document.getElementById('gtrack-' + pageId);
   if (!track) return;
   // Count only real direct-child slides (skip placeholders)
@@ -9141,12 +9340,22 @@ function smoothScrollTo(id, options) {
               <div class="pdp-d-attr-row">
                 <div class="pdp-d-attr-lbl">Colour: <span class="pdp-d-color-name">Forest Green</span></div>
               </div>
-              <div class="pdp-d-swatches" style="margin-bottom:20px">
-                <div class="pdp-d-sw" style="background:#1a1816" title="Black" onclick="pdpSetColor(this,'Black');document.getElementById('nm-product-img').src='Images/Notify Me/cq5dam.web.hebebed.2000.2000 3.jpg';hideSwatchNotice('nm-color-notice')"></div>
-                <div class="pdp-d-sw active" style="background:#6b6b47" title="Forest Green" onclick="pdpSetColor(this,'Forest Green');document.getElementById('nm-product-img').src='Images/Notify Me/cq5dam.web.hebebed.2000.2000.jpg';hideSwatchNotice('nm-color-notice')"></div>
+              <div class="pdp-d-swatches" id="nm-swatches" style="margin-bottom:8px">
+                <div class="pdp-d-sw" style="background:#1a1816" title="Black" onclick="nmSetVariant(this,'Black','Images/Notify Me/cq5dam.web.hebebed.2000.2000 3.jpg',true)"></div>
+                <div class="pdp-d-sw active" style="background:#6b6b47" title="Forest Green" onclick="nmSetVariant(this,'Forest Green','Images/Notify Me/cq5dam.web.hebebed.2000.2000.jpg',false)"></div>
               </div>
-              <div id="nm-cta-default">
-                <button class="nm-notify-btn" onclick="nmShowForm()">Notify Me</button>
+              <div class="nm-stock-wrap">
+                <span id="nm-status-out" class="nm-s-visible">● Out of stock</span>
+                <span id="nm-status-in" class="nm-s-hidden">● In stock</span>
+              </div>
+              <div class="nm-hint">Switch colour to see live stock status</div>
+              <div class="nm-cta-wrap">
+                <div id="nm-atc-default" style="opacity:0;pointer-events:none">
+                  <button class="nm-notify-btn" onclick="nmAddToCart(this)">Add to Cart</button>
+                </div>
+                <div id="nm-cta-default" style="opacity:1">
+                  <button class="nm-notify-btn" onclick="nmShowForm()">Notify Me</button>
+                </div>
               </div>
               <div id="nm-form-wrap" style="display:none">
                 <div style="font-size:12px;color:#1a1816;font-weight:500;margin-bottom:10px">Get notified when back in stock</div>
@@ -9162,7 +9371,7 @@ function smoothScrollTo(id, options) {
                   </div>
                   <div>
                     <div style="font-size:13px;font-weight:500;color:#1a1816;margin-bottom:4px">You're on the list</div>
-                    <div style="font-size:12px;color:#7a7570;line-height:1.5">We'll notify <span id="nm-confirmed-email" style="color:#1a1816;font-weight:500"></span> when this item is back in stock. A Prada confirmation email has been sent.</div>
+                    <div style="font-size:12px;color:#7a7570;line-height:1.5">We'll notify <span id="nm-confirmed-email" style="color:#1a1816;font-weight:500"></span> when <span id="nm-confirmed-color" style="color:#1a1816;font-weight:500"></span> is back in stock. A Prada confirmation email has been sent.</div>
                     <button onclick="nmReset()" style="margin-top:12px;font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:#9a9188;background:none;border:none;cursor:pointer;padding:0">← Reset demo</button>
                   </div>
                 </div>
@@ -9583,6 +9792,8 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   window.toggleTryIt = function(trigger) {
     var drawer = trigger.nextElementSibling;
     var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+    var section = trigger.closest('.ln-page');
+    var demoTitle = section ? ((section.querySelector('.ln-title') || {}).textContent || '').trim() : 'unknown';
     if (isOpen) {
       /* Reset Notify Me form state whenever its drawer closes */
       if (drawer.querySelector('#nm-cta-default')) nmReset();
@@ -9592,6 +9803,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
       });
       trigger.setAttribute('aria-expanded', 'false');
       trigger.classList.remove('open');
+      track('demo_close', { case_study: demoTitle });
     } else {
       drawer.style.height = drawer.scrollHeight + 'px';
       trigger.setAttribute('aria-expanded', 'true');
@@ -9599,18 +9811,22 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
       drawer.addEventListener('transitionend', function() {
         if (trigger.getAttribute('aria-expanded') === 'true') drawer.style.height = 'auto';
       }, { once: true });
+      track('demo_open', { case_study: demoTitle });
     }
   };
 
   window.pdpOpenDrawer = function() {
+    track('cs_pair_drawer_open');
     document.getElementById('pdp-overlay').classList.add('open');
     document.getElementById('pdp-drawer').classList.add('open');
   };
   window.pdpCloseDrawer = function() {
+    track('cs_pair_drawer_close');
     document.getElementById('pdp-overlay').classList.remove('open');
     document.getElementById('pdp-drawer').classList.remove('open');
   };
   window.pdpSwitchTab = function(cat) {
+    track('cs_tab_switch', { tab: cat });
     pdpActiveTab = cat;
     pdpSelected = [];
     document.querySelectorAll('.pdp-d-tab').forEach(function(t) {
@@ -10027,12 +10243,16 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   }
 
   window.vtoOpen = function() {
+    track('vto_open');
+    /* Preload FaceMesh library immediately — runs in parallel with camera permission prompt */
+    if (!window.FaceMesh) { vtoLoadFaceMesh(function() {}); }
     vtoEl('vto-overlay').classList.add('open');
     vtoEl('vto-modal').classList.add('open');
     vtoStartCamera();
   };
 
   window.vtoClose = function() {
+    track('vto_close');
     /* if a snapshot is showing, go back to the live try-on */
     if (vtoPhotoMode) {
       vtoPhotoMode = false;
@@ -10071,12 +10291,14 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
       var e = vtoEl(id);
       if (e) e.setAttribute('fill', lensColor);
     });
+    track('vto_lens_color', { color: colorName });
     if (colorName !== 'Slate Gray Lenses') showSwatchNotice('vto-color-notice');
     else hideSwatchNotice('vto-color-notice');
   };
 
   window.vtoAddToBag = function(btn) {
     if (!btn || btn.classList.contains('vto-adjusted')) return;
+    track('vto_add_to_bag');
     btn.textContent = 'ADDED TO BAG \u2713';
     btn.classList.add('vto-adjusted');
     setTimeout(function() {
@@ -10088,6 +10310,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   /* ── snapshot: composite video + glasses → photo overlay ── */
   window.vtoCapture = function() {
     if (vtoPhotoMode) return;
+    track('vto_photo_capture');
     var vid    = vtoEl('vto-video');
     var canvas = vtoEl('vto-canvas');
     if (!vid || !canvas) return;
@@ -10164,6 +10387,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
 
   /* save the snapshot to the user's device */
   window.vtoSavePhoto = function() {
+    track('vto_photo_save');
     var img = document.getElementById('vto-photo-img');
     if (!img || !img.src) return;
     try {
@@ -10731,6 +10955,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   };
 
   window.acpdSave = function() {
+    track('acpd_config_saved', { color: acpdColor, material: acpdMat });
     acpdHasSaved = true;
     if (acpdLoaderTimer) clearTimeout(acpdLoaderTimer);
     var cfg = document.getElementById('acpd-cfg');
@@ -10766,6 +10991,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   };
 
   window.acpdPickSize = function(el, size) {
+    track('acpd_size_selected', { size: size });
     document.querySelectorAll('.acpd-sz-opt').forEach(function(o) { o.classList.remove('active'); });
     el.classList.add('active');
     var lbl = document.getElementById('acpd-sz-lbl');
@@ -11008,5 +11234,89 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     <a href="https://www.linkedin.com/in/novelli-leonardo/" target="_blank" rel="noopener">LinkedIn ↗</a>
   </nav>
 </footer>
+
+<script>
+/* ── Comprehensive link & UI event tracking ── */
+document.addEventListener('DOMContentLoaded', function() {
+
+  /* External product links (View live product ↗) */
+  document.querySelectorAll('.ln-live-link').forEach(function(a) {
+    a.addEventListener('click', function() {
+      var section = a.closest('.ln-page');
+      var title = section ? ((section.querySelector('.ln-title') || {}).textContent || '').trim() : 'unknown';
+      track('external_product_link', { case_study: title, url: a.href });
+    });
+  });
+
+  /* LinkedIn */
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(a) {
+    a.addEventListener('click', function() { track('linkedin_click'); });
+  });
+
+  /* Email links */
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
+    a.addEventListener('click', function() { track('email_click'); });
+  });
+
+  /* CV / PDF views */
+  document.querySelectorAll('a[href$=".pdf"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      track('document_view', { file: a.href.split('/').pop() });
+    });
+  });
+
+  /* Custom Studio — personalise & add to cart */
+  var cstdCartBtn = document.getElementById('cstd-cart-btn');
+  if (cstdCartBtn) {
+    cstdCartBtn.addEventListener('click', function() {
+      track('cstd_personalise_click');
+    });
+  }
+
+  /* Custom Studio — summary add to cart (cstdFinishAndClose) */
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'cstd-sum-atc') {
+      track('cstd_add_to_cart');
+    }
+  });
+
+  /* ACPD 360 view — first drag interaction */
+  var acpd360el = document.getElementById('acpd-360-view');
+  if (acpd360el) {
+    var acpd360tracked = false;
+    acpd360el.addEventListener('pointerdown', function() {
+      if (!acpd360tracked) { track('acpd_360_interact'); acpd360tracked = true; }
+    });
+  }
+
+  /* Cross-selling item selection */
+  document.addEventListener('click', function(e) {
+    var pcard = e.target.closest('.pdp-d-pcard');
+    if (pcard) {
+      var label = (pcard.querySelector('.pdp-d-pcard-name') || pcard.querySelector('img') || {});
+      track('cs_item_selected', { item: label.alt || label.textContent || 'unknown' });
+    }
+  });
+
+  /* Section scroll tracking — fire once per section when it enters view */
+  if ('IntersectionObserver' in window) {
+    var sections = [
+      { id: 'about',   label: 'About' },
+      { id: 'contact', label: 'Contact' }
+    ];
+    sections.forEach(function(s) {
+      var el = document.getElementById(s.id);
+      if (!el) return;
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { track('section_viewed', { section: s.label }); obs.disconnect(); }
+        });
+      }, { threshold: 0.4 });
+      obs.observe(el);
+    });
+  }
+
+});
+</script>
 </body>
 </html>
