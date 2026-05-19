@@ -5506,13 +5506,34 @@ function track(event, params) {
 .sz-d-price-line { font-family: var(--sans); font-size: 13px; color: #1a1816; margin-bottom: 18px; }
 .sz-d-divider { height: 0.5px; background: #e4e0dc; margin-bottom: 18px; }
 .sz-d-attr-lbl { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #1a1816; margin-bottom: 8px; }
-@keyframes sz-find-nudge {
-  0%, 65%, 100% { transform: translateX(0); }
-  25%           { transform: translateX(5px); }
-  45%           { transform: translateX(3px); }
+@keyframes sz-find-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26,24,22,0.18); }
+  50%       { box-shadow: 0 0 0 5px rgba(26,24,22,0); }
 }
-.sz-d-find-link { font-family: var(--sans); font-size: 10px; font-weight: 700; color: #1a1816; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; display: inline-block; margin-bottom: 10px; animation: sz-find-nudge 3s ease-in-out 1s infinite; }
-.sz-d-find-link:hover { animation-play-state: paused; opacity: 0.65; }
+@keyframes sz-find-shimmer {
+  0%   { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(180%); }
+}
+.sz-d-find-link {
+  font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+  color: #f7f5f2; background: #1a1816;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px 7px 11px; border-radius: 3px;
+  cursor: pointer; margin-bottom: 10px;
+  text-decoration: none;
+  position: relative; overflow: hidden;
+  animation: sz-find-pulse 2.2s ease-in-out 0.6s infinite;
+  transition: background 0.18s, transform 0.18s;
+}
+.sz-d-find-link::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  animation: sz-find-shimmer 2.2s ease-in-out 0.6s infinite;
+  pointer-events: none;
+}
+.sz-d-find-link::after { content: '→'; font-size: 11px; line-height: 1; }
+.sz-d-find-link:hover { background: #2d2b28; transform: translateY(-1px); animation-play-state: paused; }
+.sz-d-find-link:hover::before { animation-play-state: paused; }
 /* Size trigger */
 .sz-d-sz-trigger { display: flex; align-items: center; justify-content: space-between; border: 0.5px solid #d4d0cc; padding: 10px 14px; cursor: pointer; margin-bottom: 14px; transition: border-color 0.15s; background: #fff; }
 .sz-d-sz-trigger:hover { border-color: #1a1816; }
