@@ -3315,10 +3315,23 @@ function track(event, params) {
     padding: 5px 10px; border-radius: 5px;
     margin-top: 0.5rem;
     border: 0.5px solid var(--border2); text-decoration: none;
-    transition: border-color 0.15s, color 0.15s;
+    transition: border-color 0.22s, color 0.22s, background 0.22s, transform 0.22s, box-shadow 0.22s;
+    position: relative; overflow: hidden;
   }
-  .ln-live-link:hover { border-color: var(--text3); color: var(--text2); }
-  .ln-live-dot { width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0; }
+  .ln-live-link::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.45) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.55s cubic-bezier(0.22,1,0.36,1);
+    pointer-events: none;
+  }
+  .ln-live-link:hover { border-color: #1a1816; color: #1a1816; background: rgba(26,24,22,0.04); transform: translateY(-1px); box-shadow: 0 2px 8px rgba(26,24,22,0.08); }
+  .ln-live-link:hover::after { transform: translateX(100%); }
+  .ln-live-dot { width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;animation:live-pulse 2s ease-in-out infinite; }
+  @keyframes live-pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.55; transform:scale(0.8); }
+  }
   .ln-body { max-width: 1100px; margin: 0 auto; padding: 2.75rem 2.5rem 5rem; }
   .ln-body::after {
     content: '';
@@ -3552,8 +3565,10 @@ function track(event, params) {
   .metric-label{font-family:var(--mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color: var(--text);margin-bottom:4px;}
   .metric-val{font-family:var(--mono);font-size:22px;font-weight:300;color:var(--text);letter-spacing:-0.02em;}
   .metric-val.sm{font-size:13px;margin-top:4px;color:var(--text2);}
-  .ln-live-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;color:var(--text3);padding:6px 12px;border-radius:5px;border:0.5px solid var(--border2);text-decoration:none;transition:border-color 0.15s,color 0.15s;}
-  .ln-live-link:hover{border-color:var(--text3);color:var(--text2);}
+  .ln-live-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;color:var(--text3);padding:6px 12px;border-radius:5px;border:0.5px solid var(--border2);text-decoration:none;transition:border-color 0.22s,color 0.22s,background 0.22s,transform 0.22s,box-shadow 0.22s;position:relative;overflow:hidden;}
+  .ln-live-link::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.45) 50%,transparent 100%);transform:translateX(-100%);transition:transform 0.55s cubic-bezier(0.22,1,0.36,1);pointer-events:none;}
+  .ln-live-link:hover{border-color:#1a1816;color:#1a1816;background:rgba(26,24,22,0.04);transform:translateY(-1px);box-shadow:0 2px 8px rgba(26,24,22,0.08);}
+  .ln-live-link:hover::after{transform:translateX(100%);}
   .ln-live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;}
   .ln-no-link{font-family:var(--mono);font-size:9px;color:var(--text3);}
   .ln-body{max-width:1100px;margin:0 auto;padding:3rem 2.5rem 6rem;}
@@ -5819,7 +5834,7 @@ function track(event, params) {
 .cstd-loader.on .cstd-loader-txt{animation:cstd-txt-in .45s ease-out .85s forwards}
 @keyframes cstd-path-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes cstd-txt-in{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
-.cstd-cust-imgcol{flex:0 0 40%;background:#ece8e2;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.cstd-cust-imgcol{flex:0 0 40%;background:#e8e4db;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .cstd-cust-imgcol img{width:86%;height:86%;object-fit:contain}
 /* placed item overlays on shoe */
 #cstd-item-overlay{position:absolute;inset:0;pointer-events:none;z-index:4}
@@ -7041,10 +7056,17 @@ function track(event, params) {
           <div class="pn-title">${initiativeNames[prevId] || prevId}</div>
         </div>
       </a>` : '<span></span>';
+    const isLastRo = !nextId && currentId.startsWith('ro');
     const nextLink = nextId ? `<a onclick="showInitiative('${nextId}')">
         <div style="text-align:right">
           <div class="pn-label-row" style="justify-content:flex-end"><span class="pn-counter">${idx + 2}\u2009/\u2009${total}</span><span class="pn-label">Next</span></div>
           <div class="pn-title">${initiativeNames[nextId] || nextId}</div>
+        </div>
+        <span class="pn-arrow">\u2192</span>
+      </a>` : isLastRo ? `<a onclick="switchEmp('pg');showPortfolio();" style="cursor:pointer;">
+        <div style="text-align:right">
+          <div class="pn-label-row" style="justify-content:flex-end"><span class="pn-label">Back to</span></div>
+          <div class="pn-title">Prada Group</div>
         </div>
         <span class="pn-arrow">\u2192</span>
       </a>` : '<span></span>';
@@ -7056,22 +7078,21 @@ function track(event, params) {
   }
 
   function showInitiative(id) {
+    var existingPage = document.querySelector('.ln-page.active');
     // Only capture portfolio scroll when coming from the portfolio, not from another initiative
-    if (!document.querySelector('.ln-page.active')) {
+    if (!existingPage) {
       window._portfolioScrollY = window.scrollY;
     }
     var pv = document.getElementById('portfolio-view');
     var root = document.getElementById('ln-pages-root');
-    pv.style.transition = 'opacity 0.2s ease';
-    pv.style.opacity = '0';
-    setTimeout(function() {
-      pv.style.display = 'none';
-      pv.style.transition = '';
-      pv.style.opacity = '';
+
+    function _renderPage() {
       if (root) root.style.display = 'block';
       document.querySelectorAll('.ln-page').forEach(function(p) {
         p.classList.remove('active');
         p.style.display = 'none';
+        p.style.transition = '';
+        p.style.opacity = '';
       });
       var page = document.getElementById('ln-' + id);
       if (!page) {
@@ -7082,10 +7103,11 @@ function track(event, params) {
       }
       var pageTitle = (page.querySelector('.ln-title') || {}).textContent || id;
       track('case_study_open', { case_study_id: id, case_study_title: pageTitle.trim() });
+      history.pushState({ initiative: id }, '', '#' + id);
       page.style.display = 'block';
       page.scrollTop = 0;
+      window.scrollTo(0, 0);
       galleryInit(id);
-      var inner = page.querySelector('.ln-body');
       var ctaWrap = page.querySelector('.ln-bottom-wrap');
       if (!ctaWrap) {
         ctaWrap = document.createElement('div');
@@ -7099,11 +7121,27 @@ function track(event, params) {
           syncLnBodyTop(page);
         });
       });
-    }, 200);
+    }
+
+    if (existingPage) {
+      // Case study → case study: skip portfolio fade entirely to avoid flash
+      _renderPage();
+    } else {
+      // Portfolio → case study: fade out portfolio first
+      pv.style.transition = 'opacity 0.2s ease';
+      pv.style.opacity = '0';
+      setTimeout(function() {
+        pv.style.display = 'none';
+        pv.style.transition = '';
+        pv.style.opacity = '';
+        _renderPage();
+      }, 200);
+    }
   }
   function showPortfolio(options) {
     options = options || {};
     var preserveScroll = !!options.preserveScroll;
+    if (!options._fromPopstate) history.pushState({}, '', location.pathname);
     track('portfolio_return');
     var activePage = document.querySelector('.ln-page.active');
     var root = document.getElementById('ln-pages-root');
@@ -7157,6 +7195,15 @@ function track(event, params) {
       }, 60);
     }, { passive: true });
   })();
+
+  // Browser back/forward button support
+  window.addEventListener('popstate', function(e) {
+    if (e.state && e.state.initiative) {
+      showInitiative(e.state.initiative);
+    } else {
+      showPortfolio({ preserveScroll: true, _fromPopstate: true });
+    }
+  });
 
   // nav scroll
   const sections = document.querySelectorAll('section[id]');
@@ -10935,7 +10982,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
       if (note)   { note.style.opacity = '1'; note.style.pointerEvents = 'none'; }
     } else {
       if (img360) { img360.style.visibility = ''; img360.src = acpd360Frames[0]; acpd360Idx = 0; }
-      if (hint)   hint.style.display = '';
+      if (hint)   { hint.style.display = ''; hint.classList.remove('hidden'); }
       if (note)   note.style.opacity = '0';
     }
   };
