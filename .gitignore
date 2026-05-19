@@ -1,0 +1,15 @@
+# Personal documents — never commit these
+CV (Portfolio)/
+Reccomendation Letter/
+Code Leftovers/
+
+# macOS system files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
