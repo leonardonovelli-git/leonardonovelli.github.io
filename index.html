@@ -5712,9 +5712,15 @@ function track(event, params) {
 .vto-d-frame { display: flex; height: 430px; }
 .vto-d-img-col { flex: 0 0 42%; position: relative; background: #f0ede9; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .vto-d-img-col img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.vto-d-try-btn { position: absolute; bottom: 18px; left: 18px; display: flex; align-items: center; gap: 7px; background: none; border: none; cursor: pointer; padding: 0; }
+.vto-d-try-btn { position: absolute; bottom: 18px; left: 18px; display: flex; align-items: center; gap: 7px; background: none; border: none; cursor: pointer; padding: 0; animation: vto-try-bounce 2.4s ease-in-out infinite; }
+@keyframes vto-try-bounce {
+  0%,100% { transform: translateY(0); }
+  40%      { transform: translateY(-4px); }
+  60%      { transform: translateY(-2px); }
+}
 .vto-d-try-icon { width: 16px; height: 16px; flex-shrink: 0; }
 .vto-d-try-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: #1a1816; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.vto-d-try-btn:hover { animation-play-state: paused; opacity: 0.7; }
 .vto-d-try-btn:hover .vto-d-try-label { text-decoration-color: rgba(26,24,22,0.4); }
 .vto-d-info-col { flex: 1; padding: 24px 22px 20px; display: flex; flex-direction: column; background: #f2eeea; border-left: 0.5px solid #e4e0dc; }
 .vto-d-eyebrow { font-family: var(--sans); font-size: 8.5px; font-weight: 600; letter-spacing: 0.14em; color: #888; text-transform: uppercase; margin-bottom: 8px; }
