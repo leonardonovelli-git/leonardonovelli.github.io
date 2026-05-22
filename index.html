@@ -5435,11 +5435,12 @@ function track(event, params) {
 .nm-notify-btn { width:100%; padding:13px 20px; background:#1a1816; color:#fff; border:none; border-radius:0; font-family:var(--sans); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:background 0.15s; }
 .nm-notify-btn:hover { background:#2e2c2a; }
 @keyframes nm-notify-pulse {
-  0%,100% { box-shadow: 0 0 0 0 rgba(26,24,22,0.30); }
-  50%      { box-shadow: 0 0 0 6px rgba(26,24,22,0); }
+  0%,100% { transform: scaleX(1)    scaleY(1);    box-shadow: 0 0 0 0 rgba(26,24,22,0.28); }
+  40%      { transform: scaleX(1.02) scaleY(1.03); box-shadow: 0 0 0 7px rgba(26,24,22,0.08); }
+  70%      { transform: scaleX(1.01) scaleY(1.01); box-shadow: 0 0 0 12px rgba(26,24,22,0); }
 }
 /* Pulse only the Notify Me button when it's the active CTA */
-#nm-cta-default .nm-notify-btn { animation: nm-notify-pulse 2s ease-in-out infinite; }
+#nm-cta-default .nm-notify-btn { animation: nm-notify-pulse 1.8s ease-in-out infinite; }
 #nm-cta-default .nm-notify-btn:hover { animation-play-state: paused; background: #2e2c2a; }
 .nm-submit-btn { flex-shrink:0; padding:8px 16px; background:#1a1816; color:#fff; border:none; font-family:var(--sans); font-size:12px; letter-spacing:0.04em; cursor:pointer; transition:background 0.15s; }
 .nm-submit-btn:hover { background:#2e2c2a; }
