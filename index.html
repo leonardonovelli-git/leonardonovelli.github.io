@@ -5434,6 +5434,13 @@ function track(event, params) {
 /* Notify Me demo buttons */
 .nm-notify-btn { width:100%; padding:13px 20px; background:#1a1816; color:#fff; border:none; border-radius:0; font-family:var(--sans); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:background 0.15s; }
 .nm-notify-btn:hover { background:#2e2c2a; }
+@keyframes nm-notify-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(26,24,22,0.30); }
+  50%      { box-shadow: 0 0 0 6px rgba(26,24,22,0); }
+}
+/* Pulse only the Notify Me button when it's the active CTA */
+#nm-cta-default .nm-notify-btn { animation: nm-notify-pulse 2s ease-in-out infinite; }
+#nm-cta-default .nm-notify-btn:hover { animation-play-state: paused; background: #2e2c2a; }
 .nm-submit-btn { flex-shrink:0; padding:8px 16px; background:#1a1816; color:#fff; border:none; font-family:var(--sans); font-size:12px; letter-spacing:0.04em; cursor:pointer; transition:background 0.15s; }
 .nm-submit-btn:hover { background:#2e2c2a; }
 .nm-stock-wrap{position:relative;height:14px;margin-bottom:10px;}
@@ -10075,7 +10082,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   var vtoRafId     = null;
   var vtoTracking  = false;
   var vtoSmooth    = null;           // { lx, ly, rx, ry }
-  var VTO_ALPHA    = 0.35;           // exponential smoothing factor
+  var VTO_ALPHA    = 0.55;           // exponential smoothing factor
   var vtoSending   = false;          // guard: only one FaceMesh send in-flight at a time
   var vtoPhotoMode = false;          // true when snapshot is displayed
 
@@ -10128,7 +10135,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     var midX  = (L.x + R.x) / 2;
     var midY  = (L.y + R.y) / 2;
 
-    var drawW   = eyeDist * 3.1;
+    var drawW   = eyeDist * 2.75;
     var drawH   = drawW * (vtoGlassesImg.naturalHeight / vtoGlassesImg.naturalWidth);
 
     /* anchorY: how far down from the image top the lens centres sit.
@@ -10402,11 +10409,27 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     var sCtx = snap.getContext('2d');
     sCtx.scale(dpr, dpr);
 
+    /* Replicate object-fit:cover so the snapshot matches the live view exactly */
+    var vW = vid.videoWidth  || W;
+    var vH = vid.videoHeight || H;
+    var srcX, srcY, srcW, srcH;
+    if (vW / vH > W / H) {   /* video wider → crop left/right */
+      srcH = vH;
+      srcW = (W / H) * vH;
+      srcX = (vW - srcW) / 2;
+      srcY = 0;
+    } else {                  /* video taller → crop top/bottom */
+      srcW = vW;
+      srcH = (H / W) * vW;
+      srcX = 0;
+      srcY = (vH - srcH) / 2;
+    }
+
     sCtx.save();
     sCtx.translate(W, 0);
     sCtx.scale(-1, 1);
-    sCtx.drawImage(vid, 0, 0, W, H);       /* mirrored video frame  */
-    sCtx.drawImage(canvas, 0, 0, W, H);    /* mirrored glasses layer */
+    sCtx.drawImage(vid, srcX, srcY, srcW, srcH, 0, 0, W, H); /* cover-cropped + mirrored */
+    sCtx.drawImage(canvas, 0, 0, W, H);                        /* glasses overlay */
     sCtx.restore();
 
     var dataUrl;
