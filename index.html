@@ -130,6 +130,18 @@ function track(event, params) {
   }
   .skip-nav:focus { top: 0; }
 
+  /* ── Global focus-visible ring (keyboard navigation) ── */
+  :focus-visible {
+    outline: 2px solid #1a1816;
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+  /* Suppress mouse-click focus rings on interactive elements */
+  .ci-card:focus:not(:focus-visible),
+  .nav-links a:focus:not(:focus-visible),
+  .ln-back:focus:not(:focus-visible),
+  button:focus:not(:focus-visible) { outline: none; }
+
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
@@ -445,9 +457,11 @@ function track(event, params) {
     border-radius: 10px 10px 0 0; overflow: hidden;
   }
   .enrich-prog-fill {
-    height: 100%; width: 0%;
+    height: 100%; width: 100%;
     background: var(--text);
-    transition: width 0.4s linear;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s linear;
   }
   .enrich-prog-fill.live { background: #2d6a4f; }
   .enrich-b-bar {
@@ -901,7 +915,7 @@ function track(event, params) {
     box-shadow: none;
   }
   .contact-link-icon.loc { background: var(--teal-bg); color: var(--teal); }
-  .contact-link-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1816; margin-bottom: 2px; }
+  .contact-link-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); margin-bottom: 2px; }
   .contact-link-value { font-size: 13px; color: var(--text2); }
   .contact-link-meta {
     font-family: var(--mono);
@@ -1652,14 +1666,15 @@ function track(event, params) {
   .tl-accordion.open .tl-acc-toggle { opacity: 0.8; transform: rotate(180deg); }
 
   .tl-acc-detail {
-    max-height: 0; overflow: hidden; opacity: 0;
-    transition: max-height 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.35s, margin 0.35s;
+    display: grid; grid-template-rows: 0fr; opacity: 0;
+    transition: grid-template-rows 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.35s, margin 0.35s;
     margin-top: 0;
   }
-  .tl-accordion.open .tl-acc-detail { max-height: 300px; opacity: 1; margin-top: 12px; }
+  .tl-accordion.open .tl-acc-detail { grid-template-rows: 1fr; opacity: 1; margin-top: 12px; }
   .tl-accordion.open { opacity: 1 !important; }
 
   .tl-acc-detail-inner {
+    overflow: hidden;
     padding: 14px 16px; background: var(--bg); border-radius: 8px;
     border: 1px solid var(--border);
   }
@@ -3367,7 +3382,6 @@ function track(event, params) {
     0%,100% { opacity:1; transform:scale(1); }
     50% { opacity:0.55; transform:scale(0.8); }
   }
-  .ln-body { max-width: 1100px; margin: 0 auto; padding: 2.75rem 2.5rem 5rem; }
   .ln-body::after {
     content: '';
     display: block;
@@ -3376,31 +3390,6 @@ function track(event, params) {
     margin: 3rem auto 0;
     background: linear-gradient(90deg, transparent, rgba(26,24,22,0.18), transparent);
   }
-  .ln-section { margin-bottom: 1.5rem; }
-  .ln-section-label {
-    font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em;
-    text-transform: uppercase; color:#1a1816;
-    margin-bottom: 0.6rem; padding-bottom: 6px; border-bottom: 0.5px solid var(--border);
-  }
-  .ln-prose { font-size: 13px; color: var(--text2); line-height: 1.75; max-width: 700px; }
-  .ln-three-col {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 1px; background: var(--border);
-    border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 1rem;
-  }
-  .ln-col { padding: 0.875rem 1.1rem; background: var(--bg2); }
-  .ln-col-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1816; margin-bottom: 10px; }
-  .ln-col-text { font-size: 12px; color: var(--text2); line-height: 1.75; }
-  .ln-contribs { display: flex; flex-direction: column; }
-  .contrib {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 8px 0; border-bottom: 0.5px solid var(--border);
-    font-size: 12px; color: var(--text2); line-height: 1.5;
-  }
-  .contrib:last-child { border-bottom: none; }
-  .dot { width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px; }
-  .dot.mine { background: var(--teal); }
-  .dot.team { background: var(--border2); }
   /* ── PREV/NEXT NAV ── */
   .ln-prevnext {
     display: flex; justify-content: space-between; align-items: center;
@@ -3608,7 +3597,7 @@ function track(event, params) {
   .ln-no-link{font-family:var(--mono);font-size:9px;color:var(--text3);}
   .ln-body{max-width:1100px;margin:0 auto;padding:3rem 2.5rem 6rem;}
   .ln-section{margin-bottom:3rem;}
-  .ln-section-label{font-family:var(--mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#1a1816;margin-bottom:1rem;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
+  .ln-section-label{font-family:var(--mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text);margin-bottom:1rem;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
   .ln-prose{font-size:14px;color:var(--text2);line-height:1.85;max-width:700px;}
   .ln-three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:8px;overflow:hidden;margin-top:1rem;}
   .ln-col{padding:1.25rem 1.5rem;background:var(--bg2);}
@@ -4249,35 +4238,8 @@ function track(event, params) {
   .ci-card {
     transition: background 0.18s, border-color 0.18s, transform 0.18s, box-shadow 0.18s;
   }
-  .ci-card:hover {
-    background: #e8e4de !important;
-    border-color: #5a554e !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(26,24,22,0.08);
-  }
-  .em-card { transition: border-color 0.18s, transform 0.18s; }
-  .em-card:hover { border-color: #9a9188 !important; transform: translateY(-1px); }
   .em-slot { transition: background 0.15s; }
   section { transition: opacity 0.2s; }
-  .nav-links a {
-    transition: color 0.15s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute; bottom: -2px; left: 0; right: 0;
-    height: 1px; background: #1a1816;
-    transform: scaleX(0); transition: transform 0.15s;
-  }
-  .nav-links a:hover::after { transform: scaleX(1); }
-  .nav-links a:hover { color: #1a1816 !important; }
-  .emp-tab { transition: background 0.18s, border-color 0.18s; }
-  .cv-btn { transition: border-color 0.15s, color 0.15s, background 0.15s; }
-  .cv-btn:hover { border-color: #1a1816 !important; }
-  .contact-card { transition: background 0.15s, transform 0.15s; }
-  .contact-card:hover { transform: translateX(3px); }
-  .ln-back { transition: color 0.15s, border-color 0.15s, background 0.15s; }
-  .ln-back:hover { background: #f0ede8; }
 
 
   /* ── CROSS-STREAM + ECOSYSTEM SIDE BY SIDE ── */
@@ -4317,8 +4279,8 @@ function track(event, params) {
   /* ── GLOBAL HOVER IMPROVEMENTS ── */
   .ci-card { transition: background var(--dur-ui) var(--ease-ui), border-color var(--dur-ui) var(--ease-ui), transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui); }
   .ci-card:hover { background: #e5e2dd !important; border-color: #5a554e !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,24,22,0.05); }
-  .cs-row { transition: background var(--dur-ui) var(--ease-ui), padding-left var(--dur-ui) var(--ease-ui); }
-  .cs-row:hover { background: #e5e2dd !important; padding-left: 8px; }
+  .cs-row { transition: background var(--dur-ui) var(--ease-ui), transform var(--dur-ui) var(--ease-ui); }
+  .cs-row:hover { background: #e5e2dd !important; transform: translateX(6px); }
   .cs-row:hover .cs-row-arr { color: #1a1816; }
   .em-card { transition: border-color var(--dur-ui) var(--ease-ui), transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui); }
   .em-card:hover { border-color: #5a554e !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,24,22,0.04); }
@@ -4848,11 +4810,12 @@ function track(event, params) {
 /* ── Navigation: tighten at 768px, hide logo sooner ── */
 @media (max-width: 768px) {
   .nav-links { gap: 12px !important; }
-  .nav-logo  { display: none !important; }
+  .nav-logo  { font-size: 12px !important; letter-spacing: 0.04em !important; }
 }
 @media (max-width: 480px) {
   .nav-links { gap: 8px !important; }
   .nav-links a { font-size: 9px !important; }
+  .nav-logo { display: none !important; }
 }
 
 /* ── Cross-stream hub brands grid: single column on small screens ── */
@@ -6163,41 +6126,33 @@ function track(event, params) {
 @media (max-width: 360px) {
   .ln-gnav-btn { width: 30px !important; height: 30px !important; }
 }
+
+/* 19. Reduced-motion: disable all non-essential animations for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Keep functional transitions (opacity for overlays, visibility) */
+  .contact-overlay, .diag-overlay, #eduOverlay, #recOverlay {
+    transition: opacity 0.15s !important;
+  }
+  /* Keep subtle hover feedback so UI still feels responsive */
+  .ci-card:hover, .em-card:hover { transform: none !important; }
+  .cs-row:hover { transform: none !important; }
+  /* Stop marquee/ticker */
+  .op-ticker { animation: none !important; }
+  .cap-marquee-inner { animation: none !important; }
+  /* Stop shimmer overlays */
+  .sz-d-find-link, .sz-d-find-link::before,
+  .vto-d-try-btn,
+  #nm-cta-default .nm-notify-btn,
+  #acpd-start-btn, #acpd-start-btn::after { animation: none !important; }
+}
 </style>
 <!-- Google Analytics — add your GA4 Measurement ID here before going live -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Leonardo Novelli",
-  "url": "https://leonardonovelli.com",
-  "email": "leonardonovelli1709@gmail.com",
-  "jobTitle": "Catalog Product Owner",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Prada Group"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Milan",
-    "addressCountry": "IT"
-  },
-  "alumniOf": [
-    {
-      "@type": "CollegeOrUniversity",
-      "name": "POLIMI Graduate School of Management"
-    },
-    {
-      "@type": "CollegeOrUniversity",
-      "name": "IED, European Institute of Design"
-    }
-  ],
-  "knowsAbout": ["E-commerce", "Product Information Management", "Digital Operations", "Luxury Fashion", "Catalog Architecture", "SEO", "Google Analytics"],
-  "sameAs": [
-    "https://www.linkedin.com/in/novelli-leonardo/"
-  ]
-}
-</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -6298,7 +6253,7 @@ function track(event, params) {
     </div>
   </div>
   <div class="op-bottom">
-    <button class="opening-scroll" type="button" onclick="scrollFromOpening()">
+    <button class="opening-scroll" type="button" onclick="scrollFromOpening()" aria-label="Scroll to portfolio">
       <span class="opening-scroll-dot">
         <svg width="9" height="9" viewBox="0 0 11 11" fill="none" aria-hidden="true">
           <line x1="5.5" y1="1" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
@@ -6327,11 +6282,11 @@ function track(event, params) {
     <div class="hero-with">
       <span class="hero-with-label">Worked with</span>
       <div class="hero-with-logos">
-        <img src="Images/Brand Logos/prada-wordmark-cropped.svg" alt="Prada">
-        <img src="Images/Brand Logos/miumiu-logo.svg" alt="Miu Miu">
-        <img src="Images/Brand Logos/churchs-logo-clean.png" alt="Church's">
-        <img src="Images/Brand Logos/carshoe-logo-clean.png" alt="Car Shoe" onerror="this.outerHTML='<span style=\'font-family:var(--mono);font-size:9px;letter-spacing:0.08em;opacity:0.7\'>CAR SHOE</span>'">
-        <img src="Images/Brand Logos/rick-owens-logo-clean.png" alt="Rick Owens">
+        <img src="Images/Brand Logos/prada-wordmark-cropped.svg" alt="Prada" height="20" width="80">
+        <img src="Images/Brand Logos/miumiu-logo.svg" alt="Miu Miu" height="20" width="60">
+        <img src="Images/Brand Logos/churchs-logo-clean.png" alt="Church's" height="30" width="90">
+        <img src="Images/Brand Logos/carshoe-logo-clean.png" alt="Car Shoe" height="30" width="70" onerror="this.outerHTML='<span style=\'font-family:var(--mono);font-size:9px;letter-spacing:0.08em;opacity:0.7\'>CAR SHOE</span>'">
+        <img src="Images/Brand Logos/rick-owens-logo-clean.png" alt="Rick Owens" height="20" width="90">
       </div>
     </div>
   </div>
@@ -7364,6 +7319,7 @@ function track(event, params) {
   var _contactPrevFocus = null;
 
   function openContact() {
+    track('contact_open');
     var overlay = document.getElementById('contact-overlay');
     overlay.classList.add('open');
     _contactPrevFocus = document.activeElement;
@@ -7390,6 +7346,7 @@ function track(event, params) {
     document.addEventListener('keydown', _contactFocusTrap);
   }
   function closeContact() {
+    track('contact_close');
     document.getElementById('contact-overlay').classList.remove('open');
     if (_contactFocusTrap) { document.removeEventListener('keydown', _contactFocusTrap); _contactFocusTrap = null; }
     if (_contactPrevFocus) { _contactPrevFocus.focus(); _contactPrevFocus = null; }
@@ -7410,9 +7367,11 @@ function track(event, params) {
       sub.textContent   = 'How products move from New to Live';
       document.getElementById('flow-publication').style.display = 'flex';
     }
+    track('diagram_open', { type: type });
     overlay.classList.add('open');
   }
   function closeDiagram() {
+    track('diagram_close');
     document.getElementById('diag-overlay').classList.remove('open');
   }
   document.addEventListener('keydown', e => {
@@ -8346,6 +8305,7 @@ function galleryGo(pageId, dir) {
       if (img.complete) removeWhiteBackground();
       else img.addEventListener('load', removeWhiteBackground, { once: true });
     });
+    track('education_open', { institution: key });
     var ov = document.getElementById('eduOverlay');
     ov.classList.toggle('edu-overlay--wide', !!d.wideOverlay);
     ov.classList.add('open');
@@ -8354,6 +8314,7 @@ function galleryGo(pageId, dir) {
   };
 
   window.closeEduOverlay = function() {
+    track('education_close');
     document.getElementById('eduOverlay').classList.remove('open');
     document.body.style.overflow = '';
   };
@@ -8370,6 +8331,7 @@ function isPortfolioVisible() {
 }
 
 function scrollToExpEntry(id) {
+  track('timeline_node_click', { entry: id });
   function runScroll() {
     var el = document.getElementById(id);
     if (!el) return;
@@ -8396,6 +8358,7 @@ function scrollToExpEntry(id) {
 }
 
 function goToEmployerProjects(id) {
+  track('timeline_employer_click', { employer: id });
   if (isPortfolioVisible()) {
     switchEmp(id);
     return;
@@ -8443,6 +8406,7 @@ function smoothScrollTo(id, options) {
 
   /* CTA — native smooth scroll */
   window.scrollFromOpening = function() {
+    track('scroll_to_portfolio');
     var target = document.getElementById('portfolio-start');
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -8527,12 +8491,14 @@ function smoothScrollTo(id, options) {
 /* ── Recommendation Overlay ── */
 (function() {
   window.openRecOverlay = function() {
+    track('recommendations_open');
     var ov = document.getElementById('recOverlay');
     ov.classList.add('open');
     ov.scrollTop = 0;
     document.body.style.overflow = 'hidden';
   };
   window.closeRecOverlay = function() {
+    track('recommendations_close');
     document.getElementById('recOverlay').classList.remove('open');
     document.body.style.overflow = '';
   };
@@ -8770,7 +8736,7 @@ function smoothScrollTo(id, options) {
 
 </script>
 <!-- SCROLL TO TOP -->
-<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top" aria-label="Scroll to top">
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="track('scroll_to_top');window.scrollTo({top:0,behavior:'smooth'})" title="Back to top" aria-label="Scroll to top">
   <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 12V2M7 2L3 6M7 2l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
@@ -9741,11 +9707,13 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     document.getElementById('sz-panel').classList.remove('open');
   };
   window.szSetGender = function(g) {
+    track('nm_gender_switch', { gender: g });
     document.querySelectorAll('.sz-d-gtab').forEach(function(t) {
       t.classList.toggle('active', t.dataset.gender === g);
     });
   };
   window.szGoStep = function(n) {
+    track('nm_size_step', { step: n });
     if (n === 3) {
       var h = parseInt(document.getElementById('sz-h').value) || 178;
       if (h < 170) szRecIdx = 1;
@@ -10040,6 +10008,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     if (!ctaEl.classList.contains('ready')) return;
     pdpCloseDrawer();
     var count = pdpSelected.length;
+    track('pdp_add_pair', { items_count: count + 1 });
     var mainCta = document.getElementById('pdp-main-cta');
     mainCta.textContent = '\u2713 ' + (count + 1) + ' items added to cart';
     mainCta.classList.add('pdp-success');
@@ -10052,6 +10021,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     }, 2800);
   };
   window.pdpSetColor = function(el, colorName) {
+    track('pdp_color_select', { color: colorName });
     var frame = el.closest('.pdp-d-frame') || document;
     frame.querySelectorAll('.pdp-d-sw').forEach(function(s) { s.classList.remove('active'); });
     el.classList.add('active');
@@ -10073,6 +10043,8 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     el.style.opacity = '0';
   };
   window.pdpSetSize = function(el, imgSrc) {
+    var sizeLabel = el.querySelector('.pdp-d-sz-label');
+    track('pdp_size_select', { size: sizeLabel ? sizeLabel.textContent.trim() : 'unknown' });
     document.querySelectorAll('.pdp-d-sz-card').forEach(function(s) { s.classList.remove('active'); });
     el.classList.add('active');
     if (imgSrc) {
@@ -11228,7 +11200,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   function setProg(pct, live) {
     var f = el('enrich-prog');
     if (!f) return;
-    f.style.width = pct + '%';
+    f.style.transform = 'scaleX(' + (pct / 100) + ')';
     live ? f.classList.add('live') : f.classList.remove('live');
   }
   function setImg(idx) {
@@ -11394,6 +11366,14 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
 /* ── Comprehensive link & UI event tracking ── */
 document.addEventListener('DOMContentLoaded', function() {
 
+  /* Nav link clicks */
+  document.querySelectorAll('.nav-links a:not(.nav-cta), .footer-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      var label = a.textContent.trim().replace(/\s+/g, ' ');
+      track('nav_click', { label: label, href: a.getAttribute('href') });
+    });
+  });
+
   /* External product links (View live product ↗) */
   document.querySelectorAll('.ln-live-link').forEach(function(a) {
     a.addEventListener('click', function() {
@@ -11456,8 +11436,12 @@ document.addEventListener('DOMContentLoaded', function() {
   /* Section scroll tracking — fire once per section when it enters view */
   if ('IntersectionObserver' in window) {
     var sections = [
-      { id: 'about',   label: 'About' },
-      { id: 'contact', label: 'Contact' }
+      { id: 'portfolio-start', label: 'Portfolio' },
+      { id: 'experience',      label: 'Experience' },
+      { id: 'education',       label: 'Education' },
+      { id: 'capabilities',    label: 'Capabilities' },
+      { id: 'about',           label: 'About' },
+      { id: 'contact',         label: 'Contact' }
     ];
     sections.forEach(function(s) {
       var el = document.getElementById(s.id);
