@@ -5654,9 +5654,15 @@ function track(event, params) {
 .acpd-btn { width: 100%; padding: 11px; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer; transition: all 0.2s; margin-bottom: 7px; border: none; }
 .acpd-btn-out { background: #fff; color: #1a1816; border: 0.5px solid #1a1816 !important; }
 .acpd-btn-out:hover { background: #f7f5f3; }
-#acpd-start-btn { position: relative; overflow: hidden; }
-#acpd-start-btn::after { content: ''; position: absolute; top: 0; left: 0; width: 45%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent); transform: translateX(-160%) skewX(-18deg); animation: acpd-shimmer 3.8s ease-in-out 1s infinite; pointer-events: none; }
-@keyframes acpd-shimmer { 0%,72% { transform: translateX(-160%) skewX(-18deg); } 100% { transform: translateX(380%) skewX(-18deg); } }
+#acpd-start-btn { position: relative; overflow: hidden; animation: acpd-start-pulse 2s ease-in-out infinite; }
+#acpd-start-btn::after { content: ''; position: absolute; top: 0; left: 0; width: 45%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent); transform: translateX(-160%) skewX(-18deg); animation: acpd-shimmer 2.6s ease-in-out 0.4s infinite; pointer-events: none; }
+@keyframes acpd-shimmer { 0%,55% { transform: translateX(-160%) skewX(-18deg); } 100% { transform: translateX(380%) skewX(-18deg); } }
+@keyframes acpd-start-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(26,24,22,0.22); transform: scaleX(1) scaleY(1); }
+  45%      { box-shadow: 0 0 0 6px rgba(26,24,22,0.06); transform: scaleX(1.015) scaleY(1.04); }
+  70%      { box-shadow: 0 0 0 10px rgba(26,24,22,0); }
+}
+#acpd-start-btn:hover { animation-play-state: paused; }
 .acpd-btn-blk { background: #1a1816; color: #fff; }
 .acpd-btn-blk:hover { background: #2a2826; }
 .acpd-mto-note { font-family: var(--sans); font-size: 8px; color: #888; line-height: 1.6; margin-top: 2px; }
@@ -5676,6 +5682,8 @@ function track(event, params) {
 .acpd-canvas { flex: 1; display: flex; background: #ebebed; position: relative; overflow: hidden; }
 .acpd-save-btn { position: absolute; top: 12px; right: 12px; background: #1a1816; color: #fff; border: none; font-family: var(--sans); font-size: 9.5px; font-weight: 600; letter-spacing: 0.1em; padding: 7px 15px; cursor: pointer; z-index: 5; transition: background 0.2s; }
 .acpd-save-btn:hover { background: #2a2826; }
+.acpd-exit-btn { position: absolute; top: 12px; left: 12px; background: none; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7); font-family: var(--sans); font-size: 13px; line-height: 1; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 5; border-radius: 50%; transition: border-color 0.15s, color 0.15s; }
+.acpd-exit-btn:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
 .acpd-360-view { flex: 1; min-height: 300px; position: relative; cursor: grab; overflow: hidden; user-select: none; }
 .acpd-360-view:active { cursor: grabbing; }
 .acpd-360-img { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); max-height: 270px; max-width: 82%; object-fit: contain; pointer-events: none; -webkit-user-drag: none; }
@@ -8940,7 +8948,7 @@ function smoothScrollTo(id, options) {
                 <span class="acpd-tg-link">Size guide</span>
               </div>
               <button class="acpd-btn acpd-btn-out" id="acpd-start-btn" onclick="acpdOpenCfg()">START PERSONALISATION</button>
-              <button class="acpd-btn acpd-btn-blk">ADD TO CART</button>
+              <button class="acpd-btn acpd-btn-blk" onclick="track('acpd_add_to_cart', {size: document.getElementById('acpd-sz-lbl')?.textContent, color: 'Custom'})">ADD TO CART</button>
               <p class="acpd-mto-note">Personalised order. Your order includes one or more personalised items and will be delivered within a maximum of 30 working days from order confirmation.</p>
             </div>
             <!-- SAVED tab -->
@@ -8954,7 +8962,7 @@ function smoothScrollTo(id, options) {
                 <span class="acpd-tg-link">Size guide</span>
               </div>
               <button class="acpd-btn acpd-btn-out" id="acpd-modifica-btn" style="display:none" onclick="acpdOpenCfg()">EDIT</button>
-              <button class="acpd-btn acpd-btn-blk">ADD TO CART</button>
+              <button class="acpd-btn acpd-btn-blk" onclick="track('acpd_add_to_cart_saved', {color: acpdColor, material: acpdMat})">ADD TO CART</button>
               <p class="acpd-mto-note">Personalised order. Your order includes one or more personalised items and will be delivered within a maximum of 30 working days from order confirmation.</p>
             </div>
           </div>
@@ -8964,6 +8972,7 @@ function smoothScrollTo(id, options) {
         <div class="acpd-cfg" id="acpd-cfg" style="display:none">
           <!-- Active canvas: 360° viewer -->
           <div class="acpd-canvas" id="acpd-canvas">
+            <button class="acpd-exit-btn" onclick="acpdCloseCfg()" title="Exit">&#x2715;</button>
             <button class="acpd-save-btn" onclick="acpdSave()">SAVE</button>
             <div class="acpd-360-view" id="acpd-360-view">
               <img id="acpd-360-img" class="acpd-360-img" src="Images/AC Personalization/ac-pelle.jpg" alt="AC Factory sneaker">
@@ -11006,6 +11015,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   };
 
   window.acpdOpenCfg = function() {
+    track('acpd_personalisation_start');
     var pdp = document.getElementById('acpd-pdp');
     var cfg = document.getElementById('acpd-cfg');
     var stepMat = document.getElementById('acpd-step-mat');
@@ -11017,7 +11027,16 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     if (stepCol) stepCol.style.display = 'none';
   };
 
+  window.acpdCloseCfg = function() {
+    track('acpd_personalisation_exit');
+    var pdp = document.getElementById('acpd-pdp');
+    var cfg = document.getElementById('acpd-cfg');
+    if (cfg) cfg.style.display = 'none';
+    if (pdp) pdp.style.display = '';
+  };
+
   window.acpdSetMat = function(mat) {
+    track('acpd_material_select', { material: mat });
     acpdMat = mat;
     var pelle = document.getElementById('acpd-pill-pelle');
     var vernice = document.getElementById('acpd-pill-vernice');
@@ -11039,6 +11058,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
   };
 
   window.acpdNextStep = function() {
+    track('acpd_step_next', { from: 'material', material: acpdMat });
     var stepMat = document.getElementById('acpd-step-mat');
     var stepCol = document.getElementById('acpd-step-col');
     if (stepMat) stepMat.style.display = 'none';
@@ -11049,6 +11069,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     document.querySelectorAll('.acpd-csw').forEach(function(s) { s.classList.remove('active'); });
     el.classList.add('active');
     acpdColor = el.dataset.col || 'Ice';
+    track('acpd_color_select', { color: acpdColor, material: acpdMat });
     acpdShowNote();
   };
 
@@ -11084,6 +11105,7 @@ function downloadCV(fname){var a=document.createElement('a');a.href=fname||'CV (
     var drawer = document.getElementById('acpd-sz-drawer');
     if (!overlay || !drawer) return;
     var open = overlay.classList.contains('open');
+    if (!open) track('acpd_size_drawer_open');
     overlay.classList.toggle('open', !open);
     drawer.classList.toggle('open', !open);
   };
