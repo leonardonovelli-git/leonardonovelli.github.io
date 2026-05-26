@@ -6055,6 +6055,12 @@ function track(event, params) {
   .ln-live-link { font-size: 9px !important; padding: 5px 10px !important; }
 }
 
+/* 3. Case study card images: taller on mobile so products aren't cut */
+@media (max-width: 768px) {
+  .ci-img { min-height: 200px !important; }
+  .ci-img-basket { min-height: 200px !important; }
+}
+
 /* 4. Case study body: better mobile spacing */
 @media (max-width: 768px) {
   .ln-body { padding: 0 20px 40px !important; }
