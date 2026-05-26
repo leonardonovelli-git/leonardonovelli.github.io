@@ -4676,11 +4676,33 @@ function track(event, params) {
 /* ── Hero logo strip: mobile ── */
 @media (max-width: 768px) {
   .hero-with-logos {
-    gap: 16px !important;
+    gap: 10px !important;
     flex-wrap: wrap !important;
-    row-gap: 10px !important;
+    row-gap: 8px !important;
   }
   .hero-with-logos img { opacity: 0.65 !important; }
+  /* Shrink Church's + Car Shoe so Rick Owens fits on the same row */
+  .hero-with-logos img[alt="Church's"],
+  .hero-with-logos img[alt="Car Shoe"] { height: 22px !important; }
+  .hero-with-logos img[alt="Rick Owens"] { height: 17px !important; }
+}
+
+/* ── Scroll CTA: mobile ── */
+@media (max-width: 768px) {
+  .hero-scroll-cta {
+    font-size: 9px !important;
+    padding: 5px 10px !important;
+    gap: 4px !important;
+  }
+  .hero-scroll-cta svg { width: 12px !important; height: 12px !important; }
+}
+
+/* ── Marketplace basket: mobile ── */
+@media (max-width: 768px) {
+  .ci-card-marketplace .brand-basket {
+    transform: scale(0.82);
+    transform-origin: top center;
+  }
 }
 
 /* ── Contact name: mobile ── */
