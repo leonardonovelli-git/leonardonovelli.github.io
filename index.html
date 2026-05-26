@@ -6156,6 +6156,37 @@ function track(event, params) {
   .ln-gnav-btn { width: 30px !important; height: 30px !important; }
 }
 
+/* 20. Mobile-only fixes: bullets, chips, arrows, live button */
+@media (max-width: 768px) {
+  /* 6 — Timeline bullet: match desktop 8×8 size */
+  .career-timeline .tl-dot { width: 8px !important; height: 8px !important; }
+
+  /* 8 — Work stack chips: smaller font so "Google Analytics" fits on one line */
+  .spill-icon-name { font-size: 8px !important; }
+
+  /* 9 — Gallery nav arrows: force perfect circle, strip iOS button defaults */
+  .ln-gnav-btn {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 36px !important; height: 36px !important;
+    min-width: 36px !important; min-height: 36px !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 10 — View live product: more prominent on mobile */
+  .ln-live-link {
+    color: #1a1816 !important;
+    border-color: rgba(26,24,22,0.28) !important;
+    background: rgba(15,110,86,0.07) !important;
+    font-size: 10px !important;
+    padding: 7px 13px !important;
+  }
+
+  /* 7 — Contact card arrow: prevent ↗ from rendering as coloured emoji */
+  .contact-card-arr { font-variant-emoji: text; font-family: sans-serif; }
+}
+
 /* 19. Reduced-motion: disable all non-essential animations for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -6230,7 +6261,7 @@ function track(event, params) {
           <div class="contact-card-value">linkedin.com/in/novelli-leonardo</div>
           <div class="contact-card-hint">Opens in new tab</div>
         </div>
-        <div class="contact-card-arr">↗</div>
+        <div class="contact-card-arr">→</div>
       </a>
 
 
