@@ -113,7 +113,7 @@ function track(event, params) {
       "@type": "ItemList",
       "@id": "https://leonardonovelli.design/#projects",
       "name": "Selected work — Prada Group & Rick Owens",
-      "numberOfItems": 9,
+      "numberOfItems": 8,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Cross-Selling & Product Matching", "url": "https://leonardonovelli.design/#01" },
@@ -121,10 +121,9 @@ function track(event, params) {
         { "@type": "ListItem", "position": 3, "name": "AI Size Advisor", "url": "https://leonardonovelli.design/#04" },
         { "@type": "ListItem", "position": 4, "name": "Virtual Try-On for Eyewear", "url": "https://leonardonovelli.design/#05" },
         { "@type": "ListItem", "position": 5, "name": "Custom Studio", "url": "https://leonardonovelli.design/#13a" },
-        { "@type": "ListItem", "position": 6, "name": "AC Factory Studio", "url": "https://leonardonovelli.design/#13b" },
-        { "@type": "ListItem", "position": 7, "name": "Product Asset Display", "url": "https://leonardonovelli.design/#ro01" },
-        { "@type": "ListItem", "position": 8, "name": "FW24 Porterville Product Guide", "url": "https://leonardonovelli.design/#ro02" },
-        { "@type": "ListItem", "position": 9, "name": "Email Marketing Campaigns", "url": "https://leonardonovelli.design/#ro03" }
+        { "@type": "ListItem", "position": 6, "name": "Product Asset Display", "url": "https://leonardonovelli.design/#ro01" },
+        { "@type": "ListItem", "position": 7, "name": "FW24 Porterville Product Guide", "url": "https://leonardonovelli.design/#ro02" },
+        { "@type": "ListItem", "position": 8, "name": "Email Marketing Campaigns", "url": "https://leonardonovelli.design/#ro03" }
       ]
     }
   ]
@@ -7065,7 +7064,7 @@ function track(event, params) {
       <!-- ═══ PERSONALISATION ═══ -->
       <div class="pg-cat-break"><div class="pg-cat-line"></div><span class="pg-cat-label">Personalisation</span><div class="pg-cat-line"></div></div>
 
-      <div class="ci-card pg-card pg-reveal" role="button" tabindex="0" onclick="showInitiative('13a')">
+      <div class="ci-card ci-card-span2 pg-card pg-reveal" role="button" tabindex="0" onclick="showInitiative('13a')">
         <div class="ci-header"><span class="ci-title">Custom Studio</span><span class="ci-brand"><span class="brand-tag bt-miumiu">Miu Miu</span> · Personalisation</span></div>
         <div class="ci-body">
           <div class="ci-img ci-img-dual"><img decoding="async" loading="lazy" class="img-1 will-fade" src="Images/Custom Studio/custom-studio-avif.webp" width="2400" height="2400" srcset="Images/srcset/custom-studio-avif-400w.webp 400w, Images/srcset/custom-studio-avif-800w.webp 800w, Images/Custom Studio/custom-studio-avif.webp 2000w" sizes="(max-width:768px) 100vw, 120px" alt="Miu Miu Custom Studio sneaker" onerror="this.parentElement.classList.add('img-fail')"><img decoding="async" loading="lazy" class="img-2 has-src" src="Images/Custom Studio/2cq5dam.web.hE7E3DA.2000.2000.webp" srcset="Images/srcset/custom-studio-2-400w.webp 400w, Images/srcset/custom-studio-2-800w.webp 800w, Images/Custom Studio/2cq5dam.web.hE7E3DA.2000.2000.webp 2000w" sizes="(max-width:768px) 100vw, 120px" alt="Miu Miu Custom Studio alternate view"></div>
@@ -7073,20 +7072,6 @@ function track(event, params) {
             <div>
               <div class="ci-metric"><span class="ci-metric-num" style="font-size:22px">MTO</span><span class="ci-metric-unit">configurator</span></div>
               <p class="ci-desc">Takes Miu Miu's Made-to-Order service online, giving customers the ability to personalise selected pieces and complete their bespoke order without leaving the digital storefront.</p>
-            </div>
-            <div class="ci-foot"><span class="cs-tile-arr">View →</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ci-card pg-card pg-reveal" role="button" tabindex="0" onclick="showInitiative('13b')">
-        <div class="ci-header"><span class="ci-title">AC Factory Studio</span><span class="ci-brand"><span class="brand-tag bt-prada">Prada</span> · Personalisation</span></div>
-        <div class="ci-body">
-          <div class="ci-img ci-img-dual"><img decoding="async" loading="lazy" class="img-1 will-fade" src="Images/AC Personalization/ac-crop-1.webp" width="2000" height="2000" srcset="Images/srcset/ac-crop-1-400w.webp 400w, Images/srcset/ac-crop-1-800w.webp 800w, Images/AC Personalization/ac-crop-1.webp 2000w" sizes="(max-width:768px) 100vw, 120px" alt="Prada AC Factory sneaker" onerror="this.parentElement.classList.add('img-fail')"><img decoding="async" loading="lazy" class="img-2 has-src" src="Images/AC Personalization/ac-crop-2.webp" width="2000" height="2000" srcset="Images/srcset/ac-crop-2-400w.webp 400w, Images/srcset/ac-crop-2-800w.webp 800w, Images/AC Personalization/ac-crop-2.webp 2000w" sizes="(max-width:768px) 100vw, 120px" alt="Prada AC Factory alternate view"><div class="ci-img-fallback">IMAGE</div></div>
-          <div class="ci-info">
-            <div>
-              <div class="ci-metric"><span class="ci-metric-num" style="font-size:22px">MTO</span><span class="ci-metric-unit">configurator</span></div>
-              <p class="ci-desc">A product-building configurator for Prada's AC Factory sneaker line — shoppers mix and match colour, material and hardware combinations to create their version of the shoe before purchase.</p>
             </div>
             <div class="ci-foot"><span class="cs-tile-arr">View →</span></div>
           </div>
@@ -7621,14 +7606,13 @@ function track(event, params) {
 
 <script>
   // Initiative navigation order
-  const initiativeOrder = ['01','02','04','05','13a','13b','ro01','ro02','ro03'];
+  const initiativeOrder = ['01','02','04','05','13a','ro01','ro02','ro03'];
   const initiativeNames = {
     '01': 'Cross-Selling & Product Matching',
     '02': 'Notify Me',
     '04': 'AI Size Advisor',
     '05': 'Virtual Try-On for Eyewear',
     '13a': 'Custom Studio',
-    '13b': 'AC Factory Studio',
     'ro01': 'Product Asset Display',
     'ro02': 'FW24 Porterville Product Guide',
     'ro03': 'Email Marketing Campaigns'
@@ -9318,13 +9302,6 @@ function smoothScrollTo(id, options) {
     setImage(customImgs[1], 'Images/Custom Studio/2cq5dam.web.hE7E3DA.2000.2000.jpg', 'Miu Miu Custom Studio alternate view');
   }
 
-  var acCard = document.querySelector('[onclick*="13b"] .ci-img-dual');
-  if (acCard) {
-    var acImgs = acCard.querySelectorAll('img');
-    setImage(acImgs[0], 'Images/AC Personalization/ac-crop-2.jpg', 'Prada AC Factory sneaker');
-    setImage(acImgs[1], 'Images/AC Personalization/ac-crop-1.jpg', 'Prada AC Factory alternate view');
-  }
-
   var customTrack = document.getElementById('gtrack-13a');
   if (customTrack) {
     var customSlides = customTrack.querySelectorAll(':scope > .ln-slide img');
@@ -9349,15 +9326,6 @@ function smoothScrollTo(id, options) {
     if (measCtr) measCtr.textContent = '1 / 3';
   }
 
-  var acTrack = document.getElementById('gtrack-13b');
-  if (acTrack) {
-    var acSlides = acTrack.querySelectorAll(':scope > .ln-slide img');
-    setImage(acSlides[0], 'Images/AC Personalization/ac-crop-2.jpg', 'Prada AC Factory configurator');
-    setImage(acSlides[1], 'Images/AC Personalization/ac-crop-1.jpg', 'Prada AC Factory personalisation');
-    ensureSlide(acTrack, 'https://www.prada.com/it/it/p/sneakers-prada-americas-cup-stringate/PS906_3LK7_F02ZT', 'Images/AC Personalization/ac-crop-3.jpg', 'Prada AC Factory alternate view');
-    var ctr = document.getElementById('gctr-13b');
-    if (ctr) ctr.textContent = '1 / 3';
-  }
   }
 
   function injectDemoBadges() {
@@ -9489,7 +9457,7 @@ function smoothScrollTo(id, options) {
 
       // Shift + arrows → prev/next case study
       if (e.shiftKey) {
-        var order = ['01','02','04','05','13a','13b','ro01','ro02','ro03'];
+        var order = ['01','02','04','05','13a','ro01','ro02','ro03'];
         var idx = order.indexOf(pageId);
         if (idx < 0) return;
         var newIdx = isLeft ? idx - 1 : idx + 1;
@@ -9745,160 +9713,6 @@ function smoothScrollTo(id, options) {
       </div>
     </div>
     </div>
-  </div>
-</div>
-<div class="ln-page" id="ln-13b" style="display:none">
-  <nav class="ln-nav">
-    <a class="ln-back" href="/#projects" onclick="showPortfolio();return false;" aria-label="Back to portfolio projects list">← Portfolio</a>
-    <span class="ln-nav-id">Leonardo Novelli</span>
-  </nav>
-  <div class="ln-hero">
-    <div class="ln-hero-img"><div class="ln-gallery-wrap" id="gallery-13b"><div class="ln-gallery-track" id="gtrack-13b"><div class="ln-slide ln-slide-1"><a href="https://www.prada.com/it/it/p/sneakers-prada-americas-cup-stringate/PS906_3LK7_F02ZT" target="_blank" rel="noopener"><img decoding="async" loading="eager" src="Images/AC Personalization/ac-crop-2.webp" width="2000" height="2000" srcset="Images/srcset/ac-crop-2-400w.webp 400w, Images/srcset/ac-crop-2-800w.webp 800w, Images/AC Personalization/ac-crop-2.webp 2000w" sizes="(max-width:768px) 100vw, 50vw" alt="Prada AC Factory personalisation" onerror="this.parentNode.parentNode.style.background='var(--bg3)'"></a><div class="hero-badge">Open on site ↗</div></div><div class="ln-slide ln-slide-2"><img decoding="async" loading="eager" src="Images/AC Personalization/ac-crop-1.webp" width="2000" height="2000" srcset="Images/srcset/ac-crop-1-400w.webp 400w, Images/srcset/ac-crop-1-800w.webp 800w, Images/AC Personalization/ac-crop-1.webp 2000w" sizes="(max-width:768px) 100vw, 50vw" alt="Prada AC Factory configurator" style="width:100%;height:100%;object-fit:cover;display:block"></div></div><div class="ln-gallery-nav" id="gnav-13b">
-    <button type="button" class="ln-gnav-btn ln-gnav-prev" aria-label="Previous image" id="gprev-13b" onclick="galleryGo('13b',-1)" disabled>&#8592;</button>
-    <span class="ln-gallery-counter" id="gctr-13b">1 / 2</span>
-    <button type="button" class="ln-gnav-btn ln-gnav-next" aria-label="Next image" id="gnext-13b" onclick="galleryGo('13b',1)">&#8594;</button>
-  </div></div></div>
-    <div class="ln-hero-info">
-      <div>
-        <div class="ln-eyebrow"><span class="ln-eyebrow-num">13b</span>Prada · Personalisation</div>
-        <div class="ln-title">AC Factory Studio</div>
-        <div class="ln-brand">Akeneo · MTO workflow</div>
-        <div class="ln-tags"><span class="ln-tag">Configurator</span><span class="ln-tag">Personalisation schema</span><span class="ln-tag">Production handoff</span></div>
-      </div>
-      <div><a class="ln-live-link" href="https://www.prada.com/it/it/p/sneakers-prada-americas-cup-stringate/PS906_3LK7_F02ZT" target="_blank" rel="noopener"><span class="ln-live-dot"></span>View live product ↗</a></div>
-    </div>
-  </div>
-  <div class="ln-body">
-    <div class="ln-section"><div class="ln-section-label">What it does</div><div class="ln-prose">Prada's Made-to-Order experience brought online — customers choose material, colour and monogram directly on the product page, creating a personalised piece produced and fulfilled as a unique made-to-order item.</div></div>
-
-    <div class="ln-section ln-section-tryon">
-      <div class="ln-section-label ln-try-trigger" onclick="toggleTryIt(this)" role="button" aria-expanded="false" tabindex="0">Try it <span class="ln-try-badge">Demo</span><span class="ln-try-chevron"><svg aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-      <div class="ln-try-drawer">
-      <div class="acpd-wrap" id="acpd-wrap">
-
-        <!-- ── VIEW 1: PDP ── -->
-        <div class="acpd-pdp" id="acpd-pdp">
-          <div class="acpd-img-col">
-            <img loading="lazy" decoding="async" src="Images/AC Personalization/ac-crop-2.webp" width="2000" height="2000" alt="AC Factory sneaker">
-          </div>
-          <div class="acpd-info-col">
-            <div class="acpd-eyebrow">Personalise with AC Factory</div>
-            <div class="acpd-name">Prada America's Cup Lace-Up Sneakers</div>
-            <div class="acpd-price">€ 880</div>
-            <div class="acpd-tabs">
-              <div class="acpd-tab active" id="acpd-tab-base" onclick="acpdSetTab('base')">BASE MODEL</div>
-              <div class="acpd-tab" id="acpd-tab-saved" onclick="acpdSetTab('saved')">MY PERSONALISATIONS</div>
-            </div>
-            <!-- BASE tab -->
-            <div id="acpd-base-cnt">
-              <div class="acpd-color-row"><span class="acpd-attr-lbl">Colour</span><span class="acpd-attr-val" id="acpd-color-val">Custom</span></div>
-              <div class="acpd-sz-row">
-                <div class="acpd-sz-sel" onclick="acpdToggleSizes()"><span id="acpd-sz-lbl">Size: 9</span><span class="acpd-caret">&#8964;</span></div>
-                <span class="acpd-tg-link">Size guide</span>
-              </div>
-              <button type="button" class="acpd-btn acpd-btn-out" id="acpd-start-btn" onclick="acpdOpenCfg()">START PERSONALISATION</button>
-              <button type="button" class="acpd-btn acpd-btn-blk" onclick="track('acpd_add_to_cart', {size: document.getElementById('acpd-sz-lbl')?.textContent, color: 'Custom'})">ADD TO CART</button>
-              <p class="acpd-mto-note">Personalised order. Your order includes one or more personalised items and will be delivered within a maximum of 30 working days from order confirmation.</p>
-            </div>
-            <!-- SAVED tab -->
-            <div id="acpd-saved-cnt" style="display:none">
-              <p class="acpd-saved-note">This shoe follows a dedicated sizing system. Consult the size guide to find your size.</p>
-              <div class="acpd-thumbs" id="acpd-thumbs-row">
-                <div class="acpd-thumb-add" onclick="acpdOpenCfg()">+</div>
-              </div>
-              <div class="acpd-sz-row">
-                <div class="acpd-sz-sel"><span>Size: 9</span><span class="acpd-caret">&#8964;</span></div>
-                <span class="acpd-tg-link">Size guide</span>
-              </div>
-              <button type="button" class="acpd-btn acpd-btn-out" id="acpd-modifica-btn" style="display:none" onclick="acpdOpenCfg()">EDIT</button>
-              <button type="button" class="acpd-btn acpd-btn-blk" onclick="track('acpd_add_to_cart_saved', {color: acpdColor, material: acpdMat, monogram: acpdMono, thread: acpdThread})">ADD TO CART</button>
-              <p class="acpd-mto-note">Personalised order. Your order includes one or more personalised items and will be delivered within a maximum of 30 working days from order confirmation.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── VIEW 2: CONFIGURATOR ── -->
-        <div class="acpd-cfg" id="acpd-cfg" style="display:none">
-          <!-- Active canvas: 360° viewer -->
-          <div class="acpd-canvas" id="acpd-canvas">
-            <button type="button" class="acpd-exit-btn" onclick="acpdCloseCfg()" title="Exit">&#x2715;</button>
-            <button type="button" class="acpd-save-btn" onclick="acpdSave()">SAVE</button>
-            <div class="acpd-360-view" id="acpd-360-view">
-              <img loading="lazy" decoding="async" id="acpd-360-img" class="acpd-360-img" src="Images/AC Personalization/ac-pelle.webp" width="2000" height="2000" alt="AC Factory sneaker">
-              <div class="acpd-asset-note" id="acpd-asset-note">Visual asset not available for this option</div>
-              <div class="acpd-360-hint" id="acpd-360-hint">
-                <svg aria-hidden="true" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.5"><line x1="1" y1="5" x2="27" y2="5" stroke="rgba(26,24,22,0.55)" stroke-width="1.2" stroke-linecap="round"/><polyline points="5,1 1,5 5,9" stroke="rgba(26,24,22,0.55)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/><polyline points="23,1 27,5 23,9" stroke="rgba(26,24,22,0.55)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/></svg>
-                <span>drag to view</span>
-              </div>
-              <div class="acpd-360-dots" id="acpd-360-dots" aria-hidden="true">
-                <span class="acpd-360-dot active"></span><span class="acpd-360-dot"></span><span class="acpd-360-dot"></span><span class="acpd-360-dot"></span>
-              </div>
-              <div class="acpd-mono-overlay" id="acpd-mono-overlay" aria-hidden="true"></div>
-            </div>
-          </div>
-          <!-- Options bar -->
-          <div class="acpd-bar">
-            <div class="acpd-bar-step" id="acpd-step-mat">
-              <div class="acpd-bar-lbl">Choose material</div>
-              <div class="acpd-bar-opts">
-                <button type="button" class="acpd-pill active" id="acpd-pill-pelle" onclick="acpdSetMat('pelle')">Leather</button>
-                <button type="button" class="acpd-pill" id="acpd-pill-vernice" onclick="acpdSetMat('vernice')">Patent Leather</button>
-                <button type="button" class="acpd-arr-btn" onclick="acpdNextStep()" aria-label="Next step">&#8594;</button>
-              </div>
-            </div>
-            <div class="acpd-bar-step" id="acpd-step-col" style="display:none">
-              <div class="acpd-bar-lbl">Choose colour</div>
-              <div class="acpd-bar-opts">
-                <div class="acpd-csw active" style="background:#c0bcb8" data-col="Ice" onclick="acpdSetColor(this)" title="Ice" role="button" tabindex="0" aria-label="Ice"></div>
-                <div class="acpd-csw" style="background:#1a1816" data-col="Black" onclick="acpdSetColor(this)" title="Black" role="button" tabindex="0" aria-label="Black"></div>
-                <div class="acpd-csw" style="background:#8b2020" data-col="Red" onclick="acpdSetColor(this)" title="Red" role="button" tabindex="0" aria-label="Red"></div>
-                <div class="acpd-csw" style="background:#1e3a5c" data-col="Navy Blue" onclick="acpdSetColor(this)" title="Navy Blue" role="button" tabindex="0" aria-label="Navy Blue"></div>
-                <button type="button" class="acpd-arr-btn" onclick="acpdStepToMono()" aria-label="Next: add monogram">&#8594;</button>
-              </div>
-            </div>
-            <div class="acpd-bar-step" id="acpd-step-mon" style="display:none">
-              <div class="acpd-bar-lbl">Add monogram <span class="acpd-optional">(optional)</span></div>
-              <div class="acpd-bar-opts">
-                <input type="text" class="acpd-mono-input" id="acpd-mono-input" maxlength="3" placeholder="INI" aria-label="Monogram initials, up to 3 characters" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text">
-                <div class="acpd-thread-sw active" style="background:#1a1816" data-thread="black" onclick="acpdSetThread(this)" title="Black thread" role="button" tabindex="0" aria-label="Black thread"></div>
-                <div class="acpd-thread-sw" style="background:#efe6d6" data-thread="ivory" onclick="acpdSetThread(this)" title="Ivory thread" role="button" tabindex="0" aria-label="Ivory thread"></div>
-                <div class="acpd-thread-sw" style="background:#b58b2e" data-thread="gold" onclick="acpdSetThread(this)" title="Gold thread" role="button" tabindex="0" aria-label="Gold thread"></div>
-                <button type="button" class="acpd-arr-btn" onclick="acpdSave()" aria-label="Confirm and save">&#10003;</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Size drawer -->
-        <div class="acpd-sz-overlay" id="acpd-sz-overlay" onclick="acpdToggleSizes()"></div>
-        <div class="acpd-sz-drawer" id="acpd-sz-drawer">
-          <div class="acpd-sz-head">
-            <span>Select size (UK)</span>
-            <button type="button" onclick="acpdToggleSizes()">&#x2715;</button>
-          </div>
-          <div class="acpd-sz-grid">
-            <div class="acpd-sz-opt" onclick="acpdPickSize(this,'6')">6</div>
-            <div class="acpd-sz-opt" onclick="acpdPickSize(this,'7')">7</div>
-            <div class="acpd-sz-opt" onclick="acpdPickSize(this,'8')">8</div>
-            <div class="acpd-sz-opt active" onclick="acpdPickSize(this,'9')">9</div>
-            <div class="acpd-sz-opt" onclick="acpdPickSize(this,'10')">10</div>
-            <div class="acpd-sz-opt" onclick="acpdPickSize(this,'11')">11</div>
-          </div>
-        </div>
-
-      </div>
-      </div>
-    </div>
-
-    <div class="ln-section">
-      <div class="ln-section-label">Deep dive</div>
-      <div class="ln-three-col">
-        <div class="ln-col"><div class="ln-col-label">Approach</div><div class="ln-col-text">Material, colour and monogram options are defined per product and season in Akeneo (PIM). Customers select each option directly on the product page, with the configurator filtering out anything that cannot be produced. The result is a confirmed, production-ready order placed without leaving the site.</div></div>
-        <div class="ln-col"><div class="ln-col-label">Stack</div><div class="ln-col-text">PIM structures the eligibility matrix across materials, colours and monogram combinations at SKU level. The e-commerce platform renders the configurator and processes each personalised order into the fulfilment pipeline. A dedicated operations process covers quality sign-off and production coordination at each stage through to delivery.</div></div>
-        <div class="ln-col"><div class="ln-col-label">Impact</div><div class="ln-col-text">Prada's artisan personalisation service is now available online, accessible to a global audience without a store visit. Every configuration placed through the PIM maps directly to a production-ready order. The quality standard and craft integrity of the service remain unchanged.</div></div>
-      </div>
-    </div>
-
   </div>
 </div>
 <div class="ln-page" id="ln-04" style="display:none">
