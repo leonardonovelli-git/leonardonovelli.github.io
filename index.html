@@ -2751,6 +2751,37 @@ function track(event, params) {
     background: var(--bg2); min-height: 136px;
   }
   .ci-body-flat { grid-template-columns: 1fr; }
+  .ci-body-hl { grid-template-columns: 168px 1fr 240px; }
+  .ci-highlights {
+    padding: 16px 22px;
+    background: var(--bg);
+    border-left: 0.5px solid var(--border);
+    display: flex; flex-direction: column; gap: 16px;
+    justify-content: center;
+  }
+  .ci-hl-item { display: flex; flex-direction: column; gap: 4px; }
+  .ci-hl-key {
+    font-family: var(--mono); font-size: 8.5px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text3);
+  }
+  .ci-hl-val {
+    font-size: 12.5px; font-weight: 400;
+    color: var(--text); line-height: 1.35;
+  }
+  @media (max-width: 900px) {
+    .ci-body-hl { grid-template-columns: 168px 1fr; }
+    .ci-highlights {
+      grid-column: 1 / -1;
+      border-left: none;
+      border-top: 0.5px solid var(--border);
+      flex-direction: row; flex-wrap: wrap; gap: 16px 26px;
+      padding: 14px 20px;
+    }
+  }
+  @media (max-width: 560px) {
+    .ci-body-hl { grid-template-columns: 1fr; }
+  }
   .ci-img {
     position: relative; overflow: hidden;
     background: var(--bg3); cursor: pointer;
@@ -7066,7 +7097,7 @@ function track(event, params) {
 
       <div class="ci-card ci-card-span2 pg-card pg-reveal" role="button" tabindex="0" onclick="showInitiative('13a')">
         <div class="ci-header"><span class="ci-title">Custom Studio</span><span class="ci-brand"><span class="brand-tag bt-miumiu">Miu Miu</span> · Personalisation</span></div>
-        <div class="ci-body">
+        <div class="ci-body ci-body-hl">
           <div class="ci-img ci-img-dual"><img decoding="async" loading="lazy" class="img-1 will-fade" src="Images/Custom Studio/custom-studio-avif.webp" width="2400" height="2400" srcset="Images/srcset/custom-studio-avif-400w.webp 400w, Images/srcset/custom-studio-avif-800w.webp 800w, Images/Custom Studio/custom-studio-avif.webp 2000w" sizes="(max-width:768px) 100vw, 120px" alt="Miu Miu Custom Studio sneaker" onerror="this.parentElement.classList.add('img-fail')"><img decoding="async" loading="lazy" class="img-2 has-src" src="Images/Custom Studio/2cq5dam.web.hE7E3DA.2000.2000.webp" srcset="Images/srcset/custom-studio-2-400w.webp 400w, Images/srcset/custom-studio-2-800w.webp 800w, Images/Custom Studio/2cq5dam.web.hE7E3DA.2000.2000.webp 2000w" sizes="(max-width:768px) 100vw, 120px" alt="Miu Miu Custom Studio alternate view"></div>
           <div class="ci-info">
             <div>
@@ -7075,6 +7106,20 @@ function track(event, params) {
             </div>
             <div class="ci-foot"><span class="cs-tile-arr">View →</span></div>
           </div>
+          <aside class="ci-highlights" aria-label="What can be personalised">
+            <div class="ci-hl-item">
+              <div class="ci-hl-key">Trick</div>
+              <div class="ci-hl-val">Flowers · Pom-pon</div>
+            </div>
+            <div class="ci-hl-item">
+              <div class="ci-hl-key">Pins</div>
+              <div class="ci-hl-val">Metal · Leather</div>
+            </div>
+            <div class="ci-hl-item">
+              <div class="ci-hl-key">L / R shoe</div>
+              <div class="ci-hl-val">Independent config</div>
+            </div>
+          </aside>
         </div>
       </div>
 
