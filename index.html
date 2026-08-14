@@ -167,6 +167,22 @@ function track(event, params) {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   /* iOS/Android: subtle brand-matching tap highlight instead of default blue */
   a, button, [role="button"], [tabindex] { -webkit-tap-highlight-color: rgba(240,194,16,0.18); }
+  /* Suppress Safari's native image interaction toolbar (zoom/download/etc.) on hero + gallery images.
+     Images stay visible; parent <a>/[onclick] still gets the click. */
+  .ln-hero-img img,
+  .ln-slide img,
+  .ci-img img,
+  .pdp-d-img-col img,
+  .vto-d-img-col img,
+  .cstd-pdp-imgcol img,
+  .acpd-img-col img,
+  .em-slot-body img {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+  }
 
   html { scroll-behavior: auto; overscroll-behavior-y: none; }
   /* iPhone notch: keep fixed edges clear of safe-area */
@@ -3482,8 +3498,10 @@ function track(event, params) {
   }
   /* Email campaign landing — use a dedicated full-width layout */
   #ln-ro03 .ln-hero {
+    display: block !important;
     grid-template-columns: 1fr;
     min-height: 0;
+    width: 100%;
   }
   #ln-ro03 .ln-hero-img {
     position: relative !important;
@@ -3491,10 +3509,12 @@ function track(event, params) {
     max-height: none !important;
     align-self: stretch !important;
     min-height: 0 !important;
+    width: 100% !important;
     padding: 1rem !important;
     gap: 10px !important;
     background: #151311 !important;
     aspect-ratio: 1.9 / 1;
+    box-sizing: border-box;
   }
   #ln-ro03 .ln-hero-img > a {
     display: flex !important;
@@ -3912,8 +3932,7 @@ function track(event, params) {
   .ln-back{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color: var(--text);text-decoration:none;padding:5px 10px;border-radius:4px;border:0.5px solid var(--border2);transition:color 0.15s,border-color 0.15s;cursor:pointer;}
   .ln-back:hover{color:var(--text2);border-color:var(--text3);}
   .ln-nav-id{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;color:var(--text3);}
-  .ln-demo-badge{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);padding:4px 9px;border:0.5px solid var(--border2);border-radius:3px;cursor:help;display:inline-flex;align-items:center;gap:6px;opacity:0.85;transition:opacity 0.2s;}
-  .ln-demo-badge:hover{opacity:1;}
+  .ln-demo-badge{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);padding:4px 9px;border:0.5px solid var(--border2);border-radius:3px;cursor:default;display:inline-flex;align-items:center;gap:6px;opacity:0.85;}
   .ln-demo-badge::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--text3);}
   .ln-hero{display:grid;grid-template-columns:45% 1fr;min-height:520px;border-bottom:0.5px solid var(--border);}
   .ln-hero-img{position:relative;overflow:hidden;background:var(--bg3);display:flex;flex-direction:column;}
@@ -6058,7 +6077,7 @@ function track(event, params) {
 .sz-d-cta-btn:hover { background: #2a2826; }
 .sz-d-cta-btn.sz-success { background: var(--teal) !important; }
 .sz-d-text-links { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
-.sz-d-text-link { font-family: var(--sans); font-size: 9.5px; color: #1a1816; text-decoration: underline; cursor: pointer; text-underline-offset: 2px; text-decoration-color: rgba(26,24,22,0.35); }
+.sz-d-text-link { font-family: var(--sans); font-size: 9.5px; color: #1a1816; text-decoration: underline; cursor: default; text-underline-offset: 2px; text-decoration-color: rgba(26,24,22,0.35); }
 /* Overlay */
 .sz-demo-overlay { display: none; position: absolute; top: 0; left: 0; bottom: 0; width: 42%; background: rgba(20,18,16,0.52); z-index: 10; cursor: pointer; }
 .sz-demo-overlay.open { display: block; }
@@ -6271,10 +6290,9 @@ function track(event, params) {
 .vto-d-swatches { display: flex; gap: 7px; margin-bottom: 16px; flex-wrap: wrap; }
 .vto-d-sw { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 1.5px solid transparent; transition: all 0.15s; }
 .vto-d-sw.active { outline: 1.5px solid #1a1816; outline-offset: 2px; }
-.vto-d-cta-btn { padding: 14px; background: #1a1816; color: #fff; border: none; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; transition: background 0.2s; width: 100%; text-align: center; margin-top: auto; }
-.vto-d-cta-btn:hover { background: #2a2826; }
+.vto-d-cta-btn { padding: 14px; background: #1a1816; color: #fff; border: none; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: default; transition: none; width: 100%; text-align: center; margin-top: auto; }
 .vto-d-text-links { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
-.vto-d-text-link { font-family: var(--sans); font-size: 9.5px; color: #1a1816; text-decoration: underline; cursor: pointer; text-underline-offset: 2px; text-decoration-color: rgba(26,24,22,0.35); }
+.vto-d-text-link { font-family: var(--sans); font-size: 9.5px; color: #1a1816; text-decoration: underline; cursor: default; text-underline-offset: 2px; text-decoration-color: rgba(26,24,22,0.35); }
 /* VTO modal overlay */
 .vto-modal-overlay { display: none; position: absolute; inset: 0; background: rgba(10,8,6,0.62); z-index: 20; cursor: pointer; }
 .vto-modal-overlay.open { display: block; }
@@ -9382,8 +9400,7 @@ function smoothScrollTo(id, options) {
       var b = document.createElement('span');
       b.className = 'ln-demo-badge';
       b.textContent = 'Portfolio prototype';
-      b.title = 'This page is part of a personal UX portfolio. Interactive elements are demonstrations of the work, not live e-commerce pages.';
-      b.setAttribute('aria-label', b.title);
+      b.setAttribute('aria-label', 'This page is part of a personal UX portfolio');
       var navId = nav.querySelector('.ln-nav-id');
       if (navId) nav.insertBefore(b, navId);
       else nav.appendChild(b);
