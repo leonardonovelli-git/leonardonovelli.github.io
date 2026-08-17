@@ -483,26 +483,29 @@ function track(event, params) {
     padding: 0.08em 0.22em;
     margin: -0.08em -0.22em;
   }
-  /* Italic line needs extra room for the "N" swash (bottom-left descender) */
+  /* Italic line: swash of "N" extends below baseline and to the left.
+     Remove overflow-hidden and use fade-up animation instead of clip-reveal
+     so the swash is never clipped, at any stage of the animation. */
   .op-name-line-2 {
     font-style: italic;
     font-weight: 500;
-    padding: 0.10em 0.40em 0.28em 0.40em;
-    margin: -0.10em -0.40em -0.28em -0.40em;
+    overflow: visible;
+    padding: 0.10em 0.55em 0.45em 0.55em;
+    margin: -0.10em -0.55em -0.45em -0.55em;
   }
   .op-ch { display: inline-block; opacity: 0; }
   .op-name-line-1 .op-ch {
     animation: opCharUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   .op-name-line-2 .op-ch {
-    animation: opClipUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: opFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   @keyframes opCharUp {
     from { opacity: 0; transform: translateY(0.6em) rotate(3deg); }
     to   { opacity: 1; transform: translateY(0) rotate(0); }
   }
-  @keyframes opClipUp {
-    from { opacity: 0; transform: translateY(105%); }
+  @keyframes opFadeUp {
+    from { opacity: 0; transform: translateY(0.25em); }
     to   { opacity: 1; transform: translateY(0); }
   }
   @keyframes opDrawRule {
