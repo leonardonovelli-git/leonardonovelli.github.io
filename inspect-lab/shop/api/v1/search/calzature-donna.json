@@ -1,0 +1,277 @@
+{
+  "query": {
+    "category": "calzature-donna",
+    "sort": "newest",
+    "page": 1,
+    "pageSize": 9
+  },
+  "total": 23,
+  "pages": 3,
+  "facets": {
+    "material": [
+      {
+        "code": "CA01",
+        "count": 11
+      },
+      {
+        "code": "CA02",
+        "count": 5
+      },
+      {
+        "code": "CA03",
+        "count": 3
+      },
+      {
+        "code": "SUEDE02",
+        "count": 4
+      }
+    ],
+    "category2": [
+      {
+        "value": "Décolleté",
+        "count": 2
+      },
+      {
+        "value": "Mocassini",
+        "count": 1
+      },
+      {
+        "value": "Stivaletti",
+        "count": 1
+      },
+      {
+        "value": "Sneaker",
+        "count": 1
+      },
+      {
+        "value": "Ballerine",
+        "count": 1
+      },
+      {
+        "value": "Sandali",
+        "count": 1
+      },
+      {
+        "value": "Stivali",
+        "count": 1
+      },
+      {
+        "value": "Mules",
+        "count": 1
+      }
+    ]
+  },
+  "hits": [
+    {
+      "id": "VL2041",
+      "name": "Décolleté Aurora",
+      "url": "/inspect-lab/shop/p/decollete-aurora-vl2041/",
+      "category2": "Décolleté",
+      "online": true,
+      "position": 1,
+      "color_code": "N001",
+      "material_code": "CA01",
+      "price": {
+        "value": 950,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2041-N001.svg",
+          "alt": "Décolleté Aurora in pelle di vitello nera, vista laterale",
+          "type": "side"
+        }
+      ],
+      "badges": []
+    },
+    {
+      "id": "VL2188",
+      "name": "Mocassino Brera",
+      "url": "/inspect-lab/shop/p/mocassino-brera-vl2188/",
+      "category2": "Mocassini",
+      "online": true,
+      "position": 2,
+      "color_code": "R022",
+      "material_code": "CA01",
+      "price": {
+        "value": 790,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2188-R022.svg",
+          "alt": "Mocassino Brera bordeaux con mascherina, vista laterale",
+          "type": "side"
+        }
+      ],
+      "badges": [
+        {
+          "type": "limited",
+          "label": "Edizione limitata"
+        }
+      ]
+    },
+    {
+      "id": "VL2210",
+      "name": "Stivaletto Navigli",
+      "url": "/inspect-lab/shop/p/stivaletto-navigli-vl2210/",
+      "category2": "Stivaletti",
+      "online": true,
+      "position": 3,
+      "color_code": "M031",
+      "material_code": "SUEDE02",
+      "price": {
+        "value": 1090,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2210-M031.svg",
+          "alt": "Stivaletto Navigli in camoscio testa di moro, vista laterale",
+          "type": "side"
+        }
+      ],
+      "badges": []
+    },
+    {
+      "id": "VL2275",
+      "name": "Sneaker Lumen",
+      "url": "/inspect-lab/shop/p/sneaker-lumen-vl2275/",
+      "category2": "Sneaker",
+      "online": true,
+      "position": 4,
+      "color_code": "W001",
+      "material_code": "CA02",
+      "price": {
+        "value": 690,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2275-W001.svg",
+          "alt": "",
+          "type": "side"
+        }
+      ],
+      "badges": []
+    },
+    {
+      "id": "VL2302",
+      "name": "Slingback Riva",
+      "url": "/inspect-lab/shop/p/slingback-riva-vl2302/",
+      "category2": "Décolleté",
+      "online": true,
+      "position": 5,
+      "color_code": "W010",
+      "material_code": "CA03",
+      "price": {
+        "value": 880,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2302-W01O.svg",
+          "alt": "Slingback Riva in vernice avorio, vista laterale",
+          "type": "side"
+        }
+      ],
+      "badges": []
+    },
+    {
+      "id": "VL2319",
+      "name": "Ballerina Duomo",
+      "url": "/inspect-lab/shop/p/ballerina-duomo-vl2319/",
+      "category2": "Ballerine",
+      "online": true,
+      "position": 6,
+      "color_code": "N001",
+      "material_code": "CA02",
+      "price": {
+        "value": 620,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2319-N001.svg",
+          "alt": "Ballerina Duomo in nappa nera con fiocco, vista laterale",
+          "type": "side"
+        }
+      ],
+      "badges": []
+    },
+    {
+      "id": "VL3307",
+      "name": "Sandalo Capri",
+      "url": "/inspect-lab/shop/p/sandalo-capri-vl3307/",
+      "category2": "Sandali",
+      "online": true,
+      "position": 7,
+      "color_code": "O007",
+      "material_code": "CA01",
+      "price": {
+        "value": 680,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [],
+      "badges": []
+    },
+    {
+      "id": "VL2350",
+      "name": "Stivale Ticino",
+      "url": "/inspect-lab/shop/p/stivale-ticino-vl2350/",
+      "category2": "Stivali",
+      "online": true,
+      "position": 8,
+      "color_code": "N001",
+      "material_code": "CA01",
+      "price": {
+        "value": 1450,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2350-N001.svg",
+          "alt": "Stivale Ticino in pelle nera al ginocchio, vista laterale",
+          "type": "side"
+        }
+      ],
+      "badges": []
+    },
+    {
+      "id": "VL2366",
+      "name": "Mule Sempione",
+      "url": "/inspect-lab/shop/p/mule-sempione-vl2366/",
+      "category2": "Mules",
+      "online": true,
+      "position": 9,
+      "color_code": "G020",
+      "material_code": "SUEDE02",
+      "price": {
+        "value": 720,
+        "currency": "EUR",
+        "indexed_at": "2026-10-02T03:00:00Z"
+      },
+      "images": [
+        {
+          "src": "/inspect-lab/shop/media/VL2366-G020.svg",
+          "alt": "Mule Sempione in camoscio salvia, vista laterale",
+          "type": "side"
+        }
+      ],
+      "badges": [
+        {
+          "type": "new",
+          "label": "Novità"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Ballerina Duomo Nero">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe8"/><stop offset="1" stop-color="#e8e1d6"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g transform="translate(0 -22)">
+  <ellipse cx="204" cy="330" rx="170" ry="10" fill="#000" opacity=".07"/>
+  
+    <path d="M46 302 L356 302 L356 310 C356 314 352 316 348 316 L60 316 C50 316 46 312 46 308 Z" fill="#0c0b0b"/>
+    <path d="M44 300 C42 282 66 270 110 266 C150 262 200 262 240 258 L320 252 C346 250 356 266 356 284 L356 300 C356 306 350 310 342 310 L56 310 C48 310 44 306 44 300 Z" fill="#1f1c1b"/>
+    <path d="M150 266 C200 262 260 258 322 252 C300 264 220 272 150 266 Z" fill="#474544"/>
+    <ellipse cx="128" cy="262" rx="16" ry="9" fill="#575554"/><ellipse cx="160" cy="262" rx="16" ry="9" fill="#575554"/><circle cx="144" cy="263" r="6" fill="#1f1c1b"/>
+  </g>
+</svg>

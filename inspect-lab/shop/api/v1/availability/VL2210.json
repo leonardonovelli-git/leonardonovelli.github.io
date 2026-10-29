@@ -1,0 +1,56 @@
+{
+  "pid": "VL2210",
+  "warehouse": "EU-MXP-01",
+  "updated_at": "2026-10-29T07:58:12Z",
+  "items": [
+    {
+      "sku": "VL2210-SUEDE02-M031-35",
+      "color_code": "M031",
+      "size": "35",
+      "qty": 0,
+      "status": "OUT_OF_STOCK"
+    },
+    {
+      "sku": "VL2210-SUEDE02-M031-36",
+      "color_code": "M031",
+      "size": "36",
+      "qty": 3,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2210-SUEDE02-M031-37",
+      "color_code": "M031",
+      "size": "37",
+      "qty": 6,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2210-SUEDE02-M031-38",
+      "color_code": "M031",
+      "size": "38",
+      "qty": 2,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2210-SUEDE02-M031-39",
+      "color_code": "M031",
+      "size": "39",
+      "qty": 5,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2210-SUEDE02-M031-40",
+      "color_code": "M031",
+      "size": "40",
+      "qty": 1,
+      "status": "LOW_STOCK"
+    },
+    {
+      "sku": "VL2210-SUEDE02-M031-41",
+      "color_code": "M031",
+      "size": "41",
+      "qty": 4,
+      "status": "IN_STOCK"
+    }
+  ]
+}

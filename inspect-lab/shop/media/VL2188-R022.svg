@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Mocassino Brera Bordeaux">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe8"/><stop offset="1" stop-color="#e8e1d6"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g transform="translate(0 -22)">
+  <ellipse cx="204" cy="330" rx="170" ry="10" fill="#000" opacity=".07"/>
+  
+    <path d="M298 300 L356 300 L356 322 L302 322 Z" fill="#2a0c10"/>
+    <path d="M46 300 L358 300 L358 310 C358 314 354 316 350 316 L60 316 C50 316 46 312 46 306 Z" fill="#2a0c10"/>
+    <path d="M44 298 C42 270 70 254 120 248 C150 244 170 236 196 232 L300 226 C334 224 352 238 356 262 L358 296 C358 304 352 308 344 308 L58 308 C50 308 45 305 44 298 Z" fill="#6a1d29"/>
+    <path d="M196 232 C230 238 270 236 300 226 C290 240 240 246 200 242 Z" fill="#854650"/>
+    <path d="M112 262 C146 252 180 250 214 256" fill="none" stroke="#8f565f" stroke-width="6" stroke-linecap="round"/>
+    <path d="M150 268 L176 266" stroke="#3a1017" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

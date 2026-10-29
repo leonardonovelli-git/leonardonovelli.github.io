@@ -1,0 +1,80 @@
+{
+  "id": "VL3307",
+  "type": "master",
+  "name": "Sandalo Capri",
+  "slug": "sandalo-capri-vl3307",
+  "brand": "Maison Velluto",
+  "online": true,
+  "categories": [
+    "donna",
+    "donna/calzature",
+    "donna/calzature/sandali"
+  ],
+  "description": "Sandalo a fasce in cuoio naturale.",
+  "attributes": {
+    "material_code": "CA01",
+    "heel_height_mm": 30,
+    "made_in": "IT",
+    "line": "Riviera",
+    "season": "SS27",
+    "care_code": "CR-07",
+    "sole": "leather"
+  },
+  "colors": [
+    {
+      "code": "O007",
+      "name_key": "color.O007",
+      "hex": "#c69a5c",
+      "images": []
+    }
+  ],
+  "variants": [
+    {
+      "sku": "VL3307-CA01-O007-35",
+      "color_code": "O007",
+      "size": "35",
+      "ean": "8056789330000"
+    },
+    {
+      "sku": "VL3307-CA01-O007-36",
+      "color_code": "O007",
+      "size": "36",
+      "ean": "8056789330010"
+    },
+    {
+      "sku": "VL3307-CA01-O007-37",
+      "color_code": "O007",
+      "size": "37",
+      "ean": "8056789330020"
+    },
+    {
+      "sku": "VL3307-CA01-O007-38",
+      "color_code": "O007",
+      "size": "38",
+      "ean": "8056789330030"
+    },
+    {
+      "sku": "VL3307-CA01-O007-39",
+      "color_code": "O007",
+      "size": "39",
+      "ean": "8056789330040"
+    },
+    {
+      "sku": "VL3307-CA01-O007-40",
+      "color_code": "O007",
+      "size": "40",
+      "ean": "8056789330050"
+    },
+    {
+      "sku": "VL3307-CA01-O007-41",
+      "color_code": "O007",
+      "size": "41",
+      "ean": "8056789330060"
+    }
+  ],
+  "_meta": {
+    "source": "PIM",
+    "version": 9,
+    "last_published": "2026-09-30T11:05:00Z"
+  }
+}

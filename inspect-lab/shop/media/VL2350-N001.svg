@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Stivale Ticino Nero">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe8"/><stop offset="1" stop-color="#e8e1d6"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g transform="translate(0 -22)">
+  <ellipse cx="204" cy="330" rx="170" ry="10" fill="#000" opacity=".07"/>
+  
+    <path d="M294 306 L346 306 L342 336 L300 336 Z" fill="#0c0b0b"/>
+    <path d="M50 300 L348 300 L348 312 L56 312 Z" fill="#0c0b0b"/>
+    <path d="M48 296 C46 270 72 258 118 252 C160 248 190 240 206 222 L218 46 L320 40 C318 120 326 210 342 260 L348 296 C348 306 342 310 334 310 L62 310 C52 310 48 304 48 296 Z" fill="#1f1c1b"/>
+    <path d="M218 46 C252 34 290 32 320 40 C290 52 252 54 218 46 Z" fill="#474544"/>
+    <path d="M230 120 C260 116 290 116 316 120" fill="none" stroke="#575554" stroke-width="3" opacity=".6"/>
+  </g>
+</svg>

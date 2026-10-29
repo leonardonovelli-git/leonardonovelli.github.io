@@ -1,0 +1,82 @@
+{
+  "id": "VL2366",
+  "type": "master",
+  "name": "Mule Sempione",
+  "slug": "mule-sempione-vl2366",
+  "brand": "Maison Velluto",
+  "online": true,
+  "categories": [
+    "donna",
+    "donna/calzature",
+    "donna/calzature/mules"
+  ],
+  "description": "Mule a punta in camoscio con tacco a blocchetto da 4,5 cm.",
+  "attributes": {
+    "material_code": "SUEDE02",
+    "heel_height_mm": 45,
+    "made_in": "IT",
+    "line": "Riviera",
+    "season": "FW26",
+    "care_code": "CR-11",
+    "sole": "leather"
+  },
+  "colors": [
+    {
+      "code": "G020",
+      "name_key": "color.G020",
+      "hex": "#8c9d86",
+      "images": [
+        "/inspect-lab/shop/media/VL2366-G020.svg"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "sku": "VL2366-SUEDE02-G020-35",
+      "color_code": "G020",
+      "size": "35",
+      "ean": "8056789230000"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-36",
+      "color_code": "G020",
+      "size": "36",
+      "ean": "8056789230010"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-37",
+      "color_code": "G020",
+      "size": "37",
+      "ean": "8056789230020"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-38",
+      "color_code": "G020",
+      "size": "38",
+      "ean": "8056789230030"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-39",
+      "color_code": "G020",
+      "size": "39",
+      "ean": "8056789230040"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-40",
+      "color_code": "G020",
+      "size": "40",
+      "ean": "8056789230050"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-41",
+      "color_code": "G020",
+      "size": "41",
+      "ean": "8056789230060"
+    }
+  ],
+  "_meta": {
+    "source": "PIM",
+    "version": 9,
+    "last_published": "2026-09-30T11:05:00Z"
+  }
+}

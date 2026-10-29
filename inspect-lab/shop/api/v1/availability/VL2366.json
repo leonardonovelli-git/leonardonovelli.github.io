@@ -1,0 +1,56 @@
+{
+  "pid": "VL2366",
+  "warehouse": "EU-MXP-01",
+  "updated_at": "2026-10-29T07:58:12Z",
+  "items": [
+    {
+      "sku": "VL2366-SUEDE02-G020-35",
+      "color_code": "G020",
+      "size": "35",
+      "qty": 5,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-36",
+      "color_code": "G020",
+      "size": "36",
+      "qty": 1,
+      "status": "LOW_STOCK"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-37",
+      "color_code": "G020",
+      "size": "37",
+      "qty": 4,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-38",
+      "color_code": "G020",
+      "size": "38",
+      "qty": 0,
+      "status": "OUT_OF_STOCK"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-39",
+      "color_code": "G020",
+      "size": "39",
+      "qty": 3,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-40",
+      "color_code": "G020",
+      "size": "40",
+      "qty": 6,
+      "status": "IN_STOCK"
+    },
+    {
+      "sku": "VL2366-SUEDE02-G020-41",
+      "color_code": "G020",
+      "size": "41",
+      "qty": 2,
+      "status": "IN_STOCK"
+    }
+  ]
+}

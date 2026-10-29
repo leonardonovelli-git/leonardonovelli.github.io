@@ -1,0 +1,132 @@
+{
+  "id": "VL2041",
+  "type": "master",
+  "name": "Décolleté Aurora",
+  "slug": "decollete-aurora-vl2041",
+  "brand": "Maison Velluto",
+  "online": true,
+  "categories": [
+    "donna",
+    "donna/calzature",
+    "donna/calzature/dcollet"
+  ],
+  "description": "Décolleté a punta in pelle di vitello liscia, tacco a spillo da 8,5 cm. Suola in cuoio cucita a mano, sottopiede imbottito.",
+  "attributes": {
+    "material_code": "CA01",
+    "heel_height_mm": 85,
+    "made_in": "RO",
+    "line": "Archivio 1987",
+    "season": "FW26",
+    "care_code": "CR-07",
+    "sole": "leather"
+  },
+  "colors": [
+    {
+      "code": "N001",
+      "name_key": "color.N001",
+      "hex": "#1f1c1b",
+      "images": [
+        "/inspect-lab/shop/media/VL2041-N001.svg"
+      ]
+    },
+    {
+      "code": "B014",
+      "name_key": "color.B014",
+      "hex": "#d8b4a4",
+      "images": [
+        "/inspect-lab/shop/media/VL2041-B014.svg"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "sku": "VL2041-CA01-N001-35",
+      "color_code": "N001",
+      "size": "35",
+      "ean": "8056789200000"
+    },
+    {
+      "sku": "VL2041-CA01-N001-36",
+      "color_code": "N001",
+      "size": "36",
+      "ean": "8056789200010"
+    },
+    {
+      "sku": "VL2041-CA01-N001-37",
+      "color_code": "N001",
+      "size": "37",
+      "ean": "8056789200020"
+    },
+    {
+      "sku": "VL2041-CA01-N001-38",
+      "color_code": "N001",
+      "size": "38",
+      "ean": "8056789200030"
+    },
+    {
+      "sku": "VL2041-CA01-N001-39",
+      "color_code": "N001",
+      "size": "39",
+      "ean": "8056789200040"
+    },
+    {
+      "sku": "VL2041-CA01-N001-40",
+      "color_code": "N001",
+      "size": "40",
+      "ean": "8056789200050"
+    },
+    {
+      "sku": "VL2041-CA01-N001-41",
+      "color_code": "N001",
+      "size": "41",
+      "ean": "8056789200060"
+    },
+    {
+      "sku": "VL2041-CA01-B014-35",
+      "color_code": "B014",
+      "size": "35",
+      "ean": "8056789201000"
+    },
+    {
+      "sku": "VL2041-CA01-B014-36",
+      "color_code": "B014",
+      "size": "36",
+      "ean": "8056789201010"
+    },
+    {
+      "sku": "VL2041-CA01-B014-37",
+      "color_code": "B014",
+      "size": "37",
+      "ean": "8056789201020"
+    },
+    {
+      "sku": "VL2041-CA01-B014-38",
+      "color_code": "B014",
+      "size": "38",
+      "ean": "8056789201030"
+    },
+    {
+      "sku": "VL2041-CA01-B014-39",
+      "color_code": "B014",
+      "size": "39",
+      "ean": "8056789201040"
+    },
+    {
+      "sku": "VL2041-CA01-B014-40",
+      "color_code": "B014",
+      "size": "40",
+      "ean": "8056789201050"
+    },
+    {
+      "sku": "VL2041-CA01-B014-41",
+      "color_code": "B014",
+      "size": "41",
+      "ean": "8056789201060"
+    }
+  ],
+  "_meta": {
+    "source": "PIM",
+    "version": 14,
+    "last_published": "2026-10-27T16:42:10Z"
+  }
+}

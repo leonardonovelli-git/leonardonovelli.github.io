@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Sneaker Lumen Bianco">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe8"/><stop offset="1" stop-color="#e8e1d6"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g transform="translate(0 -22)">
+  <ellipse cx="204" cy="330" rx="170" ry="10" fill="#000" opacity=".07"/>
+  
+    <path d="M40 284 C42 254 76 240 126 236 C160 232 186 210 214 200 L318 196 C350 196 362 220 364 250 L366 284 Z" fill="#f2efe9" stroke="#c9c1b5" stroke-width="2"/>
+    <path d="M214 200 C244 196 290 194 318 196 C300 206 250 210 220 208 Z" fill="#c6c4bf"/>
+    <path d="M150 238 L176 222 M162 246 L190 228 M176 252 L204 234" stroke="#c9c1b5" stroke-width="4" stroke-linecap="round"/>
+    <path d="M330 200 C346 214 352 236 352 262" fill="none" stroke="#c9c1b5" stroke-width="3"/>
+    <path d="M34 282 L368 282 C373 282 375 287 375 292 L373 306 C372 312 368 316 362 316 L50 316 C40 316 34 310 34 300 Z" fill="#e7e2d9" stroke="#c9c1b5" stroke-width="2"/>
+    <path d="M44 300 L366 300" stroke="#c9c1b5" stroke-width="2" stroke-dasharray="6 6"/>
+  </g>
+</svg>

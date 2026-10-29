@@ -1,0 +1,82 @@
+{
+  "id": "VL2275",
+  "type": "master",
+  "name": "Sneaker Lumen",
+  "slug": "sneaker-lumen-vl2275",
+  "brand": "Maison Velluto",
+  "online": true,
+  "categories": [
+    "donna",
+    "donna/calzature",
+    "donna/calzature/sneaker"
+  ],
+  "description": "Sneaker in nappa morbida con suola in gomma sagomata e lacci tono su tono.",
+  "attributes": {
+    "material_code": "CA02",
+    "heel_height_mm": 35,
+    "made_in": "IT",
+    "line": "Lumen",
+    "season": "SS26",
+    "care_code": "CR-02",
+    "sole": "rubber"
+  },
+  "colors": [
+    {
+      "code": "W001",
+      "name_key": "color.W001",
+      "hex": "#f2efe9",
+      "images": [
+        "/inspect-lab/shop/media/VL2275-W001.svg"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "sku": "VL2275-CA02-W001-35",
+      "color_code": "W001",
+      "size": "35",
+      "ean": "8056789220000"
+    },
+    {
+      "sku": "VL2275-CA02-W001-36",
+      "color_code": "W001",
+      "size": "36",
+      "ean": "8056789220010"
+    },
+    {
+      "sku": "VL2275-CA02-W001-37",
+      "color_code": "W001",
+      "size": "37",
+      "ean": "8056789220020"
+    },
+    {
+      "sku": "VL2275-CA02-W001-38",
+      "color_code": "W001",
+      "size": "38",
+      "ean": "8056789220030"
+    },
+    {
+      "sku": "VL2275-CA02-W001-39",
+      "color_code": "W001",
+      "size": "39",
+      "ean": "8056789220040"
+    },
+    {
+      "sku": "VL2275-CA02-W001-40",
+      "color_code": "W001",
+      "size": "40",
+      "ean": "8056789220050"
+    },
+    {
+      "sku": "VL2275-CA02-W001-41",
+      "color_code": "W001",
+      "size": "41",
+      "ean": "8056789220060"
+    }
+  ],
+  "_meta": {
+    "source": "PIM",
+    "version": 9,
+    "last_published": "2026-09-30T11:05:00Z"
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Slingback Riva Avorio">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe8"/><stop offset="1" stop-color="#e8e1d6"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g transform="translate(0 -22)">
+  <ellipse cx="204" cy="330" rx="170" ry="10" fill="#000" opacity=".07"/>
+  
+    <path d="M314 212 L338 202 L331 306 L320 306 Z" fill="#9b9487"/>
+    <path d="M246 234 C272 220 302 202 332 196 L336 212 C318 230 292 252 262 274 Z" fill="#c4bbaa"/>
+    <path d="M52 296 C48 276 70 262 110 258 C150 254 182 262 212 250 C226 244 236 240 246 234 L262 274 C238 292 210 302 176 304 L72 304 C60 304 54 302 52 296 Z" fill="#efe4cf"/>
+    <path d="M252 236 C278 210 312 184 340 184" fill="none" stroke="#efe4cf" stroke-width="9" stroke-linecap="round"/>
+    <path d="M60 302 L176 302 C210 300 238 290 262 274 L336 212" fill="none" stroke="#9b9487" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

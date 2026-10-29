@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Mule Sempione Salvia">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe8"/><stop offset="1" stop-color="#e8e1d6"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g transform="translate(0 -22)">
+  <ellipse cx="204" cy="330" rx="170" ry="10" fill="#000" opacity=".07"/>
+  
+    <path d="M312 246 L340 236 L336 306 L318 306 Z" fill="#4d564a"/>
+    <path d="M226 234 C268 240 310 242 342 234 L340 250 C304 270 270 290 236 302 Z" fill="#a1af9c"/>
+    <path d="M52 296 C48 274 72 260 112 254 C160 248 196 240 228 232 L238 302 L72 304 C60 304 54 302 52 296 Z" fill="#8c9d86"/>
+    <path d="M60 302 L238 302 C270 290 304 270 340 250" fill="none" stroke="#4d564a" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

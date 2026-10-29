@@ -1,0 +1,82 @@
+{
+  "id": "VL2302",
+  "type": "master",
+  "name": "Slingback Riva",
+  "slug": "slingback-riva-vl2302",
+  "brand": "Maison Velluto",
+  "online": true,
+  "categories": [
+    "donna",
+    "donna/calzature",
+    "donna/calzature/dcollet"
+  ],
+  "description": "Slingback in vernice con cinturino regolabile e tacco a rocchetto da 6,5 cm.",
+  "attributes": {
+    "material_code": "CA03",
+    "heel_height_mm": 65,
+    "made_in": "IT",
+    "line": "Riviera",
+    "season": "SS26",
+    "care_code": "CR-04",
+    "sole": "leather"
+  },
+  "colors": [
+    {
+      "code": "W010",
+      "name_key": "color.W010",
+      "hex": "#efe4cf",
+      "images": [
+        "/inspect-lab/shop/media/VL2302-W010.svg"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "sku": "VL2302-CA03-W010-35",
+      "color_code": "W010",
+      "size": "35",
+      "ean": "8056789230000"
+    },
+    {
+      "sku": "VL2302-CA03-W010-36",
+      "color_code": "W010",
+      "size": "36",
+      "ean": "8056789230010"
+    },
+    {
+      "sku": "VL2302-CA03-W010-37",
+      "color_code": "W010",
+      "size": "37",
+      "ean": "8056789230020"
+    },
+    {
+      "sku": "VL2302-CA03-W010-38",
+      "color_code": "W010",
+      "size": "38",
+      "ean": "8056789230030"
+    },
+    {
+      "sku": "VL2302-CA03-W010-39",
+      "color_code": "W010",
+      "size": "39",
+      "ean": "8056789230040"
+    },
+    {
+      "sku": "VL2302-CA03-W010-40",
+      "color_code": "W010",
+      "size": "40",
+      "ean": "8056789230050"
+    },
+    {
+      "sku": "VL2302-CA03-W010-41",
+      "color_code": "W010",
+      "size": "41",
+      "ean": "8056789230060"
+    }
+  ],
+  "_meta": {
+    "source": "PIM",
+    "version": 9,
+    "last_published": "2026-09-30T11:05:00Z"
+  }
+}

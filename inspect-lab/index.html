@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspect Lab — la palestra dei DevTools</title>
+<meta name="description" content="Impara a usare i DevTools del browser su un e-commerce finto: PLP, PDP, API, dataLayer, cookie. Lezioni pratiche in stile Duolingo.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1a1816; --card: #22201d; --card2: #2b2824; --line: rgba(245,240,235,.1);
+    --text: #f5f0eb; --text2: rgba(245,240,235,.62); --text3: rgba(245,240,235,.38);
+    --sage: #8fa89e; --yellow: #f0c210;
+    --sans: 'DM Sans', system-ui, sans-serif; --serif: 'Cormorant Garamond', Georgia, serif; --mono: 'DM Mono', ui-monospace, monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .logo { font: 500 26px/1 var(--serif); text-decoration: none; }
+  .logo em { color: var(--yellow); }
+  nav a.back { font-size: 13px; color: var(--text2); text-decoration: none; }
+  nav a.back:hover { color: var(--text); }
+
+  .hero { padding: 64px 0 56px; max-width: 760px; }
+  .kicker { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sage); margin: 0 0 20px; }
+  h1 { font: 500 clamp(40px, 6.4vw, 72px)/1.02 var(--serif); margin: 0 0 22px; letter-spacing: -.01em; }
+  h1 em { color: var(--yellow); }
+  .lead { font-size: 18px; color: var(--text2); max-width: 600px; margin: 0 0 32px; }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 15px 22px; border-radius: 14px; font: 600 14px/1 var(--sans); text-decoration: none; letter-spacing: .04em; transition: transform .1s, filter .15s; }
+  .btn:active { transform: translateY(2px); }
+  .btn.primary { background: var(--yellow); color: #1a1816; box-shadow: 0 4px 0 #a88700; text-transform: uppercase; }
+  .btn.primary:hover { filter: brightness(1.06); }
+  .btn.ghost { border: 1.5px solid var(--line); }
+  .btn.ghost:hover { background: var(--card); }
+
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  h2 { font: 500 clamp(28px, 4vw, 40px)/1.1 var(--serif); margin: 0 0 8px; }
+  .sub { color: var(--text2); margin: 0 0 28px; max-width: 640px; }
+
+  .chain { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .link { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 16px; }
+  .link:not(:last-child)::after { content: '→'; position: absolute; right: -11px; top: 50%; transform: translateY(-50%); z-index: 1; width: 22px; height: 22px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; color: var(--yellow); }
+  .link .n { font: 500 11px/1 var(--mono); color: var(--text3); }
+  .link h3 { font: 600 16px/1.2 var(--sans); margin: 8px 0 6px; }
+  .link p { font-size: 13px; color: var(--text2); margin: 0 0 12px; line-height: 1.45; }
+  .tool { display: inline-block; font: 500 11px/1 var(--mono); padding: 5px 7px; border-radius: 6px; background: rgba(240,194,16,.12); color: var(--yellow); }
+  .tool.none { background: var(--card2); color: var(--text3); }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .step { background: var(--card); border-radius: 18px; padding: 22px; border: 1px solid var(--line); }
+  .step b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--sage); color: #12201b; font: 600 14px/1 var(--mono); margin-bottom: 14px; }
+  .step h3 { margin: 0 0 6px; font: 600 17px/1.3 var(--sans); }
+  .step p { margin: 0; font-size: 14px; color: var(--text2); }
+  kbd { display: inline-block; padding: 2px 7px; border-radius: 6px; background: var(--card2); border: 1px solid var(--line); border-bottom-width: 2px; font: 500 12px/1.3 var(--mono); color: var(--text); }
+
+  .units { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .unit { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .unit .ico { font-size: 22px; }
+  .unit h3 { font: 600 15px/1.3 var(--sans); margin: 10px 0 4px; }
+  .unit p { margin: 0; font-size: 13px; color: var(--text2); line-height: 1.45; }
+  .unit.boss { border-color: rgba(240,194,16,.35); background: linear-gradient(160deg, rgba(240,194,16,.08), var(--card) 60%); }
+
+  .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; font-size: 14px; color: var(--text2); }
+  .notes h3 { color: var(--text); font: 600 15px/1.3 var(--sans); margin: 0 0 6px; }
+  .notes p { margin: 0; }
+  footer { padding: 40px 0 140px; color: var(--text3); font-size: 13px; border-top: 1px solid var(--line); }
+  code { font: 500 13px var(--mono); background: rgba(240,194,16,.1); color: #f6d55c; padding: 1px 5px; border-radius: 4px; }
+
+  @media (max-width: 900px) {
+    .chain { grid-template-columns: 1fr; }
+    .link:not(:last-child)::after { content: '↓'; right: auto; left: 22px; top: auto; bottom: -11px; transform: none; }
+    .steps, .notes { grid-template-columns: 1fr; }
+    .units { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) { .units { grid-template-columns: 1fr; } .wrap { padding: 0 16px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="/inspect-lab/">Inspect <em>Lab</em></a>
+    <a class="back" href="/">leonardonovelli.design ↗</a>
+  </nav>
+
+  <header class="hero">
+    <p class="kicker">DevTools · e-commerce · pratica</p>
+    <h1>Scopri cosa il back-end <em>manda davvero</em> al front.</h1>
+    <p class="lead">Una palestra per imparare l'Ispeziona del browser su un e-commerce finto, ma costruito come uno vero. Niente teoria lunga: missioni brevi, risposte verificate, bug di catalogo da scovare.</p>
+    <div class="ctas">
+      <a class="btn primary" href="/inspect-lab/shop/donna/calzature/#lab-start">Inizia la prima lezione →</a>
+      <a class="btn ghost" href="/inspect-lab/shop/donna/calzature/">Esplora il negozio</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>La catena del dato</h2>
+    <p class="sub">Ogni attributo fa questo viaggio. Ogni pannello dei DevTools ti fa guardare un anello diverso: quando un valore a schermo è sbagliato, cerchi l'anello dove cambia.</p>
+    <div class="chain">
+      <div class="link"><span class="n">01</span><h3>PIM / back-end</h3><p>Dove il dato nasce e viene pubblicato.</p><span class="tool none">fuori dal browser</span></div>
+      <div class="link"><span class="n">02</span><h3>API (JSON)</h3><p>Le chiamate con cui il front chiede prodotti, prezzi, stock.</p><span class="tool">Network</span></div>
+      <div class="link"><span class="n">03</span><h3>HTML dal server</h3><p>La pagina com'è arrivata, anche se è in cache da giorni.</p><span class="tool">Sorgente</span></div>
+      <div class="link"><span class="n">04</span><h3>DOM vivo</h3><p>La pagina dopo il JavaScript: attributi, elementi nascosti.</p><span class="tool">Elements · Console</span></div>
+      <div class="link"><span class="n">05</span><h3>Schermo, analytics</h3><p>Quello che vede il cliente e quello che arriva a GA4.</p><span class="tool">Console · Application</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Come funziona</h2>
+    <p class="sub">Ti servono 30 secondi di setup, poi ci pensa il coach.</p>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Apri il negozio</h3><p><strong>Maison Velluto</strong> è un finto brand di calzature con PLP, PDP, API, traduzioni, carrello e qualche errore di catalogo messo apposta.</p></div>
+      <div class="step"><b>2</b><h3>Apri i DevTools</h3><p><kbd>F12</kbd> o <kbd>⌘</kbd><kbd>⌥</kbd><kbd>I</kbd> su Mac. Agganciali <strong>in basso</strong> (menu ⋮ → Dock side) così vedi sito e coach insieme.</p></div>
+      <div class="step"><b>3</b><h3>Segui il coach</h3><p>Il pannello in basso a sinistra ti dà missioni: trovare valori, rispondere a quiz, fare azioni. Si accorge da solo di quello che fai sulla pagina.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Il percorso</h2>
+    <p class="sub">18 lezioni, circa 2–4 minuti l'una. Puoi farle in ordine o saltare dove ti serve.</p>
+    <div class="units">
+      <div class="unit"><span class="ico">🧭</span><h3>Orientarsi in Elements</h3><p>Selettore, attributi <code>data-*</code>, dati nascosti dal CSS, modifiche al volo.</p></div>
+      <div class="unit"><span class="ico">📄</span><h3>Sorgente vs DOM</h3><p>SSR o CSR, JSON-LD, meta tag, commenti di cache.</p></div>
+      <div class="unit"><span class="ico">📡</span><h3>Network</h3><p>Chiamate API, header, errori 404, e la ricerca in tutte le risposte.</p></div>
+      <div class="unit"><span class="ico">💻</span><h3>Console</h3><p><code>$0</code>, <code>$$</code>, stato iniziale e dataLayer di GA4.</p></div>
+      <div class="unit"><span class="ico">🍪</span><h3>Cookie e storage</h3><p>Cambiare paese e lingua, carrello e wishlist nel browser.</p></div>
+      <div class="unit"><span class="ico">🔎</span><h3>Sources</h3><p>Ricerca globale nel codice: dove il front trasforma i dati.</p></div>
+      <div class="unit"><span class="ico">📱</span><h3>Mobile e rete lenta</h3><p>Device toolbar, throttling, cache.</p></div>
+      <div class="unit boss"><span class="ico">🕵️</span><h3>Indagini</h3><p>Tre ticket veri-simili: Made in sbagliato, taglia fantasma, traduzione mancante.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="notes">
+      <div><h3>Usa Chrome o Edge da computer</h3><p>Le lezioni usano i nomi dei pannelli di Chrome. Firefox e Safari hanno strumenti simili, ma con altri nomi e scorciatoie.</p></div>
+      <div><h3>I progressi restano nel browser</h3><p>XP, streak e lezioni completate sono salvati in questo browser. Dal coach (⚙) puoi ripristinare il negozio o ricominciare.</p></div>
+      <div><h3>Tutto è finto, quindi rompi pure</h3><p>Cambia cookie, blocca chiamate, modifica il DOM: non c'è niente da rompere. Ogni ricarica ripristina il negozio.</p></div>
+    </div>
+  </section>
+
+  <footer>Inspect Lab · un progetto di Leonardo Novelli. Maison Velluto è un brand inventato: prodotti, codici e prezzi sono fittizi.</footer>
+</div>
+<script src="/inspect-lab/coach/coach.js" defer></script>
+</body>
+</html>

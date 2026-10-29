@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Décolleté Aurora Nero">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4efe8"/><stop offset="1" stop-color="#e8e1d6"/></linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g transform="translate(0 -22)">
+  <ellipse cx="204" cy="330" rx="170" ry="10" fill="#000" opacity=".07"/>
+  
+    <path d="M316 212 L340 200 L331 306 L322 306 Z" fill="#110f0f"/>
+    <path d="M52 296 C48 276 70 262 110 258 C150 254 182 262 212 250 C246 236 270 204 292 186 C304 176 322 172 336 178 C344 182 344 194 340 204 L334 214 C316 230 290 252 262 274 C238 292 210 302 176 304 L72 304 C60 304 54 302 52 296 Z" fill="#1f1c1b"/>
+    <path d="M140 258 C190 262 240 236 290 192 C300 186 312 184 324 188 C300 198 262 236 226 252 C198 264 168 264 140 258 Z" fill="#474544"/>
+    <path d="M60 302 L176 302 C210 300 238 290 262 274 L334 214" fill="none" stroke="#110f0f" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>
