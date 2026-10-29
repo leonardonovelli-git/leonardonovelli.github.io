@@ -1,151 +1,139 @@
-/* Maison Velluto — PDP: la pagina arriva dal server, qui si caricano prezzo, taglie e dettagli */
+/* Maison Velluto — PDP: la pagina arriva dal server, qui si chiede a SAP (OCC) prezzo, varianti e dettagli */
 (function () {
   'use strict';
 
   var state = window.__VL_STATE__;
-  var pid = state.page.pid;
+  var code = state.page.pid;
   var params = new URLSearchParams(location.search);
-  var color = params.get('color') || state.product.defaultColor;
   var product = null;
-  var availability = [];
-  var selectedSku = null;
-  var price = null;
+  var colors = [];
+  var color = null;
+  var selected = null;
 
   var $ = function (sel) { return document.querySelector(sel); };
   var addBtn = $('[data-add-to-cart]');
+
+  function qualifier(variant, name) {
+    return variant.variantOptionQualifiers.filter(function (q) { return q.qualifier === name; })[0];
+  }
+
+  // Le caratteristiche arrivano dalle classificazioni SAP: si cercano per la parte finale del codice
+  function feature(name) {
+    var all = [];
+    product.classifications.forEach(function (c) { all = all.concat(c.features); });
+    return all.filter(function (f) { return f.code.split('.').pop() === name; })[0];
+  }
+  function featureValue(name) {
+    var f = feature(name);
+    return f ? f.featureValues[0].value : '';
+  }
 
   function setDetail(attr, value) {
     var el = $('[data-attr="' + attr + '"] [data-value]');
     if (el) el.textContent = value;
   }
 
-  function renderDetails(p) {
-    var a = p.attributes;
-    setDetail('material', VL.t('material.' + a.material_code));
-    // Il back-end manda i millimetri: qui si convertono in centimetri
-    setDetail('heel', (a.heel_height_mm / 10).toLocaleString(VL.market.locale) + ' cm');
-    setDetail('line', a.line);
+  function renderDetails() {
+    setDetail('material', featureValue('material'));
+    // SAP manda i millimetri (featureUnit "mm"): qui si convertono in centimetri
+    setDetail('heel', (Number(featureValue('heel_height')) / 10).toLocaleString(VL.market.locale) + ' cm');
+    setDetail('line', featureValue('line'));
+    $('[data-price]').textContent = VL.formatPrice(product.price.value);
+    $('[data-price]').setAttribute('data-loaded', 'true');
   }
 
-  function renderSwatches(p) {
+  function renderSwatches() {
+    var seen = {};
+    colors = [];
+    product.variantOptions.forEach(function (v) {
+      var c = qualifier(v, 'color');
+      if (!seen[c.code]) { seen[c.code] = true; colors.push(c); }
+    });
     var box = $('[data-swatches]');
-    box.innerHTML = p.colors.map(function (c) {
-      return '<button type="button" class="swatch' + (c.code === color ? ' is-active' : '') + '" ' +
-        'data-color="' + c.code + '" style="--swatch:' + c.hex + '" aria-label="' + VL.t(c.name_key) + '"></button>';
+    box.innerHTML = colors.map(function (c) {
+      return '<button type="button" class="swatch" data-color="' + c.code + '" style="--swatch:' + c.hex + '" aria-label="' + c.value + '"></button>';
     }).join('');
     box.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-color]');
-      if (!btn) return;
-      selectColor(btn.getAttribute('data-color'));
+      if (btn) selectColor(btn.getAttribute('data-color'));
     });
   }
 
-  function selectColor(code) {
-    color = code;
-    var c = product.colors.filter(function (x) { return x.code === code; })[0];
-    $('[data-main-image]').src = c.images[0];
-    $('[data-color-name]').textContent = VL.t(c.name_key);
+  function selectColor(colorCode) {
+    var c = colors.filter(function (x) { return x.code === colorCode; })[0] || colors[0];
+    color = c.code;
+    var image = product.images.filter(function (img) { return img.url && img.url.indexOf(color) > -1; })[0];
+    if (image) $('[data-main-image]').src = image.url;
+    $('[data-color-name]').textContent = c.value;
     document.querySelectorAll('.swatch').forEach(function (s) {
-      s.classList.toggle('is-active', s.getAttribute('data-color') === code);
+      s.classList.toggle('is-active', s.getAttribute('data-color') === color);
     });
-    history.replaceState(null, '', '?color=' + code);
-    selectedSku = null;
+    selected = null;
     renderSizes();
   }
 
-  function isPurchasable(item) {
-    return item.status !== 'OUT_OF_STOCK';
+  function isPurchasable(variant) {
+    return variant.stock.stockLevelStatus !== 'outOfStock';
   }
 
   function renderSizes() {
     var box = $('[data-sizes]');
-    var items = availability.filter(function (i) { return i.color_code === color; });
-    box.innerHTML = items.map(function (i) {
-      var ok = isPurchasable(i);
-      return '<button type="button" class="size' + (ok ? '' : ' is-soldout') + '" data-sku="' + i.sku + '" data-size="' + i.size + '"' +
-        (ok ? '' : ' disabled title="' + VL.t('pdp.soldOut') + '"') + '>' + i.size +
-        (i.status === 'LOW_STOCK' ? '<small>' + VL.t('pdp.lastPiece') + '</small>' : '') + '</button>';
+    var variants = product.variantOptions.filter(function (v) { return qualifier(v, 'color').code === color; });
+    box.innerHTML = variants.map(function (v) {
+      var ok = isPurchasable(v);
+      var size = qualifier(v, 'size').value;
+      return '<button type="button" class="size' + (ok ? '' : ' is-soldout') + '" data-sku="' + v.code + '" data-size="' + size + '"' +
+        (ok ? '' : ' disabled title="' + VL.t('pdp.soldOut') + '"') + '>' + size +
+        (v.stock.stockLevelStatus === 'lowStock' ? '<small>' + VL.t('pdp.lastPiece') + '</small>' : '') + '</button>';
     }).join('');
     updateButton();
   }
 
   function updateButton() {
-    addBtn.disabled = !selectedSku;
-    addBtn.textContent = selectedSku ? VL.t('pdp.addToCart') : VL.t('pdp.selectSize');
+    addBtn.disabled = !selected;
+    addBtn.textContent = selected ? VL.t('pdp.addToCart') : VL.t('pdp.selectSize');
   }
 
   $('[data-sizes]').addEventListener('click', function (e) {
     var btn = e.target.closest('[data-sku]');
     if (!btn || btn.disabled) return;
-    selectedSku = btn.getAttribute('data-sku');
+    selected = { sku: btn.getAttribute('data-sku'), size: btn.getAttribute('data-size') };
     document.querySelectorAll('.size').forEach(function (s) { s.classList.toggle('is-selected', s === btn); });
-    VL.track({ event: 'select_size', size: btn.getAttribute('data-size'), sku: selectedSku });
     updateButton();
   });
 
   addBtn.addEventListener('click', function () {
-    if (!selectedSku) return;
-    var size = selectedSku.split('-').pop();
-    VL.cart.add({ sku: selectedSku, pid: pid, color: color, size: size });
-    VL.track({
-      event: 'add_to_cart',
-      ecommerce: {
-        currency: VL.market.currency,
-        value: price,
-        items: [{
-          item_id: pid,
-          item_name: product.name,
-          item_brand: product.brand,
-          item_category: 'Calzature',
-          item_variant: color,
-          item_size: size,
-          price: price,
-          quantity: 1
-        }]
-      }
+    if (!selected) return;
+    VL.cart.add({ sku: selected.sku, pid: code, color: color, size: selected.size });
+    VL.track('add-to-cart', {
+      product: { productID: code, sku: selected.sku, color: color, size: selected.size, price: product.price.value, quantity: 1 }
+    }, {
+      pageName: 'vl:' + VL.market.lang + ':pdp:' + code,
+      events: 'scAdd',
+      products: ';' + code + ';1;' + product.price.value + ';;eVar12=' + color + '|eVar13=' + selected.size
     });
     VL.toast(VL.t('pdp.added'));
   });
 
-  function loadPrice() {
-    return VL.api('/prices/' + VL.country + '.json', { country: VL.country, currency: VL.market.currency, pids: pid })
-      .then(function (res) {
-        price = res.prices[pid].list;
-        $('[data-price]').textContent = VL.formatPrice(price);
-        $('[data-price]').setAttribute('data-loaded', 'true');
-      })
-      .catch(function () { $('[data-price]').textContent = VL.t('price.unavailable'); });
-  }
-
-  function loadAvailability() {
-    return VL.api('/availability/' + pid + '.json', { color: color }).then(function (res) {
-      availability = res.items;
-      renderSizes();
-    });
-  }
-
-  function loadRecommendations() {
-    return VL.api('/recommendations/' + pid + '.json', { limit: 4 }).then(function (res) {
+  function loadReferences() {
+    return VL.occ('/products/' + code + '/references', { referenceType: 'SIMILAR', fields: 'DEFAULT' }).then(function (res) {
       $('[data-recs]').hidden = false;
-      $('[data-recs-grid]').innerHTML = res.items.map(function (r) { return '<a href="' + r.url + '">' + r.name + '</a>'; }).join('');
+      $('[data-recs-grid]').innerHTML = res.references.map(function (r) { return '<a href="' + r.target.url + '">' + r.target.name + '</a>'; }).join('');
     }).catch(function () { /* nessun consiglio: la sezione resta nascosta */ });
   }
 
-  Promise.all([VL.api('/products/' + pid + '.json'), VL.loadTranslations()]).then(function (results) {
+  Promise.all([VL.occ('/products/' + code, { fields: 'FULL' }), VL.loadTranslations()]).then(function (results) {
     product = results[0];
-    renderDetails(product);
-    renderSwatches(product);
-    if (color !== state.product.defaultColor) selectColor(color);
-    return Promise.all([loadPrice(), loadAvailability()]);
-  }).then(function () {
-    VL.track({
-      event: 'view_item',
-      ecommerce: {
-        currency: VL.market.currency,
-        value: price,
-        items: [{ item_id: pid, item_name: product.name, item_variant: color, price: price }]
-      }
+    renderDetails();
+    renderSwatches();
+    selectColor(params.get('color') || state.product.defaultColor);
+    VL.track('product-view', {
+      product: { productID: code, name: product.name, color: color, price: product.price.value, currency: product.price.currencyIso }
+    }, {
+      pageName: 'vl:' + VL.market.lang + ':pdp:' + code,
+      events: 'prodView',
+      products: ';' + code + ';;;;eVar12=' + color
     });
-    loadRecommendations();
+    loadReferences();
   });
 })();

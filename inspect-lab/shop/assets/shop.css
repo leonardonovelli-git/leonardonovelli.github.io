@@ -59,7 +59,9 @@ button { font: inherit; color: inherit; }
 .tile-name { font: 500 21px/1.2 var(--serif); margin: 14px 0 2px; }
 .tile-color { margin: 0; font-size: 12px; color: var(--ink-2); }
 .tile-price { margin: 6px 0 0; font-size: 14px; font-weight: 500; }
-.tile-price.is-unavailable { color: #a1442e; font-weight: 400; font-size: 12px; }
+.tile-colors { display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; }
+.tile-colors i { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--line); }
+.plp-error { grid-column: 1 / -1; padding: 48px 16px; text-align: center; color: #a1442e; background: var(--sand); }
 
 .tile-skeleton div { aspect-ratio: 1; background: var(--sand); }
 .tile-skeleton span { display: block; height: 12px; background: var(--sand); margin-top: 14px; width: 70%; }

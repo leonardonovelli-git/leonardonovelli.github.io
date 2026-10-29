@@ -92,7 +92,7 @@
   <header class="hero">
     <p class="kicker">DevTools · e-commerce · pratica</p>
     <h1>Scopri cosa il back-end <em>manda davvero</em> al front.</h1>
-    <p class="lead">Una palestra per imparare l'Ispeziona del browser su un e-commerce finto, ma costruito come uno vero. Niente teoria lunga: missioni brevi, risposte verificate, bug di catalogo da scovare.</p>
+    <p class="lead">Una palestra per imparare l'Ispeziona del browser su un e-commerce finto, costruito come il vostro: Akeneo, Algolia, SAP Commerce Cloud, Adobe. Niente teoria lunga: missioni brevi, risposte verificate, bug di catalogo da scovare.</p>
     <div class="ctas">
       <a class="btn primary" href="/inspect-lab/shop/donna/calzature/#lab-start">Inizia la prima lezione →</a>
       <a class="btn ghost" href="/inspect-lab/shop/donna/calzature/">Esplora il negozio</a>
@@ -101,13 +101,13 @@
 
   <section>
     <h2>La catena del dato</h2>
-    <p class="sub">Ogni attributo fa questo viaggio. Ogni pannello dei DevTools ti fa guardare un anello diverso: quando un valore a schermo è sbagliato, cerchi l'anello dove cambia.</p>
+    <p class="sub">Ogni attributo fa questo viaggio. Dal browser vedi solo gli anelli da 03 in poi: quando un valore a schermo è sbagliato, confronti le due copie (Algolia e SAP) e trovi il flusso che si è fermato.</p>
     <div class="chain">
-      <div class="link"><span class="n">01</span><h3>PIM / back-end</h3><p>Dove il dato nasce e viene pubblicato.</p><span class="tool none">fuori dal browser</span></div>
-      <div class="link"><span class="n">02</span><h3>API (JSON)</h3><p>Le chiamate con cui il front chiede prodotti, prezzi, stock.</p><span class="tool">Network</span></div>
-      <div class="link"><span class="n">03</span><h3>HTML dal server</h3><p>La pagina com'è arrivata, anche se è in cache da giorni.</p><span class="tool">Sorgente</span></div>
-      <div class="link"><span class="n">04</span><h3>DOM vivo</h3><p>La pagina dopo il JavaScript: attributi, elementi nascosti.</p><span class="tool">Elements · Console</span></div>
-      <div class="link"><span class="n">05</span><h3>Schermo, analytics</h3><p>Quello che vede il cliente e quello che arriva a GA4.</p><span class="tool">Console · Application</span></div>
+      <div class="link"><span class="n">01</span><h3>Akeneo</h3><p>Il merch arricchisce il prodotto: attributi, traduzioni, varianti.</p><span class="tool none">non visibile dal browser</span></div>
+      <div class="link"><span class="n">02</span><h3>BEIL</h3><p>Il layer di integrazione Azure porta il dato agli altri sistemi.</p><span class="tool none">non visibile dal browser</span></div>
+      <div class="link"><span class="n">03</span><h3>Algolia · SAP CC</h3><p>Due copie del dato: Algolia per PLP e ricerca, SAP per la PDP.</p><span class="tool">Network</span></div>
+      <div class="link"><span class="n">04</span><h3>Front-end</h3><p>HTML dal server e DOM vivo dopo il JavaScript.</p><span class="tool">Sorgente · Elements · Sources</span></div>
+      <div class="link"><span class="n">05</span><h3>Cliente e Adobe</h3><p>Quello che vede il cliente e quello che finisce nei report.</p><span class="tool">Console · Network · Application</span></div>
     </div>
   </section>
 
@@ -115,7 +115,7 @@
     <h2>Come funziona</h2>
     <p class="sub">Ti servono 30 secondi di setup, poi ci pensa il coach.</p>
     <div class="steps">
-      <div class="step"><b>1</b><h3>Apri il negozio</h3><p><strong>Maison Velluto</strong> è un finto brand di calzature con PLP, PDP, API, traduzioni, carrello e qualche errore di catalogo messo apposta.</p></div>
+      <div class="step"><b>1</b><h3>Apri il negozio</h3><p><strong>Maison Velluto</strong> è un finto brand di calzature: PLP da Algolia, PDP da SAP, tracciamento Adobe e qualche errore di catalogo messo apposta.</p></div>
       <div class="step"><b>2</b><h3>Apri i DevTools</h3><p><kbd>F12</kbd> o <kbd>⌘</kbd><kbd>⌥</kbd><kbd>I</kbd> su Mac. Agganciali <strong>in basso</strong> (menu ⋮ → Dock side) così vedi sito e coach insieme.</p></div>
       <div class="step"><b>3</b><h3>Segui il coach</h3><p>Il pannello in basso a sinistra ti dà missioni: trovare valori, rispondere a quiz, fare azioni. Si accorge da solo di quello che fai sulla pagina.</p></div>
     </div>
@@ -123,16 +123,16 @@
 
   <section>
     <h2>Il percorso</h2>
-    <p class="sub">18 lezioni, circa 2–4 minuti l'una. Puoi farle in ordine o saltare dove ti serve.</p>
+    <p class="sub">22 lezioni, circa 2–4 minuti l'una. Puoi farle in ordine o saltare dove ti serve.</p>
     <div class="units">
       <div class="unit"><span class="ico">🧭</span><h3>Orientarsi in Elements</h3><p>Selettore, attributi <code>data-*</code>, dati nascosti dal CSS, modifiche al volo.</p></div>
       <div class="unit"><span class="ico">📄</span><h3>Sorgente vs DOM</h3><p>SSR o CSR, JSON-LD, meta tag, commenti di cache.</p></div>
-      <div class="unit"><span class="ico">📡</span><h3>Network</h3><p>Chiamate API, header, errori 404, e la ricerca in tutte le risposte.</p></div>
-      <div class="unit"><span class="ico">💻</span><h3>Console</h3><p><code>$0</code>, <code>$$</code>, stato iniziale e dataLayer di GA4.</p></div>
-      <div class="unit"><span class="ico">🍪</span><h3>Cookie e storage</h3><p>Cambiare paese e lingua, carrello e wishlist nel browser.</p></div>
+      <div class="unit"><span class="ico">📡</span><h3>Network</h3><p>Riconoscere Algolia e SAP, leggere le risposte, errori 404, cercare un valore in tutte le risposte.</p></div>
+      <div class="unit"><span class="ico">💻</span><h3>Console e Adobe</h3><p><code>$0</code>, <code>$$</code>, <code>adobeDataLayer</code> e beacon <code>/b/ss/</code>.</p></div>
+      <div class="unit"><span class="ico">🍪</span><h3>Cookie e storage</h3><p>Cambiare mercato: indice Algolia e baseSite SAP. Carrello e wishlist.</p></div>
       <div class="unit"><span class="ico">🔎</span><h3>Sources</h3><p>Ricerca globale nel codice: dove il front trasforma i dati.</p></div>
       <div class="unit"><span class="ico">📱</span><h3>Mobile e rete lenta</h3><p>Device toolbar, throttling, cache.</p></div>
-      <div class="unit boss"><span class="ico">🕵️</span><h3>Indagini</h3><p>Tre ticket veri-simili: Made in sbagliato, taglia fantasma, traduzione mancante.</p></div>
+      <div class="unit boss"><span class="ico">🕵️</span><h3>Indagini</h3><p>Sei ticket: dato vecchio, prezzo PLP≠PDP, non visibile in un paese, varianti disallineate, stock, etichette.</p></div>
     </div>
   </section>
 

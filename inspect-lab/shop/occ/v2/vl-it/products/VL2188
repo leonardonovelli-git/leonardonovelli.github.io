@@ -1,0 +1,234 @@
+{
+  "code": "VL2188",
+  "name": "Mocassino Brera",
+  "url": "/inspect-lab/shop/p/mocassino-brera-vl2188/",
+  "description": "Mocassino con mascherina in pelle di vitello spazzolata. Fondo in cuoio con tacco in gomma antiscivolo.",
+  "manufacturer": "Maison Velluto",
+  "purchasable": true,
+  "price": {
+    "currencyIso": "EUR",
+    "value": 790,
+    "formattedValue": "790,00 €",
+    "priceType": "BUY"
+  },
+  "stock": {
+    "stockLevelStatus": "inStock"
+  },
+  "categories": [
+    {
+      "code": "calzature-donna",
+      "name": "Calzature Donna"
+    }
+  ],
+  "images": [
+    {
+      "imageType": "PRIMARY",
+      "format": "zoom",
+      "url": "/inspect-lab/shop/media/VL2188-R022.svg",
+      "altText": "Mocassino Brera bordeaux con mascherina, vista laterale"
+    }
+  ],
+  "classifications": [
+    {
+      "code": "shoes",
+      "name": "Calzature",
+      "features": [
+        {
+          "code": "VLClassification/1.0/shoes.material",
+          "name": "Materiale",
+          "featureValues": [
+            {
+              "value": "Pelle di vitello"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.heel_height",
+          "name": "Altezza tacco",
+          "featureUnit": {
+            "symbol": "mm",
+            "name": "millimetri",
+            "unitType": "length"
+          },
+          "featureValues": [
+            {
+              "value": "20"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.made_in",
+          "name": "Made in",
+          "featureValues": [
+            {
+              "value": "Italia"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.line",
+          "name": "Linea",
+          "featureValues": [
+            {
+              "value": "Città"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.season",
+          "name": "Stagione",
+          "featureValues": [
+            {
+              "value": "FW26"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.care_code",
+          "name": "Istruzioni di cura",
+          "featureValues": [
+            {
+              "value": "CR-07"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variantOptions": [
+    {
+      "code": "VL2188-R022-35",
+      "stock": {
+        "stockLevel": 0,
+        "stockLevelStatus": "outOfStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Bordeaux",
+          "code": "R022",
+          "hex": "#6a1d29"
+        },
+        {
+          "qualifier": "size",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "code": "VL2188-R022-36",
+      "stock": {
+        "stockLevel": 3,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Bordeaux",
+          "code": "R022",
+          "hex": "#6a1d29"
+        },
+        {
+          "qualifier": "size",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "code": "VL2188-R022-37",
+      "stock": {
+        "stockLevel": 6,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Bordeaux",
+          "code": "R022",
+          "hex": "#6a1d29"
+        },
+        {
+          "qualifier": "size",
+          "value": "37"
+        }
+      ]
+    },
+    {
+      "code": "VL2188-R022-38",
+      "stock": {
+        "stockLevel": 2,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Bordeaux",
+          "code": "R022",
+          "hex": "#6a1d29"
+        },
+        {
+          "qualifier": "size",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "code": "VL2188-R022-39",
+      "stock": {
+        "stockLevel": 5,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Bordeaux",
+          "code": "R022",
+          "hex": "#6a1d29"
+        },
+        {
+          "qualifier": "size",
+          "value": "39"
+        }
+      ]
+    },
+    {
+      "code": "VL2188-R022-40",
+      "stock": {
+        "stockLevel": 1,
+        "stockLevelStatus": "lowStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Bordeaux",
+          "code": "R022",
+          "hex": "#6a1d29"
+        },
+        {
+          "qualifier": "size",
+          "value": "40"
+        }
+      ]
+    },
+    {
+      "code": "VL2188-R022-41",
+      "stock": {
+        "stockLevel": 4,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Bordeaux",
+          "code": "R022",
+          "hex": "#6a1d29"
+        },
+        {
+          "qualifier": "size",
+          "value": "41"
+        }
+      ]
+    }
+  ],
+  "modifiedTime": "2026-10-21T14:02:11Z"
+}

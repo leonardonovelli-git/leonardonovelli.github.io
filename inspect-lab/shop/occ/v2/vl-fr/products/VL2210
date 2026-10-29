@@ -1,0 +1,234 @@
+{
+  "code": "VL2210",
+  "name": "Stivaletto Navigli",
+  "url": "/inspect-lab/shop/p/stivaletto-navigli-vl2210/",
+  "description": "Stivaletto alla caviglia in camoscio, zip laterale nascosta e tacco a blocco da 5,5 cm.",
+  "manufacturer": "Maison Velluto",
+  "purchasable": true,
+  "price": {
+    "currencyIso": "EUR",
+    "value": 1190,
+    "formattedValue": "1 190,00 €",
+    "priceType": "BUY"
+  },
+  "stock": {
+    "stockLevelStatus": "inStock"
+  },
+  "categories": [
+    {
+      "code": "calzature-donna",
+      "name": "Calzature Donna"
+    }
+  ],
+  "images": [
+    {
+      "imageType": "PRIMARY",
+      "format": "zoom",
+      "url": "/inspect-lab/shop/media/VL2210-M031.svg",
+      "altText": "Stivaletto Navigli in camoscio testa di moro, vista laterale"
+    }
+  ],
+  "classifications": [
+    {
+      "code": "shoes",
+      "name": "Calzature",
+      "features": [
+        {
+          "code": "VLClassification/1.0/shoes.material",
+          "name": "Materiale",
+          "featureValues": [
+            {
+              "value": "Daim"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.heel_height",
+          "name": "Altezza tacco",
+          "featureUnit": {
+            "symbol": "mm",
+            "name": "millimetri",
+            "unitType": "length"
+          },
+          "featureValues": [
+            {
+              "value": "55"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.made_in",
+          "name": "Made in",
+          "featureValues": [
+            {
+              "value": "Italie"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.line",
+          "name": "Linea",
+          "featureValues": [
+            {
+              "value": "Archivio 1987"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.season",
+          "name": "Stagione",
+          "featureValues": [
+            {
+              "value": "FW26"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.care_code",
+          "name": "Istruzioni di cura",
+          "featureValues": [
+            {
+              "value": "CR-11"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variantOptions": [
+    {
+      "code": "VL2210-M031-35",
+      "stock": {
+        "stockLevel": 0,
+        "stockLevelStatus": "outOfStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Chocolat",
+          "code": "M031",
+          "hex": "#4b3326"
+        },
+        {
+          "qualifier": "size",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "code": "VL2210-M031-36",
+      "stock": {
+        "stockLevel": 3,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Chocolat",
+          "code": "M031",
+          "hex": "#4b3326"
+        },
+        {
+          "qualifier": "size",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "code": "VL2210-M031-37",
+      "stock": {
+        "stockLevel": 6,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Chocolat",
+          "code": "M031",
+          "hex": "#4b3326"
+        },
+        {
+          "qualifier": "size",
+          "value": "37"
+        }
+      ]
+    },
+    {
+      "code": "VL2210-M031-38",
+      "stock": {
+        "stockLevel": 2,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Chocolat",
+          "code": "M031",
+          "hex": "#4b3326"
+        },
+        {
+          "qualifier": "size",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "code": "VL2210-M031-39",
+      "stock": {
+        "stockLevel": 5,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Chocolat",
+          "code": "M031",
+          "hex": "#4b3326"
+        },
+        {
+          "qualifier": "size",
+          "value": "39"
+        }
+      ]
+    },
+    {
+      "code": "VL2210-M031-40",
+      "stock": {
+        "stockLevel": 1,
+        "stockLevelStatus": "lowStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Chocolat",
+          "code": "M031",
+          "hex": "#4b3326"
+        },
+        {
+          "qualifier": "size",
+          "value": "40"
+        }
+      ]
+    },
+    {
+      "code": "VL2210-M031-41",
+      "stock": {
+        "stockLevel": 4,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Chocolat",
+          "code": "M031",
+          "hex": "#4b3326"
+        },
+        {
+          "qualifier": "size",
+          "value": "41"
+        }
+      ]
+    }
+  ],
+  "modifiedTime": "2026-10-20T09:31:44Z"
+}

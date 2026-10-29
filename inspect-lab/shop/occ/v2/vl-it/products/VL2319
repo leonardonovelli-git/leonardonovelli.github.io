@@ -1,0 +1,234 @@
+{
+  "code": "VL2319",
+  "name": "Ballerina Duomo",
+  "url": "/inspect-lab/shop/p/ballerina-duomo-vl2319/",
+  "description": "Ballerina in nappa con fiocco in gros-grain e suola flessibile.",
+  "manufacturer": "Maison Velluto",
+  "purchasable": true,
+  "price": {
+    "currencyIso": "EUR",
+    "value": 620,
+    "formattedValue": "620,00 €",
+    "priceType": "BUY"
+  },
+  "stock": {
+    "stockLevelStatus": "inStock"
+  },
+  "categories": [
+    {
+      "code": "calzature-donna",
+      "name": "Calzature Donna"
+    }
+  ],
+  "images": [
+    {
+      "imageType": "PRIMARY",
+      "format": "zoom",
+      "url": "/inspect-lab/shop/media/VL2319-N001.svg",
+      "altText": "Ballerina Duomo in nappa nera con fiocco, vista laterale"
+    }
+  ],
+  "classifications": [
+    {
+      "code": "shoes",
+      "name": "Calzature",
+      "features": [
+        {
+          "code": "VLClassification/1.0/shoes.material",
+          "name": "Materiale",
+          "featureValues": [
+            {
+              "value": "Nappa"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.heel_height",
+          "name": "Altezza tacco",
+          "featureUnit": {
+            "symbol": "mm",
+            "name": "millimetri",
+            "unitType": "length"
+          },
+          "featureValues": [
+            {
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.made_in",
+          "name": "Made in",
+          "featureValues": [
+            {
+              "value": "Italia"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.line",
+          "name": "Linea",
+          "featureValues": [
+            {
+              "value": "Città"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.season",
+          "name": "Stagione",
+          "featureValues": [
+            {
+              "value": "FW26"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.care_code",
+          "name": "Istruzioni di cura",
+          "featureValues": [
+            {
+              "value": "CR-02"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variantOptions": [
+    {
+      "code": "VL2319-N001-35",
+      "stock": {
+        "stockLevel": 0,
+        "stockLevelStatus": "outOfStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Nero",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "code": "VL2319-N001-36",
+      "stock": {
+        "stockLevel": 3,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Nero",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "code": "VL2319-N001-37",
+      "stock": {
+        "stockLevel": 6,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Nero",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "37"
+        }
+      ]
+    },
+    {
+      "code": "VL2319-N001-38",
+      "stock": {
+        "stockLevel": 2,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Nero",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "code": "VL2319-N001-39",
+      "stock": {
+        "stockLevel": 5,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Nero",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "39"
+        }
+      ]
+    },
+    {
+      "code": "VL2319-N001-40",
+      "stock": {
+        "stockLevel": 1,
+        "stockLevelStatus": "lowStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Nero",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "40"
+        }
+      ]
+    },
+    {
+      "code": "VL2319-N001-41",
+      "stock": {
+        "stockLevel": 4,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Nero",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "41"
+        }
+      ]
+    }
+  ],
+  "modifiedTime": "2026-10-21T14:02:11Z"
+}

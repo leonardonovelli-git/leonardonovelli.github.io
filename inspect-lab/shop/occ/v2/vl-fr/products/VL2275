@@ -1,0 +1,234 @@
+{
+  "code": "VL2275",
+  "name": "Sneaker Lumen",
+  "url": "/inspect-lab/shop/p/sneaker-lumen-vl2275/",
+  "description": "Sneaker in nappa morbida con suola in gomma sagomata e lacci tono su tono.",
+  "manufacturer": "Maison Velluto",
+  "purchasable": true,
+  "price": {
+    "currencyIso": "EUR",
+    "value": 720,
+    "formattedValue": "720,00 €",
+    "priceType": "BUY"
+  },
+  "stock": {
+    "stockLevelStatus": "inStock"
+  },
+  "categories": [
+    {
+      "code": "calzature-donna",
+      "name": "Calzature Donna"
+    }
+  ],
+  "images": [
+    {
+      "imageType": "PRIMARY",
+      "format": "zoom",
+      "url": "/inspect-lab/shop/media/VL2275-W001.svg",
+      "altText": ""
+    }
+  ],
+  "classifications": [
+    {
+      "code": "shoes",
+      "name": "Calzature",
+      "features": [
+        {
+          "code": "VLClassification/1.0/shoes.material",
+          "name": "Materiale",
+          "featureValues": [
+            {
+              "value": "Nappa"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.heel_height",
+          "name": "Altezza tacco",
+          "featureUnit": {
+            "symbol": "mm",
+            "name": "millimetri",
+            "unitType": "length"
+          },
+          "featureValues": [
+            {
+              "value": "35"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.made_in",
+          "name": "Made in",
+          "featureValues": [
+            {
+              "value": "Italie"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.line",
+          "name": "Linea",
+          "featureValues": [
+            {
+              "value": "Lumen"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.season",
+          "name": "Stagione",
+          "featureValues": [
+            {
+              "value": "SS26"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.care_code",
+          "name": "Istruzioni di cura",
+          "featureValues": [
+            {
+              "value": "CR-02"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variantOptions": [
+    {
+      "code": "VL2275-W001-35",
+      "stock": {
+        "stockLevel": 6,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Blanc",
+          "code": "W001",
+          "hex": "#f2efe9"
+        },
+        {
+          "qualifier": "size",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "code": "VL2275-W001-36",
+      "stock": {
+        "stockLevel": 2,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Blanc",
+          "code": "W001",
+          "hex": "#f2efe9"
+        },
+        {
+          "qualifier": "size",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "code": "VL2275-W001-37",
+      "stock": {
+        "stockLevel": 5,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Blanc",
+          "code": "W001",
+          "hex": "#f2efe9"
+        },
+        {
+          "qualifier": "size",
+          "value": "37"
+        }
+      ]
+    },
+    {
+      "code": "VL2275-W001-38",
+      "stock": {
+        "stockLevel": 1,
+        "stockLevelStatus": "lowStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Blanc",
+          "code": "W001",
+          "hex": "#f2efe9"
+        },
+        {
+          "qualifier": "size",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "code": "VL2275-W001-39",
+      "stock": {
+        "stockLevel": 4,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Blanc",
+          "code": "W001",
+          "hex": "#f2efe9"
+        },
+        {
+          "qualifier": "size",
+          "value": "39"
+        }
+      ]
+    },
+    {
+      "code": "VL2275-W001-40",
+      "stock": {
+        "stockLevel": 0,
+        "stockLevelStatus": "outOfStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Blanc",
+          "code": "W001",
+          "hex": "#f2efe9"
+        },
+        {
+          "qualifier": "size",
+          "value": "40"
+        }
+      ]
+    },
+    {
+      "code": "VL2275-W001-41",
+      "stock": {
+        "stockLevel": 3,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Blanc",
+          "code": "W001",
+          "hex": "#f2efe9"
+        },
+        {
+          "qualifier": "size",
+          "value": "41"
+        }
+      ]
+    }
+  ],
+  "modifiedTime": "2026-10-21T14:02:11Z"
+}

@@ -1,13 +1,16 @@
-/* Maison Velluto — front-end condiviso: mercato, traduzioni, API, carrello, analytics */
+/* Maison Velluto — front-end condiviso: mercato, testi, Algolia, SAP OCC, carrello, Adobe Analytics */
 (function () {
   'use strict';
 
-  var API_BASE = '/inspect-lab/shop/api/v1';
+  var SHOP = '/inspect-lab/shop';
   var COOKIE_PATH = '/inspect-lab/';
+  var ALGOLIA = { appId: 'VLDEMO01', apiKey: '3f9c1e0b7a6d4c2e9b8a5f1d0c7e6a42', host: SHOP + '/algolia' };
+  var OCC_BASE = SHOP + '/occ/v2';
+  var ADOBE = { rsid: 'vlprod-eu', server: SHOP };
   var MARKETS = {
-    IT: { locale: 'it-IT', currency: 'EUR' },
-    FR: { locale: 'fr-FR', currency: 'EUR' },
-    GB: { locale: 'en-GB', currency: 'GBP' }
+    IT: { locale: 'it-IT', lang: 'it', currency: 'EUR', index: 'vl_prod_it_IT', site: 'vl-it' },
+    FR: { locale: 'fr-FR', lang: 'fr', currency: 'EUR', index: 'vl_prod_fr_FR', site: 'vl-fr' },
+    GB: { locale: 'en-GB', lang: 'en', currency: 'GBP', index: 'vl_prod_en_GB', site: 'vl-gb' }
   };
 
   // ---- cookie ------------------------------------------------------------
@@ -31,40 +34,46 @@
   var country = String(getCookie('vl_country') || 'IT').toUpperCase();
   if (!MARKETS[country]) country = 'IT';
   var market = MARKETS[country];
-  document.documentElement.lang = market.locale.slice(0, 2);
+  document.documentElement.lang = market.lang;
 
   var abVariant = (getCookie('vl_ab') || '').split(':')[1] || 'A';
   document.documentElement.classList.add('ab-grid-' + abVariant);
 
-  // ---- API ---------------------------------------------------------------
-  function requestId() {
-    return 'req-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
-  }
-  function apiGet(path, params) {
-    var url = API_BASE + path + (params ? '?' + new URLSearchParams(params).toString() : '');
-    return fetch(url, {
-      headers: {
-        'Accept': 'application/json',
-        'X-Channel': 'WEB-EU',
-        'X-Country': country,
-        'X-Request-Id': requestId()
-      }
-    }).then(function (res) {
+  // ---- chiamate ------------------------------------------------------------
+  function getJson(url, headers) {
+    return fetch(url, { headers: Object.assign({ 'Accept': 'application/json' }, headers) }).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + url);
       return res.json();
     });
   }
+  function query(params) {
+    return Object.keys(params).map(function (k) { return k + '=' + encodeURIComponent(params[k]); }).join('&');
+  }
 
-  // ---- traduzioni --------------------------------------------------------
+  // Algolia: liste prodotto e ricerca (un indice per mercato, una replica per ogni ordinamento)
+  function algoliaSearch(indexName, params) {
+    return getJson(ALGOLIA.host + '/1/indexes/' + indexName + '?' + query(params), {
+      'x-algolia-application-id': ALGOLIA.appId,
+      'x-algolia-api-key': ALGOLIA.apiKey,
+      'x-algolia-agent': 'Algolia for JavaScript (4.24.0); Browser'
+    });
+  }
+
+  // SAP Commerce Cloud: API OCC per il baseSite del mercato
+  function occGet(path, params) {
+    var all = Object.assign({ lang: market.lang, curr: market.currency }, params);
+    return getJson(OCC_BASE + '/' + market.site + path + '?' + query(all));
+  }
+
+  // Testi dell'interfaccia (asset del front)
   var dictionary = {};
   function t(key, vars) {
-    // Se la chiave non esiste, restituisce la chiave stessa (così si vede a schermo)
     var value = Object.prototype.hasOwnProperty.call(dictionary, key) ? dictionary[key] : key;
     if (vars) Object.keys(vars).forEach(function (k) { value = value.replace('{' + k + '}', vars[k]); });
     return value;
   }
   function loadTranslations() {
-    return apiGet('/i18n/' + market.locale + '.json').then(function (data) {
+    return getJson(SHOP + '/assets/i18n/' + market.locale + '.json').then(function (data) {
       dictionary = data;
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         el.textContent = t(el.getAttribute('data-i18n'));
@@ -73,7 +82,6 @@
     });
   }
 
-  // ---- prezzi ------------------------------------------------------------
   function formatPrice(value) {
     return new Intl.NumberFormat(market.locale, {
       style: 'currency', currency: market.currency, maximumFractionDigits: 0
@@ -96,17 +104,31 @@
     document.querySelectorAll('[data-cart-count]').forEach(function (el) { el.textContent = count; });
   }
 
-  // ---- analytics (GA4 / Tag Manager) --------------------------------------
-  window.dataLayer = window.dataLayer || [];
-  function track(payload) { window.dataLayer.push(payload); }
+  // ---- Adobe Analytics ----------------------------------------------------
+  // 1) Adobe Client Data Layer: il sito "racconta" cosa succede
+  window.adobeDataLayer = window.adobeDataLayer || [];
+  // 2) Beacon verso Adobe (/b/ss/<report suite>/...): è quello che finisce davvero nei report
+  function sendBeacon(vars) {
+    var params = Object.assign({
+      AQB: 1, ndh: 1,
+      pageName: vars.pageName,
+      g: location.href,
+      ch: 'calzature',
+      v1: country,
+      v2: market.lang,
+      c5: getCookie('vl_ab')
+    }, vars, { AQE: 1 });
+    new Image().src = ADOBE.server + '/b/ss/' + ADOBE.rsid + '/1/JS-2.27.0/s4417?' + query(params);
+  }
+  function track(event, payload, beacon) {
+    window.adobeDataLayer.push(Object.assign({ event: event }, payload));
+    if (beacon) sendBeacon(beacon);
+  }
 
   var state = window.__VL_STATE__ || { page: {} };
-  track({
-    event: 'page_view',
-    page_type: state.page.type,
-    country: country,
-    language: market.locale,
-    ab_test: getCookie('vl_ab')
+  window.adobeDataLayer.push({
+    event: 'page-view',
+    page: { type: state.page.type, country: country, language: market.lang, abTest: getCookie('vl_ab') }
   });
 
   // ---- UI ----------------------------------------------------------------
@@ -129,7 +151,8 @@
   window.VL = {
     country: country,
     market: market,
-    api: apiGet,
+    algolia: algoliaSearch,
+    occ: occGet,
     t: t,
     loadTranslations: loadTranslations,
     formatPrice: formatPrice,

@@ -1,0 +1,234 @@
+{
+  "code": "VL2041",
+  "name": "Décolleté Aurora",
+  "url": "/inspect-lab/shop/p/decollete-aurora-vl2041/",
+  "description": "Décolleté a punta in pelle di vitello liscia, tacco a spillo da 8,5 cm. Suola in cuoio cucita a mano, sottopiede imbottito.",
+  "manufacturer": "Maison Velluto",
+  "purchasable": true,
+  "price": {
+    "currencyIso": "EUR",
+    "value": 990,
+    "formattedValue": "990,00 €",
+    "priceType": "BUY"
+  },
+  "stock": {
+    "stockLevelStatus": "inStock"
+  },
+  "categories": [
+    {
+      "code": "calzature-donna",
+      "name": "Calzature Donna"
+    }
+  ],
+  "images": [
+    {
+      "imageType": "PRIMARY",
+      "format": "zoom",
+      "url": "/inspect-lab/shop/media/VL2041-N001.svg",
+      "altText": "Décolleté Aurora in pelle di vitello nera, vista laterale"
+    }
+  ],
+  "classifications": [
+    {
+      "code": "shoes",
+      "name": "Calzature",
+      "features": [
+        {
+          "code": "VLClassification/1.0/shoes.material",
+          "name": "Materiale",
+          "featureValues": [
+            {
+              "value": "Cuir de veau"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.heel_height",
+          "name": "Altezza tacco",
+          "featureUnit": {
+            "symbol": "mm",
+            "name": "millimetri",
+            "unitType": "length"
+          },
+          "featureValues": [
+            {
+              "value": "85"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.made_in",
+          "name": "Made in",
+          "featureValues": [
+            {
+              "value": "Italie"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.line",
+          "name": "Linea",
+          "featureValues": [
+            {
+              "value": "Archivio 1987"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.season",
+          "name": "Stagione",
+          "featureValues": [
+            {
+              "value": "FW26"
+            }
+          ]
+        },
+        {
+          "code": "VLClassification/1.0/shoes.care_code",
+          "name": "Istruzioni di cura",
+          "featureValues": [
+            {
+              "value": "CR-07"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variantOptions": [
+    {
+      "code": "VL2041-N001-35",
+      "stock": {
+        "stockLevel": 4,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Noir",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "code": "VL2041-N001-36",
+      "stock": {
+        "stockLevel": 3,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Noir",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "code": "VL2041-N001-37",
+      "stock": {
+        "stockLevel": 0,
+        "stockLevelStatus": "outOfStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Noir",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "37"
+        }
+      ]
+    },
+    {
+      "code": "VL2041-N001-38",
+      "stock": {
+        "stockLevel": 5,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Noir",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "code": "VL2041-N001-39",
+      "stock": {
+        "stockLevel": 1,
+        "stockLevelStatus": "lowStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Noir",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "39"
+        }
+      ]
+    },
+    {
+      "code": "VL2041-N001-40",
+      "stock": {
+        "stockLevel": 0,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Noir",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "40"
+        }
+      ]
+    },
+    {
+      "code": "VL2041-N001-41",
+      "stock": {
+        "stockLevel": 2,
+        "stockLevelStatus": "inStock"
+      },
+      "variantOptionQualifiers": [
+        {
+          "qualifier": "color",
+          "value": "Noir",
+          "code": "N001",
+          "hex": "#1f1c1b"
+        },
+        {
+          "qualifier": "size",
+          "value": "41"
+        }
+      ]
+    }
+  ],
+  "modifiedTime": "2026-09-14T08:12:37Z"
+}

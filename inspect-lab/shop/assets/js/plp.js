@@ -1,4 +1,4 @@
-/* Maison Velluto — PLP: lista prodotti renderizzata lato client */
+/* Maison Velluto — PLP: lista prodotti da Algolia, renderizzata lato client */
 (function () {
   'use strict';
 
@@ -6,29 +6,34 @@
   var grid = document.querySelector('[data-grid]');
   var countEl = document.querySelector('[data-count]');
   var sortEl = document.querySelector('[data-sort]');
-  var hits = [];
   var translationsReady = VL.loadTranslations();
 
-  function isDisplayable(product) {
+  // Ogni ordinamento ha la sua replica dell'indice Algolia
+  var REPLICAS = { 'newest': '', 'price-asc': '_price_asc', 'price-desc': '_price_desc' };
+
+  function isDisplayable(hit) {
     // Regola di visualizzazione: niente immagini → niente card
-    return product.online && product.images.length > 0;
+    return hit.isOnline && hit.images.length > 0;
   }
 
-  function tileHtml(p) {
-    var img = p.images[0];
-    var badges = p.badges.map(function (b) {
+  function tileHtml(hit) {
+    var img = hit.images[0];
+    var badges = hit.badges.map(function (b) {
       return '<span class="badge badge--' + b.type + '">' + b.label + '</span>';
     }).join('');
+    var dots = hit.colors.length > 1 ? '<span class="tile-colors">' + hit.colors.map(function (c) {
+      return '<i style="background:' + c.hex + '" title="' + c.name + '" data-color="' + c.code + '"></i>';
+    }).join('') + '</span>' : '';
     return '' +
-      '<article class="product-tile" data-pid="' + p.id + '" data-color-code="' + p.color_code + '" data-position="' + p.position + '">' +
-        '<a href="' + p.url + '">' +
+      '<article class="product-tile" data-pid="' + hit.objectID + '" data-color-code="' + hit.colorCode + '" data-position="' + hit.position + '">' +
+        '<a href="' + hit.url + '">' +
           '<div class="tile-media">' +
-            '<img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" width="400" height="400">' +
+            '<img src="' + img.url + '" alt="' + img.alt + '" loading="lazy" width="400" height="400">' +
             badges +
           '</div>' +
-          '<h3 class="tile-name">' + p.name + '</h3>' +
-          '<p class="tile-color">' + VL.t('color.' + p.color_code) + '</p>' +
-          '<p class="tile-price" data-price-for="' + p.id + '">—</p>' +
+          '<h3 class="tile-name">' + hit.name + '</h3>' +
+          '<p class="tile-color">' + hit.colorName + dots + '</p>' +
+          '<p class="tile-price" data-price-for="' + hit.objectID + '">' + VL.formatPrice(hit.price[VL.market.currency]) + '</p>' +
         '</a>' +
       '</article>';
   }
@@ -41,73 +46,38 @@
     });
   }
 
-  function loadPrices(list) {
-    var ids = list.map(function (p) { return p.id; });
-    return VL.api('/prices/' + VL.country + '.json', {
-      country: VL.country,
-      currency: VL.market.currency,
-      pids: ids.join(',')
-    }).then(function (res) {
-      ids.forEach(function (id) {
-        var el = grid.querySelector('[data-price-for="' + id + '"]');
-        var price = res.prices[id];
-        if (el && price) {
-          el.textContent = VL.formatPrice(price.list);
-          el.setAttribute('data-loaded', 'true');
-        }
-      });
-    }).catch(function () {
-      grid.querySelectorAll('.tile-price').forEach(function (el) {
-        el.textContent = VL.t('price.unavailable');
-        el.classList.add('is-unavailable');
-      });
-    });
-  }
-
-  function sortHits(list, sort) {
-    var copy = list.slice();
-    if (sort === 'price-asc') copy.sort(function (a, b) { return a.price.value - b.price.value; });
-    if (sort === 'price-desc') copy.sort(function (a, b) { return b.price.value - a.price.value; });
-    return copy;
-  }
-
   function load(sort) {
-    var search = VL.api('/search/' + state.page.categoryId + '.json', {
-      page: 1,
-      pageSize: state.search.pageSize,
-      sort: sort
+    var search = VL.algolia(VL.market.index + REPLICAS[sort], {
+      query: '',
+      hitsPerPage: state.search.hitsPerPage,
+      filters: state.search.filters
     });
     return Promise.all([search, translationsReady]).then(function (results) {
       var res = results[0];
-      hits = sortHits(res.hits, sort);
-      var visible = hits.filter(isDisplayable);
+      var visible = res.hits.filter(isDisplayable);
       render(visible);
-      countEl.textContent = VL.t('plp.results', { n: res.total });
+      countEl.textContent = VL.t('plp.results', { n: res.nbHits });
 
-      VL.track({
-        event: 'view_item_list',
-        ecommerce: {
-          item_list_id: state.page.categoryId,
-          item_list_name: 'Calzature Donna',
-          items: visible.map(function (p, i) {
-            return {
-              item_id: p.id,
-              item_name: p.name,
-              item_brand: 'Maison Velluto',
-              item_category: 'Calzature',
-              item_category2: p.category2,
-              item_variant: p.color_code,
-              price: p.price.value,
-              index: i + 1
-            };
+      VL.track('product-list-view', {
+        productList: {
+          listId: state.page.categoryId,
+          listName: 'Calzature Donna',
+          index: res.index,
+          items: visible.map(function (hit, i) {
+            return { productID: hit.objectID, name: hit.name, color: hit.colorCode, price: hit.price[VL.market.currency], position: i + 1 };
           })
         }
+      }, {
+        pageName: 'vl:' + VL.market.lang + ':plp:' + state.page.categoryId,
+        events: 'event20',
+        products: visible.map(function (hit) { return ';' + hit.objectID; }).join(',')
       });
-      return loadPrices(visible);
+    }).catch(function () {
+      grid.removeAttribute('aria-busy');
+      grid.innerHTML = '<p class="plp-error">' + VL.t('plp.error') + '</p>';
     });
   }
 
   load(state.search.sort);
-
   sortEl.addEventListener('change', function () { load(sortEl.value); });
 })();

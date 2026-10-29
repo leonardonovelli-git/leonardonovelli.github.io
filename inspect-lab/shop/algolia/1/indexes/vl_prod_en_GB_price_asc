@@ -1,0 +1,392 @@
+{
+  "hits": [
+    {
+      "objectID": "VL2319",
+      "name": "Ballerina Duomo",
+      "url": "/inspect-lab/shop/p/ballerina-duomo-vl2319/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Ballerine"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 6,
+      "colorCode": "N001",
+      "colorName": "Black",
+      "colors": [
+        {
+          "code": "N001",
+          "name": "Black",
+          "hex": "#1f1c1b"
+        }
+      ],
+      "material": {
+        "code": "nappa_02",
+        "label": "Nappa"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 5,
+      "price": {
+        "GBP": 550
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2319-N001.svg",
+          "alt": "Ballerina Duomo in nappa nera con fiocco, vista laterale"
+        }
+      ],
+      "badges": [],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-28T03:00:05Z"
+    },
+    {
+      "objectID": "VL3307",
+      "name": "Sandalo Capri",
+      "url": "/inspect-lab/shop/p/sandalo-capri-vl3307/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Sandali"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 7,
+      "colorCode": "O007",
+      "colorName": "Tan",
+      "colors": [
+        {
+          "code": "O007",
+          "name": "Tan",
+          "hex": "#c69a5c"
+        }
+      ],
+      "material": {
+        "code": "calf_01",
+        "label": "Calf leather"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 30,
+      "price": {
+        "GBP": 600
+      },
+      "images": [],
+      "badges": [],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-28T03:00:05Z"
+    },
+    {
+      "objectID": "VL2275",
+      "name": "Sneaker Lumen",
+      "url": "/inspect-lab/shop/p/sneaker-lumen-vl2275/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Sneaker"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 4,
+      "colorCode": "W001",
+      "colorName": "White",
+      "colors": [
+        {
+          "code": "W001",
+          "name": "White",
+          "hex": "#f2efe9"
+        }
+      ],
+      "material": {
+        "code": "nappa_02",
+        "label": "Nappa"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 35,
+      "price": {
+        "GBP": 610
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2275-W001.svg",
+          "alt": ""
+        }
+      ],
+      "badges": [],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-28T03:00:05Z"
+    },
+    {
+      "objectID": "VL2366",
+      "name": "Mule Sempione",
+      "url": "/inspect-lab/shop/p/mule-sempione-vl2366/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Mules"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 9,
+      "colorCode": "G020",
+      "colorName": "Sage",
+      "colors": [
+        {
+          "code": "G020",
+          "name": "Sage",
+          "hex": "#8c9d86"
+        }
+      ],
+      "material": {
+        "code": "suede_02",
+        "label": "Suede"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 45,
+      "price": {
+        "GBP": 640
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2366-G020.svg",
+          "alt": "Mule Sempione in camoscio salvia, vista laterale"
+        }
+      ],
+      "badges": [
+        {
+          "type": "new",
+          "label": "Novità"
+        }
+      ],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-28T03:00:05Z"
+    },
+    {
+      "objectID": "VL2188",
+      "name": "Mocassino Brera",
+      "url": "/inspect-lab/shop/p/mocassino-brera-vl2188/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Mocassini"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 2,
+      "colorCode": "R022",
+      "colorName": "Burgundy",
+      "colors": [
+        {
+          "code": "R022",
+          "name": "Burgundy",
+          "hex": "#6a1d29"
+        }
+      ],
+      "material": {
+        "code": "calf_01",
+        "label": "Calf leather"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 20,
+      "price": {
+        "GBP": 700
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2188-R022.svg",
+          "alt": "Mocassino Brera bordeaux con mascherina, vista laterale"
+        }
+      ],
+      "badges": [
+        {
+          "type": "limited",
+          "label": "Edizione limitata"
+        }
+      ],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-28T03:00:05Z"
+    },
+    {
+      "objectID": "VL2302",
+      "name": "Slingback Riva",
+      "url": "/inspect-lab/shop/p/slingback-riva-vl2302/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Décolleté"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 5,
+      "colorCode": "W010",
+      "colorName": "Ivory",
+      "colors": [
+        {
+          "code": "W010",
+          "name": "Ivory",
+          "hex": "#efe4cf"
+        }
+      ],
+      "material": {
+        "code": "patent_03",
+        "label": "Patent leather"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 65,
+      "price": {
+        "GBP": 780
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2302-W01O.svg",
+          "alt": "Slingback Riva in vernice avorio, vista laterale"
+        }
+      ],
+      "badges": [],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-28T03:00:05Z"
+    },
+    {
+      "objectID": "VL2041",
+      "name": "Décolleté Aurora",
+      "url": "/inspect-lab/shop/p/decollete-aurora-vl2041/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Décolleté"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 1,
+      "colorCode": "N001",
+      "colorName": "Black",
+      "colors": [
+        {
+          "code": "N001",
+          "name": "Black",
+          "hex": "#1f1c1b"
+        },
+        {
+          "code": "B014",
+          "name": "Powder",
+          "hex": "#d8b4a4"
+        }
+      ],
+      "material": {
+        "code": "calf_01",
+        "label": "Calf leather"
+      },
+      "madeIn": "Romania",
+      "heelHeightMm": 85,
+      "price": {
+        "GBP": 850
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2041-N001.svg",
+          "alt": "Décolleté Aurora in pelle di vitello nera, vista laterale"
+        }
+      ],
+      "badges": [],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-27T16:55:02Z"
+    },
+    {
+      "objectID": "VL2210",
+      "name": "Stivaletto Navigli",
+      "url": "/inspect-lab/shop/p/stivaletto-navigli-vl2210/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Stivaletti"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 3,
+      "colorCode": "M031",
+      "colorName": "Dark brown",
+      "colors": [
+        {
+          "code": "M031",
+          "name": "Dark brown",
+          "hex": "#4b3326"
+        }
+      ],
+      "material": {
+        "code": "suede_02",
+        "label": "Suede"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 55,
+      "price": {
+        "GBP": 1020
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2210-M031.svg",
+          "alt": "Stivaletto Navigli in camoscio testa di moro, vista laterale"
+        }
+      ],
+      "badges": [],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-02T03:00:12Z"
+    },
+    {
+      "objectID": "VL2350",
+      "name": "Stivale Ticino",
+      "url": "/inspect-lab/shop/p/stivale-ticino-vl2350/",
+      "hierarchicalCategories": {
+        "lvl0": "Donna",
+        "lvl1": "Donna > Calzature",
+        "lvl2": "Donna > Calzature > Stivali"
+      },
+      "categoryPageId": [
+        "calzature-donna"
+      ],
+      "position": 8,
+      "colorCode": "N001",
+      "colorName": "Black",
+      "colors": [
+        {
+          "code": "N001",
+          "name": "Black",
+          "hex": "#1f1c1b"
+        }
+      ],
+      "material": {
+        "code": "calf_01",
+        "label": "Calf leather"
+      },
+      "madeIn": "Italy",
+      "heelHeightMm": 40,
+      "price": {
+        "GBP": 1290
+      },
+      "images": [
+        {
+          "url": "/inspect-lab/shop/media/VL2350-N001.svg",
+          "alt": "Stivale Ticino in pelle nera al ginocchio, vista laterale"
+        }
+      ],
+      "badges": [],
+      "isOnline": true,
+      "lastIndexedAt": "2026-10-28T03:00:05Z"
+    }
+  ],
+  "nbHits": 23,
+  "page": 0,
+  "nbPages": 3,
+  "hitsPerPage": 9,
+  "exhaustiveNbHits": true,
+  "query": "",
+  "params": "query=&hitsPerPage=9&filters=categoryPageId%3Acalzature-donna",
+  "index": "vl_prod_en_GB_price_asc",
+  "processingTimeMS": 2
+}
